@@ -1,0 +1,519 @@
+#!/user/bdisoft/operational/bin/Python/PRO/bin/python
+# -*- coding: utf-8 -*-
+'''
+LIST Trigger Data Viewer
+
+Copyright (c) CERN 2016-2017
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Authors:
+    Tom Levens <tom.levens@cern.ch>
+'''
+
+import argparse
+import datetime
+import dateutil
+import logging
+import matplotlib as mpl
+import numpy as np
+import os
+import pytimber
+import sys
+
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+
+from modules.icons import Icons
+from modules.list_nodes import Nodes
+
+
+__version__ = '2017-03-17'
+
+app_name = 'LIST Trigger Viewer'
+
+# ============================================================================
+
+# Timber variables
+energy_var = 'MKBH.UA63.SCSS.AB2:ENERGY'
+bct_b1_var = 'LHC.BCTFR.A6R4.B1:BEAM_INTENSITY'
+bct_b2_var = 'LHC.BCTFR.A6R4.B2:BEAM_INTENSITY'
+cgwrtd_var = 'CGWRTD.{0}.{1}:DESC'
+
+# WRTD inputs
+inputs = Nodes().get_ldbnames_locations(direction='input', logged=True)
+
+# WRTD outputs
+outputs = Nodes().get_ldbnames_locations(direction='output', logged=True)
+
+# ============================================================================
+
+
+def main():
+    args = argparse.ArgumentParser(description=app_name)
+    args.add_argument('--version', action='version', version='%(prog)s {0}'.format(__version__))
+    argv = args.parse_args()
+
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
+
+    log = logging.getLogger(os.path.basename(__file__))
+
+    log.info('{0} version {1}'.format(app_name, __version__))
+
+    app = QApplication(sys.argv)
+    win = LISTMainWindow(app)
+    win.show()
+    app.exec_()
+
+
+class LISTMainWindow(QMainWindow):
+    def __init__(self, app, parent=None):
+        '''Overload of QMainWindow class'''
+        QMainWindow.__init__(self, parent)
+
+        self.app = app
+
+        self.log = logging.getLogger(os.path.basename(__file__))
+
+        self.setWindowTitle(app_name)
+
+        self.setWindowIcon(QIcon(Icons().pythonPixmap()))
+
+        self.lines = []
+
+        self.ldb = pytimber.LoggingDB(loglevel=logging.WARNING)
+
+        self.all_triggers = []
+
+        for trig, loc in inputs:
+            self.all_triggers.append((trig + '.IN', loc))
+
+        for trig, loc in outputs:
+            self.all_triggers.append((trig + '.OUT', loc))
+
+        self.got_data = False
+        self.initial_plot = True
+
+        self.main_frame = QWidget()
+        innerlayout = QHBoxLayout()
+        mainlayout = QVBoxLayout()
+        self.main_frame.setLayout(mainlayout)
+        self.setCentralWidget(self.main_frame)
+
+        self.iolist = LISTListWidget()
+        self.iolist.setSizePolicy(QSizePolicy(QSizePolicy.Fixed, QSizePolicy.MinimumExpanding))
+        self.iolist.setAlternatingRowColors(True)
+        self.iolist.itemChanged.connect(self.update_triggers)
+
+        self.triggers_list_items = []
+
+        for name, _ in inputs:
+            item = QListWidgetItem('{0}.IN'.format(name))
+            item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+            item.setFlags(item.flags() & ~Qt.ItemIsSelectable)
+            item.setCheckState(Qt.Checked)
+            self.iolist.addItem(item)
+            self.triggers_list_items.append(item)
+
+        for name, _ in outputs:
+            item = QListWidgetItem('{0}.OUT'.format(name))
+            item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+            item.setFlags(item.flags() & ~Qt.ItemIsSelectable)
+            item.setCheckState(Qt.Checked)
+            self.iolist.addItem(item)
+            self.triggers_list_items.append(item)
+
+        self.iolist.hide()
+
+        innerlayout.addWidget(self.iolist)
+
+        toolbar = QHBoxLayout()
+        toolbar.addStretch(1)
+
+        list_button = QToolButton()
+        list_button.setIcon(QIcon(Icons().timberTablePixmap()))
+        list_button.setToolTip('Show/hide node list')
+        list_button.clicked.connect(self.toggle_iolist)
+        toolbar.addWidget(list_button)
+
+        toolbar.addSpacing(15)
+
+        self.date = QDateTimeEdit()
+        self.date.setCalendarPopup(True)
+        self.date.setDisplayFormat('yyyy-MM-dd HH:mm')
+        self.set_now()
+        toolbar.addWidget(self.date)
+
+        now_button = QToolButton()
+        now_button.setIcon(QIcon(Icons().timberClockPixmap()))
+        now_button.setToolTip('Set to current date/time')
+        now_button.clicked.connect(self.set_now)
+        toolbar.addWidget(now_button)
+
+        toolbar.addSpacing(15)
+
+        self.duration = QSpinBox()
+        self.duration.setValue(1)
+        self.duration.setMinimum(1)
+        self.duration_type = QComboBox()
+        self.duration_type.addItem('days')
+        self.duration_type.addItem('hours')
+        self.duration_type.addItem('minutes')
+        self.duration_type.setCurrentIndex(1)
+        toolbar.addWidget(self.duration)
+        toolbar.addWidget(self.duration_type)
+
+        toolbar.addSpacing(15)
+
+        go_button = QToolButton()
+        go_button.setIcon(QIcon(Icons().timberQueryPixmap()))
+        go_button.setToolTip('Start data extraction from LDB')
+        go_button.clicked.connect(self.get_data)
+        toolbar.addWidget(go_button)
+
+        toolbar.addStretch(1)
+
+        line = QFrame()
+        line.setFrameShape(QFrame.HLine)
+        line.setFrameShadow(QFrame.Sunken)
+
+        mainlayout.addLayout(toolbar)
+        mainlayout.addWidget(line)
+        mainlayout.addLayout(innerlayout)
+
+        # Match colors to Qt window
+        self.bgcolor = self.main_frame.palette().color(QPalette.Window)
+        self.fgcolor = self.main_frame.palette().color(QPalette.WindowText)
+
+        # Create canvas
+        self.fig = mpl.figure.Figure()
+        self.fig.set_facecolor((self.bgcolor.red() / 255.0,
+                                self.bgcolor.green() / 255.0,
+                                self.bgcolor.blue() / 255.0,
+                                1.0))
+        self.canvas = FigureCanvas(self.fig)
+        self.canvas.setParent(self.main_frame)
+        innerlayout.addWidget(self.canvas)
+
+        # Connect resize event
+        self.canvas.mpl_connect('resize_event', self.on_resize)
+
+        # Create grid spec for 3 axes with 1:3:3 ratio
+        gs = mpl.gridspec.GridSpec(2, 1, height_ratios=(1, 5))
+
+        # Create axes
+        self.ax1 = self.fig.add_subplot(gs[0])
+        self.ax2 = self.ax1.twinx()
+        self.ax3 = self.fig.add_subplot(gs[1], sharex=self.ax1)
+
+        for label in (self.ax1.get_xticklabels() + self.ax1.get_yticklabels() + self.ax2.get_yticklabels() +
+                      self.ax3.get_xticklabels() + self.ax3.get_yticklabels()):
+            label.set_visible(False)
+
+        self.ax1.xaxis.grid()
+        self.ax3.grid()
+
+        self.canvas.draw()
+
+        self.status_text = QLabel()
+        self.status_text.setTextInteractionFlags(Qt.TextSelectableByMouse)
+        self.statusBar().addWidget(self.status_text, 1)
+        self.statusbar_tick = QTimer()
+        self.statusbar_tick.setSingleShot(True)
+        self.statusbar_tick.timeout.connect(self.update_statusbar)
+
+        self.resize(QSize(1024, 768))
+
+        self.startup_tick = QTimer()
+        self.startup_tick.setSingleShot(True)
+        self.startup_tick.timeout.connect(self.get_data)
+        self.startup_tick.start(0)
+
+        self.extract_tick = QTimer()
+        self.extract_tick.setSingleShot(True)
+        self.extract_tick.timeout.connect(self.perform_extraction)
+
+    def closeEvent(self, event):
+        '''Bye bye'''
+        self.log.info('Exiting...')
+        QMainWindow.closeEvent(self, event)
+
+    def update_statusbar(self, msg=''):
+        '''Update the statusbar'''
+        if msg != '':
+            fmt = '%Y-%m-%d %H:%M'
+            msg = 'Extracting {0} from {1:{3}} to {2:{3}}'.format(msg, self.starttime, self.endtime, fmt)
+            self.log.info(msg)
+            color = '#0F0'
+        else:
+            color = self.bgcolor.name()
+
+        self.status_text.setText(msg)
+        self.statusBar().setStyleSheet('QLabel {{ background-color: {0}; }}'.format(color))
+
+    def toggle_iolist(self):
+        if self.iolist.isVisible():
+            self.iolist.hide()
+        else:
+            self.iolist.show()
+
+    def on_resize(self, event):
+        '''Tighten the layout on window resize'''
+        self.fig.tight_layout()
+
+    def update_triggers(self):
+        '''Called by clicking on trigger name, replots chart if data exists'''
+        if self.got_data:
+            self.parse_triggers()
+            self.update_plots()
+
+    def set_now(self):
+        '''Sets the date selector to now'''
+        now = datetime.datetime.now()
+        self.date.setDateTime(QDateTime(now.year, now.month, now.day, now.hour, now.minute))
+
+    def parse_triggers(self):
+        '''Parse selected triggers'''
+        self.enabled_triggers = []
+
+        for item in self.triggers_list_items:
+            if item.checkState() == Qt.Checked:
+                text = item.text()
+                name, io = text.split('.')
+                loc = list(filter(lambda x: x[0] == name, inputs if io == 'IN' else outputs))[0][1]
+                self.enabled_triggers.append((text, loc))
+
+    def get_data(self):
+        '''Called to update variables and start an extraction'''
+        self.endtime = dateutil.parser.parse(self.date.dateTime().toString(Qt.ISODate))
+
+        if self.duration_type.currentIndex() == 0:
+            delta = datetime.timedelta(days=self.duration.value())
+        elif self.duration_type.currentIndex() == 1:
+            delta = datetime.timedelta(hours=self.duration.value())
+        else:
+            delta = datetime.timedelta(minutes=self.duration.value())
+
+        self.starttime = self.endtime - delta
+
+        self.parse_triggers()
+
+        self.start_extraction()
+
+    def extend_data(self, data):
+        '''Adds missing points at start and end of data array'''
+        if len(data[0]) > 0:
+            t = np.append([self.starttime], np.append(data[0], [self.endtime]))
+            v = np.append([data[1][0]], np.append(data[1], [data[1][-1]]))
+            return np.array([t, v])
+        else:
+            return np.array([[], []])
+
+    def start_extraction(self):
+        '''Launches first extraction'''
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+
+        self.extract_step = 0
+        self.update_statusbar(energy_var)
+        self.extract_next()
+
+    def extract_next(self):
+        '''Launch next extraction'''
+        self.app.processEvents()
+        self.extract_tick.start(0)
+
+    def perform_extraction(self):
+        '''Perform a single extraction step'''
+        if self.extract_step == 0:
+            self.energy = self.extend_data(self.ldb.get(
+                energy_var, self.starttime, self.endtime, unixtime=False
+            )[energy_var])
+
+            if len(self.energy[0]) == 0:
+                self.log.warning('No data for {0}'.format(energy_var))
+
+            self.update_statusbar(bct_b1_var)
+            self.extract_step = 1
+            self.extract_next()
+
+        elif self.extract_step == 1:
+            self.bct_b1 = self.extend_data(self.ldb.get(
+                bct_b1_var, self.starttime, self.endtime, unixtime=False
+            )[bct_b1_var])
+
+            if len(self.bct_b1[0]) == 0:
+                self.log.warning('No data for {0}'.format(bct_b1_var))
+
+            self.update_statusbar(bct_b2_var)
+            self.extract_step = 2
+            self.extract_next()
+
+        elif self.extract_step == 2:
+            self.bct_b2 = self.extend_data(self.ldb.get(
+                bct_b2_var, self.starttime, self.endtime, unixtime=False
+            )[bct_b2_var])
+
+            if len(self.bct_b2[0]) == 0:
+                self.log.warning('No data for {0}'.format(bct_b2_var))
+
+            self.triggers = {}
+
+            trig, loc = self.all_triggers[0]
+            self.update_statusbar(cgwrtd_var.format(loc, trig))
+            self.extract_step = 3
+            self.extract_next()
+
+        elif self.extract_step < (len(self.all_triggers) + 3):
+            trig, loc = self.all_triggers[self.extract_step - 3]
+            name = cgwrtd_var.format(loc, trig)
+            data = self.ldb.get(name, self.starttime, self.endtime, unixtime=False)
+
+            self.triggers[trig] = data[name] if name in data.keys() else (np.array([]), np.array([]))
+
+            if len(self.triggers[trig][0]) == 0:
+                self.log.warning('No data for {0}'.format(name))
+
+            if self.extract_step < (len(self.all_triggers) + 2):
+                trig, loc = self.all_triggers[self.extract_step - 2]
+                self.update_statusbar(cgwrtd_var.format(loc, trig))
+
+            self.extract_step += 1
+            self.extract_next()
+
+        else:
+            self.got_data = True
+            self.update_statusbar()
+
+            # self.mpl_toolbar._views.clear()
+            # self.mpl_toolbar._positions.clear()
+
+            QApplication.restoreOverrideCursor()
+
+            self.update_plots()
+
+    def update_plots(self):
+        '''Update plots'''
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+
+        # Plot energy and intensity
+        energy = (mpl.dates.date2num(self.energy[0]), self.energy[1])
+        bct_b1 = (mpl.dates.date2num(self.bct_b1[0]), self.bct_b1[1])
+        bct_b2 = (mpl.dates.date2num(self.bct_b2[0]), self.bct_b2[1])
+        line_0 = (mpl.dates.date2num((self.starttime, self.endtime)), (0, 0))
+
+        if self.initial_plot:
+            self.ax1.plot(energy[0], energy[1], 'k', label='Energy')
+            self.ax2.plot(bct_b1[0], bct_b1[1], 'b', label='I(B1)')
+            self.ax2.plot(bct_b2[0], bct_b2[1], 'r', label='I(B2)')
+            self.ax2.plot(line_0[0], line_0[1], visible=False)
+        else:
+            self.ax1.lines[0].set_data(energy[0], energy[1])
+            self.ax2.lines[0].set_data(bct_b1[0], bct_b1[1])
+            self.ax2.lines[1].set_data(bct_b2[0], bct_b2[1])
+            self.ax2.lines[2].set_data(line_0[0], line_0[1])
+
+        # Plot triggers
+        self.ax3.lines.clear()
+        ticks = []
+
+        for i, (trig, loc) in enumerate(self.enabled_triggers):
+            plane = trig.split('.')[0].split('-')[-1]
+
+            if plane == 'HB1' or plane == 'B1':
+                color = 'b'
+            elif plane == 'VB1':
+                color = 'c'
+            elif plane == 'HB2' or plane == 'B2':
+                color = 'r'
+            elif plane == 'VB2':
+                color = 'm'
+            else:
+                color = 'g'
+
+            x = mpl.dates.date2num(self.triggers[trig][0])
+            y = np.ones(len(x)) * -i
+
+            if i < len(self.lines):
+                self.lines[i].set_data(x, y)
+                self.lines[i].set_color(color)
+                self.ax3.lines.append(self.lines[i])
+            else:
+                self.lines.append(self.ax3.plot(x, y, linestyle='', marker='.', color=color)[0])
+
+            ticks.append(trig)
+
+        # Label trigger ticks
+        self.ax3.set_ylim(-1 * len(self.enabled_triggers), 1)
+        self.ax3.set_yticks(range(-1 * len(self.enabled_triggers), 1))
+        self.ax3.set_yticklabels([''] + ticks[::-1] + [''])
+
+        if self.initial_plot:
+            # Label energy/intensity axis
+            self.ax1.set_ylabel('Energy [GeV]')
+            self.ax2.set_ylabel('Intensity')
+            self.ax3.set_xlabel('Time')
+
+            # Enable labels
+            for label in (self.ax1.get_yticklabels() + self.ax2.get_yticklabels() +
+                          self.ax3.get_xticklabels() + self.ax3.get_yticklabels()):
+                label.set_visible(True)
+
+            # Date formatting
+            date_locator = mpl.dates.AutoDateLocator()
+            date_formatter = mpl.dates.AutoDateFormatter(date_locator)
+            date_formatter.scaled[1./(24.*60.)] = '%H:%M:%S'
+
+            self.ax3.xaxis.set_major_locator(date_locator)
+            self.ax3.xaxis.set_major_formatter(date_formatter)
+
+            # Limit energy plot 0-7 TeV
+            self.ax1.set_ylim(0, 7000)
+
+        # Set xlimit to time range
+        self.ax1.set_xlim(mpl.dates.date2num(self.starttime), mpl.dates.date2num(self.endtime))
+
+        # Relimit intensity plot
+        self.ax2.relim()
+        self.ax2.autoscale(axis='y')
+        self.ax2.set_ylim((0, max(self.ax2.get_ylim()[1], 1e10)))
+
+        # Title
+        fmt = '%Y-%m-%d %H:%M'
+        self.ax1.set_title('LIST triggers from {0:{2}} to {1:{2}}'.format(self.starttime, self.endtime, fmt))
+
+        # Finishing touches
+        self.fig.tight_layout()
+        self.canvas.draw()
+        self.initial_plot = False
+
+        QApplication.restoreOverrideCursor()
+
+
+class LISTListWidget(QListWidget):
+    '''Overload of QListWidget with better size hint'''
+
+    def sizeHint(self):
+        return QSize(150, 24)
+
+
+if __name__ == '__main__':
+    main()

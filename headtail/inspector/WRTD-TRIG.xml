@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MonitorPanel AskForWritingConfirmation="false" BlinkingInterval="1600" Class="cern.ade.inspector.gui.panel.MonitorPanel" GridSize="10" SimulateWriting="false" Size="635,410" SnapToGrid="false" Title="Trigger" WritingEnabled="true">
+  <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="0,0,0,255" BlinkerType="Disabled" BorderColor="0,0,0,255" MaxSize="2147483647,2147483647" MinSize="50,50" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,20" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="600,320" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" UID="4a7c2071-798b-41d8-919e-eb98a713ca01" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1"/>
+    <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="594,314">
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+        <Configuration Font="Dialog#0#22" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="10,10" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="513,32" SizeRatio="0.0" Text="LIST Trigger | HR.WRTD.BQHT-B1.BQ-HB1.TRIG" TextColor="255,255,255,255" UID="d0e48021-446b-4ccc-8856-21a70b407b20" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="10"/>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="false" Font="Dialog#1#12" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="221,221,221,255" OffColor="100,100,100,255" Position="25,225" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="275,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Missed Pulses" Type="TextMonitor" UID="e61efab4-7eee-46e9-88d6-d32528104997" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/Acquisition#missedPulses" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="missedPulses" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Acquisition" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/Acquisition#missedPulses" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="missedPulses" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Acquisition" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#1#12" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="25,125" RangeBooleanInver="false" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="275,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Condition Enabled" Type="TextMonitor" UID="0f245316-6e9b-4800-832a-b34c9f44f810" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="2">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/HwSettings#conditionEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="HwSettings" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/HwSettings#conditionEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="HwSettings" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#1#12" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="221,221,221,255" OffColor="100,100,100,255" Position="25,250" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="275,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Latency Average" Type="TextMonitor" UID="3db160d4-0aad-4b8e-bd3f-8444a47712af" UseSIPrefixes="true" UserUnit="s" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="3">
+          <PROPERTY_VALUE Type="Element">
+            <BLOCK TYPE="parameter" UID="e83c16c2-9c40-4b23-86a1-3f550ddf306d" X="220" Y="50">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="latencyAverage" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Acquisition" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P0"/>
+</BLOCK>
+          </PROPERTY_VALUE>
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/latencyAverage" Index="-1" Information="" PrimaryDefaultType="DOUBLE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DESCRIPTION="" EQUATION="(#{P0} / 1000000)" FLAVOR="SYNTHETIC_VALUE" MACHINE="WRTD" NAME="latencyAverage" UID="ce3c7e6e-11c0-4024-ad63-a43251a3f6cd" USER="tlevens" VALUE_TYPE="DOUBLE">
+<BLOCK TYPE="parameter" UID="e83c16c2-9c40-4b23-86a1-3f550ddf306d" X="220" Y="50">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="latencyAverage" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Acquisition" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P0"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="27c9b3e8-7f86-4837-9f43-f589eeeb2515" X="560" Y="50">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="/" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="c9e57d3b-c939-4335-a59d-f5f057ce01ee" X="470" Y="80">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="1000000" VALUE_TYPE="INTEGER" VARIABLE="K0"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="e83c16c2-9c40-4b23-86a1-3f550ddf306d" BLOCK_B="27c9b3e8-7f86-4837-9f43-f589eeeb2515"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="c9e57d3b-c939-4335-a59d-f5f057ce01ee" BLOCK_B="27c9b3e8-7f86-4837-9f43-f589eeeb2515"/>
+</PROPERTY_VALUE>
+</DataSubscriptionInfo>
+          </RangeProperty>
+          <BLOCK Type="Element">
+            <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="1000000" VALUE_TYPE="INTEGER" VARIABLE="K0"/>
+          </BLOCK>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/latencyAverage" Index="-1" Information="" PrimaryDefaultType="DOUBLE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DESCRIPTION="" EQUATION="(#{P0} / 1000000)" FLAVOR="SYNTHETIC_VALUE" MACHINE="WRTD" NAME="latencyAverage" USER="tlevens" VALUE_TYPE="DOUBLE">
+<BLOCK TYPE="parameter" UID="e83c16c2-9c40-4b23-86a1-3f550ddf306d" X="220" Y="50">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="latencyAverage" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Acquisition" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P0"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="27c9b3e8-7f86-4837-9f43-f589eeeb2515" X="560" Y="50">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="/" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="c9e57d3b-c939-4335-a59d-f5f057ce01ee" X="470" Y="80">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="1000000" VALUE_TYPE="INTEGER" VARIABLE="K0"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="e83c16c2-9c40-4b23-86a1-3f550ddf306d" BLOCK_B="27c9b3e8-7f86-4837-9f43-f589eeeb2515"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="c9e57d3b-c939-4335-a59d-f5f057ce01ee" BLOCK_B="27c9b3e8-7f86-4837-9f43-f589eeeb2515"/>
+</PROPERTY_VALUE>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#1#12" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="221,221,221,255" OffColor="100,100,100,255" Position="25,175" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="275,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Condition ID" Type="TextMonitor" UID="0b4c39ad-90ea-42e0-840a-ca879b32efa6" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="6">
+          <PROPERTY_VALUE Type="Element">
+            <BLOCK TYPE="function" UID="a3f0387d-5adb-4232-84ce-218f8d9015e0" X="260" Y="60">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+          </PROPERTY_VALUE>
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/conditionId" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DESCRIPTION="" EQUATION="((((toString(#{P3}) + '-') + toString(#{P4})) + '-') + toString(#{P5}))" FLAVOR="SYNTHETIC_VALUE" MACHINE="WRTD" NAME="conditionId" UID="ce267bf8-7a59-4c65-ba5f-9346922f3b3d" USER="tlevens" VALUE_TYPE="STRING">
+<BLOCK TYPE="function" UID="a3f0387d-5adb-4232-84ce-218f8d9015e0" X="260" Y="60">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1" X="450" Y="60">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="1b0a4c91-294b-46b6-b9aa-603c53ed054c" X="260" Y="170">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="074ddc3e-263b-4249-ae09-9905ab539c9e" X="550" Y="160">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="74cfb998-c210-4a84-81fa-415a42c425fc" X="370" Y="90">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'-'" VALUE_TYPE="STRING" VARIABLE="K0"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="dc05a196-3f23-4f45-9058-a073196962a1" X="260" Y="280">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="94689a22-be91-4d7b-9209-856d7f303eab" X="810" Y="270">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8" X="710" Y="160">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="0a6c23d9-f3d3-4d32-a0e5-cf585a0d8c14" X="630" Y="190">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="'-'" VALUE_TYPE="STRING" VARIABLE="K1"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="4b345927-dd3b-451f-86bb-5b9fdf4ab9bc" X="180" Y="60">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionSystemId" FLAVOR="PROPERTY_VALUE" NAME="P3" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P3"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="6ee35e06-e284-4e24-9cfb-7cd494b7a6d8" X="180" Y="170">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionPortId" FLAVOR="PROPERTY_VALUE" NAME="P4" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P4"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="825d8c73-918a-4aaa-9406-6d3465d55abc" X="180" Y="280">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionTriggerId" FLAVOR="PROPERTY_VALUE" NAME="P5" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P5"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="a3f0387d-5adb-4232-84ce-218f8d9015e0" BLOCK_B="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="74cfb998-c210-4a84-81fa-415a42c425fc" BLOCK_B="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1" BLOCK_B="074ddc3e-263b-4249-ae09-9905ab539c9e"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="1b0a4c91-294b-46b6-b9aa-603c53ed054c" BLOCK_B="074ddc3e-263b-4249-ae09-9905ab539c9e"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="0a6c23d9-f3d3-4d32-a0e5-cf585a0d8c14" BLOCK_B="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="074ddc3e-263b-4249-ae09-9905ab539c9e" BLOCK_B="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8" BLOCK_B="94689a22-be91-4d7b-9209-856d7f303eab"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="dc05a196-3f23-4f45-9058-a073196962a1" BLOCK_B="94689a22-be91-4d7b-9209-856d7f303eab"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="4b345927-dd3b-451f-86bb-5b9fdf4ab9bc" BLOCK_B="a3f0387d-5adb-4232-84ce-218f8d9015e0"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="6ee35e06-e284-4e24-9cfb-7cd494b7a6d8" BLOCK_B="1b0a4c91-294b-46b6-b9aa-603c53ed054c"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="825d8c73-918a-4aaa-9406-6d3465d55abc" BLOCK_B="dc05a196-3f23-4f45-9058-a073196962a1"/>
+</PROPERTY_VALUE>
+</DataSubscriptionInfo>
+          </RangeProperty>
+          <BLOCK Type="Element">
+            <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionTriggerId" FLAVOR="PROPERTY_VALUE" NAME="P5" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P5"/>
+          </BLOCK>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/conditionId" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DESCRIPTION="" EQUATION="((((toString(#{P3}) + '-') + toString(#{P4})) + '-') + toString(#{P5}))" FLAVOR="SYNTHETIC_VALUE" MACHINE="WRTD" NAME="conditionId" USER="tlevens" VALUE_TYPE="STRING">
+<BLOCK TYPE="function" UID="a3f0387d-5adb-4232-84ce-218f8d9015e0" X="260" Y="60">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1" X="450" Y="60">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="1b0a4c91-294b-46b6-b9aa-603c53ed054c" X="260" Y="170">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="074ddc3e-263b-4249-ae09-9905ab539c9e" X="550" Y="160">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="74cfb998-c210-4a84-81fa-415a42c425fc" X="370" Y="90">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'-'" VALUE_TYPE="STRING" VARIABLE="K0"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="dc05a196-3f23-4f45-9058-a073196962a1" X="260" Y="280">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="94689a22-be91-4d7b-9209-856d7f303eab" X="810" Y="270">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8" X="710" Y="160">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="0a6c23d9-f3d3-4d32-a0e5-cf585a0d8c14" X="630" Y="190">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="'-'" VALUE_TYPE="STRING" VARIABLE="K1"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="4b345927-dd3b-451f-86bb-5b9fdf4ab9bc" X="180" Y="60">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionSystemId" FLAVOR="PROPERTY_VALUE" NAME="P3" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P3"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="6ee35e06-e284-4e24-9cfb-7cd494b7a6d8" X="180" Y="170">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionPortId" FLAVOR="PROPERTY_VALUE" NAME="P4" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P4"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="825d8c73-918a-4aaa-9406-6d3465d55abc" X="180" Y="280">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionTriggerId" FLAVOR="PROPERTY_VALUE" NAME="P5" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P5"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="a3f0387d-5adb-4232-84ce-218f8d9015e0" BLOCK_B="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="74cfb998-c210-4a84-81fa-415a42c425fc" BLOCK_B="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1" BLOCK_B="074ddc3e-263b-4249-ae09-9905ab539c9e"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="1b0a4c91-294b-46b6-b9aa-603c53ed054c" BLOCK_B="074ddc3e-263b-4249-ae09-9905ab539c9e"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="0a6c23d9-f3d3-4d32-a0e5-cf585a0d8c14" BLOCK_B="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="074ddc3e-263b-4249-ae09-9905ab539c9e" BLOCK_B="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8" BLOCK_B="94689a22-be91-4d7b-9209-856d7f303eab"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="dc05a196-3f23-4f45-9058-a073196962a1" BLOCK_B="94689a22-be91-4d7b-9209-856d7f303eab"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="4b345927-dd3b-451f-86bb-5b9fdf4ab9bc" BLOCK_B="a3f0387d-5adb-4232-84ce-218f8d9015e0"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="6ee35e06-e284-4e24-9cfb-7cd494b7a6d8" BLOCK_B="1b0a4c91-294b-46b6-b9aa-603c53ed054c"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="825d8c73-918a-4aaa-9406-6d3465d55abc" BLOCK_B="dc05a196-3f23-4f45-9058-a073196962a1"/>
+</PROPERTY_VALUE>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#1#12" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="221,221,221,255" OffColor="100,100,100,255" Position="25,275" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="275,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Latency Worst" Type="TextMonitor" UID="7d0cae28-79e2-4f94-aa31-b480c68a83f0" UseSIPrefixes="true" UserUnit="s" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="8">
+          <PROPERTY_VALUE Type="Element">
+            <BLOCK TYPE="parameter" UID="e83c16c2-9c40-4b23-86a1-3f550ddf306d" X="220" Y="50">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="latencyWorst" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Acquisition" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P0"/>
+</BLOCK>
+          </PROPERTY_VALUE>
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/latencyWorst" Index="-1" Information="" PrimaryDefaultType="DOUBLE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DESCRIPTION="" EQUATION="(#{P0} / 1000000)" FLAVOR="SYNTHETIC_VALUE" MACHINE="WRTD" NAME="latencyWorst" UID="f2e519cd-fb56-4177-a8a6-6d055a0ad682" USER="tlevens" VALUE_TYPE="DOUBLE">
+<BLOCK TYPE="parameter" UID="e83c16c2-9c40-4b23-86a1-3f550ddf306d" X="220" Y="50">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="latencyWorst" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Acquisition" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P0"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="27c9b3e8-7f86-4837-9f43-f589eeeb2515" X="560" Y="50">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="/" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="c9e57d3b-c939-4335-a59d-f5f057ce01ee" X="470" Y="80">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="1000000" VALUE_TYPE="INTEGER" VARIABLE="K0"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="e83c16c2-9c40-4b23-86a1-3f550ddf306d" BLOCK_B="27c9b3e8-7f86-4837-9f43-f589eeeb2515"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="c9e57d3b-c939-4335-a59d-f5f057ce01ee" BLOCK_B="27c9b3e8-7f86-4837-9f43-f589eeeb2515"/>
+</PROPERTY_VALUE>
+</DataSubscriptionInfo>
+          </RangeProperty>
+          <BLOCK Type="Element">
+            <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="1000000" VALUE_TYPE="INTEGER" VARIABLE="K0"/>
+          </BLOCK>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/latencyWorst" Index="-1" Information="" PrimaryDefaultType="DOUBLE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DESCRIPTION="" EQUATION="(#{P0} / 1000000)" FLAVOR="SYNTHETIC_VALUE" MACHINE="WRTD" NAME="latencyWorst" USER="tlevens" VALUE_TYPE="DOUBLE">
+<BLOCK TYPE="parameter" UID="e83c16c2-9c40-4b23-86a1-3f550ddf306d" X="220" Y="50">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="latencyWorst" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Acquisition" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P0"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="27c9b3e8-7f86-4837-9f43-f589eeeb2515" X="560" Y="50">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="/" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="c9e57d3b-c939-4335-a59d-f5f057ce01ee" X="470" Y="80">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="1000000" VALUE_TYPE="INTEGER" VARIABLE="K0"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="e83c16c2-9c40-4b23-86a1-3f550ddf306d" BLOCK_B="27c9b3e8-7f86-4837-9f43-f589eeeb2515"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="c9e57d3b-c939-4335-a59d-f5f057ce01ee" BLOCK_B="27c9b3e8-7f86-4837-9f43-f589eeeb2515"/>
+</PROPERTY_VALUE>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#1#12" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="221,221,221,255" OffColor="100,100,100,255" Position="25,75" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="275,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Trigger Delay" Type="TextMonitor" UID="c6a36fa4-b220-45e5-8753-c0fe4b384a13" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="4">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/HwSettings#triggerDelay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerDelay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="HwSettings" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/HwSettings#triggerDelay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerDelay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="HwSettings" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#1#12" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="221,221,221,255" OffColor="100,100,100,255" Position="25,150" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="275,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Condition Delay" Type="TextMonitor" UID="8f7d2197-0ac2-4ac2-a874-bb1cdaeb739b" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="9">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/HwSettings#conditionDelay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionDelay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="HwSettings" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/HwSettings#conditionDelay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="conditionDelay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="HwSettings" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#1#12" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="221,221,221,255" OffColor="100,100,100,255" Position="25,100" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="275,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Trigger ID" Type="TextMonitor" UID="7af5cc2c-0f64-44c4-aec3-8efde1bd12eb" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="7">
+          <PROPERTY_VALUE Type="Element">
+            <BLOCK TYPE="function" UID="a3f0387d-5adb-4232-84ce-218f8d9015e0" X="260" Y="60">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+          </PROPERTY_VALUE>
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/triggerId" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DESCRIPTION="" EQUATION="((((toString(#{P3}) + '-') + toString(#{P4})) + '-') + toString(#{P5}))" FLAVOR="SYNTHETIC_VALUE" MACHINE="WRTD" NAME="triggerId" UID="3323b78e-0fb6-4c0f-b1b8-8272c0d2fde4" USER="tlevens" VALUE_TYPE="STRING">
+<BLOCK TYPE="function" UID="a3f0387d-5adb-4232-84ce-218f8d9015e0" X="260" Y="60">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1" X="450" Y="60">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="1b0a4c91-294b-46b6-b9aa-603c53ed054c" X="260" Y="170">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="074ddc3e-263b-4249-ae09-9905ab539c9e" X="550" Y="160">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="74cfb998-c210-4a84-81fa-415a42c425fc" X="370" Y="90">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'-'" VALUE_TYPE="STRING" VARIABLE="K0"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="dc05a196-3f23-4f45-9058-a073196962a1" X="260" Y="280">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="94689a22-be91-4d7b-9209-856d7f303eab" X="810" Y="270">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8" X="710" Y="160">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="0a6c23d9-f3d3-4d32-a0e5-cf585a0d8c14" X="630" Y="190">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="'-'" VALUE_TYPE="STRING" VARIABLE="K1"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="4b345927-dd3b-451f-86bb-5b9fdf4ab9bc" X="180" Y="60">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerSystemId" FLAVOR="PROPERTY_VALUE" NAME="P3" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P3"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="6ee35e06-e284-4e24-9cfb-7cd494b7a6d8" X="180" Y="170">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerPortId" FLAVOR="PROPERTY_VALUE" NAME="P4" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P4"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="825d8c73-918a-4aaa-9406-6d3465d55abc" X="180" Y="280">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerTriggerId" FLAVOR="PROPERTY_VALUE" NAME="P5" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P5"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="a3f0387d-5adb-4232-84ce-218f8d9015e0" BLOCK_B="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="74cfb998-c210-4a84-81fa-415a42c425fc" BLOCK_B="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1" BLOCK_B="074ddc3e-263b-4249-ae09-9905ab539c9e"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="1b0a4c91-294b-46b6-b9aa-603c53ed054c" BLOCK_B="074ddc3e-263b-4249-ae09-9905ab539c9e"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="0a6c23d9-f3d3-4d32-a0e5-cf585a0d8c14" BLOCK_B="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="074ddc3e-263b-4249-ae09-9905ab539c9e" BLOCK_B="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8" BLOCK_B="94689a22-be91-4d7b-9209-856d7f303eab"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="dc05a196-3f23-4f45-9058-a073196962a1" BLOCK_B="94689a22-be91-4d7b-9209-856d7f303eab"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="4b345927-dd3b-451f-86bb-5b9fdf4ab9bc" BLOCK_B="a3f0387d-5adb-4232-84ce-218f8d9015e0"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="6ee35e06-e284-4e24-9cfb-7cd494b7a6d8" BLOCK_B="1b0a4c91-294b-46b6-b9aa-603c53ed054c"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="825d8c73-918a-4aaa-9406-6d3465d55abc" BLOCK_B="dc05a196-3f23-4f45-9058-a073196962a1"/>
+</PROPERTY_VALUE>
+</DataSubscriptionInfo>
+          </RangeProperty>
+          <BLOCK Type="Element">
+            <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerTriggerId" FLAVOR="PROPERTY_VALUE" NAME="P5" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P5"/>
+          </BLOCK>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/triggerId" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DESCRIPTION="" EQUATION="((((toString(#{P3}) + '-') + toString(#{P4})) + '-') + toString(#{P5}))" FLAVOR="SYNTHETIC_VALUE" MACHINE="WRTD" NAME="triggerId" USER="tlevens" VALUE_TYPE="STRING">
+<BLOCK TYPE="function" UID="a3f0387d-5adb-4232-84ce-218f8d9015e0" X="260" Y="60">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1" X="450" Y="60">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="1b0a4c91-294b-46b6-b9aa-603c53ed054c" X="260" Y="170">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="074ddc3e-263b-4249-ae09-9905ab539c9e" X="550" Y="160">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="74cfb998-c210-4a84-81fa-415a42c425fc" X="370" Y="90">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'-'" VALUE_TYPE="STRING" VARIABLE="K0"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="dc05a196-3f23-4f45-9058-a073196962a1" X="260" Y="280">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="94689a22-be91-4d7b-9209-856d7f303eab" X="810" Y="270">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8" X="710" Y="160">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="0a6c23d9-f3d3-4d32-a0e5-cf585a0d8c14" X="630" Y="190">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="'-'" VALUE_TYPE="STRING" VARIABLE="K1"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="4b345927-dd3b-451f-86bb-5b9fdf4ab9bc" X="180" Y="60">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerSystemId" FLAVOR="PROPERTY_VALUE" NAME="P3" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P3"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="6ee35e06-e284-4e24-9cfb-7cd494b7a6d8" X="180" Y="170">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerPortId" FLAVOR="PROPERTY_VALUE" NAME="P4" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P4"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="825d8c73-918a-4aaa-9406-6d3465d55abc" X="180" Y="280">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerTriggerId" FLAVOR="PROPERTY_VALUE" NAME="P5" PROPERTY_NAME="HwSettings" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P5"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="a3f0387d-5adb-4232-84ce-218f8d9015e0" BLOCK_B="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="74cfb998-c210-4a84-81fa-415a42c425fc" BLOCK_B="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="c2e9ed14-8002-4a8f-9a6b-9a08c2eed5d1" BLOCK_B="074ddc3e-263b-4249-ae09-9905ab539c9e"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="1b0a4c91-294b-46b6-b9aa-603c53ed054c" BLOCK_B="074ddc3e-263b-4249-ae09-9905ab539c9e"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="0a6c23d9-f3d3-4d32-a0e5-cf585a0d8c14" BLOCK_B="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="074ddc3e-263b-4249-ae09-9905ab539c9e" BLOCK_B="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="3aa1b717-70b1-4ca8-b6c4-0a1f14008dc8" BLOCK_B="94689a22-be91-4d7b-9209-856d7f303eab"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="dc05a196-3f23-4f45-9058-a073196962a1" BLOCK_B="94689a22-be91-4d7b-9209-856d7f303eab"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="4b345927-dd3b-451f-86bb-5b9fdf4ab9bc" BLOCK_B="a3f0387d-5adb-4232-84ce-218f8d9015e0"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="6ee35e06-e284-4e24-9cfb-7cd494b7a6d8" BLOCK_B="1b0a4c91-294b-46b6-b9aa-603c53ed054c"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="825d8c73-918a-4aaa-9406-6d3465d55abc" BLOCK_B="dc05a196-3f23-4f45-9058-a073196962a1"/>
+</PROPERTY_VALUE>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="false" Font="Dialog#1#12" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="221,221,221,255" OffColor="100,100,100,255" Position="25,200" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="275,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Executed Pulses" Type="TextMonitor" UID="720375b4-fe8f-46d5-bbb1-073605065485" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/Acquisition#executedPulses" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="executedPulses" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Acquisition" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/Acquisition#executedPulses" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="executedPulses" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Acquisition" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#1#12" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="25,50" RangeBooleanInver="false" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="275,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Trigger Enabled" Type="TextMonitor" UID="4da9fee0-ab64-42bb-a676-a7e960c8149c" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="5">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/HwSettings#triggerEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="HwSettings" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/HwSettings#triggerEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="triggerEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="HwSettings" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+    </Container>
+  </Element>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="true" HideEntries="false" MaxSize="2147483647,160" MaxValue="0.0" MinSize="70,160" MinValue="0.0" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="348,73" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,160" SizeRatio="0.0" TextColor="255,255,255,255" Title="Settings" Type="WriteButton" UID="97a338b5-792c-4276-81df-7866ef0eae85" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0"/>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/TriggerEnabled#enabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="enabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="TriggerEnabled" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+      </DataSubscriptionInfo>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/TriggerDelay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="TriggerDelay" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+      </DataSubscriptionInfo>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/ConditionEnabled#enabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="enabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="ConditionEnabled" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+      </DataSubscriptionInfo>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/ConditionDelay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="ConditionDelay" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+      </DataSubscriptionInfo>
+    </Properties>
+    <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Trigger Enabled" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="0">
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/TriggerEnabled#enabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="enabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="TriggerEnabled" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+      </DataSubscriptionInfo>
+    </FIELD>
+    <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Trigger Delay" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="500.000e-6">
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/TriggerDelay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="TriggerDelay" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+      </DataSubscriptionInfo>
+    </FIELD>
+    <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Condition Enabled" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/ConditionEnabled#enabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="enabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="ConditionEnabled" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+      </DataSubscriptionInfo>
+    </FIELD>
+    <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Condition Delay" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1.000">
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HR.WRTD.BQHT-B1.BQ-HB1.TRIG/ConditionDelay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="HR.WRTD.BQHT-B1.BQ-HB1.TRIG" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="ConditionDelay" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+      </DataSubscriptionInfo>
+    </FIELD>
+  </Monitor>
+</MonitorPanel>

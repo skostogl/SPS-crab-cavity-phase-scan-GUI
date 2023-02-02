@@ -1,0 +1,401 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+'''
+Head-Tail Filter
+
+Copyright (c) CERN 2016
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Authors:
+    Tom Levens <tom.levens@cern.ch>
+'''
+
+import argparse
+import datetime
+import enum
+import functools
+import multiprocessing
+import numpy as np
+import os
+import signal
+import sys
+import time
+
+from modules import bqht, bqht_cache
+
+__version__ = '2018-05-23'
+
+
+def main():
+    args = argparse.ArgumentParser(description='Head-Tail Filter')
+    args.add_argument('--version', action='version', version='%(prog)s {0}'.format(__version__))
+    args.add_argument('sys', help='system')
+    args.add_argument('--cfg', help='config file')
+    args.add_argument('--dir', help='override data directory with DIR')
+    args.add_argument('-n', '--new', help='process new files', action='store_true')
+    args.add_argument('-u', '--uncached', help='only process uncached files', action='store_true')
+    args.add_argument('-f', '--force', help='reprocess cached files', action='store_true')
+    args.add_argument('-t', '--thresh', help='override default threshold for instability detection',
+                      metavar='VAL', default=None, type=float)
+    args.add_argument('-d', '--del-all', help='delete files with no unstable bunches', action='store_true')
+    args.add_argument('-e', '--del-empty', help='delete with no bunches', action='store_true')
+    args.add_argument('--no-color', help='do not print with colors', action='store_false', dest='color')
+    args.add_argument('-p', '--processes', help='number of files to process in parallel', type=int, default=4)
+    args.add_argument('-s', '--skip-days', help='do not process files from the previous N days', type=int, default=0)
+    argv = args.parse_args()
+
+    # System configuration
+    ht = bqht.BQHT(cfg_file=argv.cfg)
+
+    system = argv.sys.upper()
+
+    if system not in ht.systems:
+        args.error('{0} is not a valid system ( {1} )'.format(system, ' | '.join(sorted(ht.systems))))
+
+    ht.system = system
+
+    print('Head-Tail Filter running for system {0}'.format(system))
+
+    if argv.dir is not None:
+        if not os.path.isdir(argv.dir):
+            args.error('directory {0} does not exist'.format(argv.dir))
+        else:
+            print('Using data directory: {0}'.format(argv.dir))
+            ht.dir = argv.dir
+
+    # Calculate maximum filename length
+    filename_len = len(ht.device) + 19  # _YYYYMMDD_HHMMSS.h5
+
+    if ht.users != ['ALL']:
+        filename_len += 9  # _USERNAME
+
+    # Setup columns for printing
+    cp = ColumnPrinter(color=argv.color)
+    cp.add_column('TIME', 8, '^')
+    cp.add_column('STATE', 5, '^')
+    cp.add_column('FILENAME', filename_len, '<')
+    cp.add_column('BUNCH', 5, '>')
+    cp.add_column('HORZ', 4, '>')
+    cp.add_column('VERT', 4, '>')
+    cp.add_column('MIN', 6, '>')
+    cp.add_column('MEAN', 6, '>')
+    cp.add_column('MAX', 6, '>')
+    cp.add_column('ACTION', 6, '^')
+
+    # Cache setup
+    cache_file = os.path.join(ht.dir, '.bqht_filter.cache')
+    cache_exists = os.path.isfile(cache_file)
+    cache_write = True
+
+    # Check if cache directory & file are writeable
+    if not os.access(ht.dir, os.W_OK | os.X_OK) or (cache_exists and not os.access(cache_file, os.W_OK)):
+        print('WARNING: cannot write to cache file, results will not be cached')
+        cache_write = False
+
+    cache = bqht_cache.Cache(cache_file, cache_write)
+
+    # If cache was created, give it group write permissions
+    if not cache_exists:
+        os.chmod(cache_file, 0o664)
+
+    # Print the header
+    cp.print_header()
+
+    # File processor
+    p = FileProcessor(ht, cache, cp)
+    p.del_empty = argv.del_empty
+    p.del_all = argv.del_all
+    p.thresh = argv.thresh if argv.thresh is not None else ht.thresh
+    p.force = argv.force
+
+    if argv.uncached:
+        done_files = cache.get_names()
+    else:
+        done_files = []
+
+    # Lock for printing to stdout
+    print_lock = multiprocessing.Lock()
+
+    # Pool initialiser function
+    def pool_init(l):
+        global print_lock
+        print_lock = l
+
+        # Ignore SIGINT in pool to avoid KeyboardInterrupt being
+        # propagated to child processes.
+        signal.signal(signal.SIGINT, signal.SIG_IGN)
+
+    pool = multiprocessing.Pool(processes=argv.processes, initializer=pool_init, initargs=(print_lock,))
+
+    try:
+        while True:
+            all_files = list(map(os.path.basename, ht.files))
+
+            # Delete entries from cache which have been deleted on disk
+            deleted_files = list(set(cache.get_names()) - set(all_files))
+            if len(deleted_files) > 0 and cache_write:
+                for name in deleted_files:
+                    cache.delete(name)
+
+            # Ignore files newer than N days old
+            lim = datetime.datetime.now() - datetime.timedelta(days=argv.skip_days)
+            all_files = list(filter(lambda x: datetime.datetime.strptime(x[-18:-3], '%Y%m%d_%H%M%S') < lim, all_files))
+
+            # Skip already processed files
+            files = sorted(set(all_files) - set(done_files))
+
+            # Add new files to the queue
+            for f in files:
+                pool.apply_async(p.process_file, (f,))
+                done_files.append(f)
+
+            # If not waiting for new files, close the pool and wait for
+            # completion of all workers
+            if not argv.new:
+                pool.close()
+                pool.join()
+                break
+
+            time.sleep(10)
+
+    # Handle ^C to do clean-up
+    except KeyboardInterrupt:
+        print()
+        pool.terminate()
+        pool.join()
+
+    cp.print_ruler()
+
+
+class FileAction(enum.Enum):
+    kept = 0
+    deleted = 1
+    filtered = 2
+    error = 3
+
+
+class FileProcessor(object):
+    def __init__(self, ht, cache, cp):
+        '''Class for processing files'''
+        self.del_empty = False
+        self.del_all = False
+        self.force = False
+        self.ht = ht
+        self.cp = cp
+        self.cache = cache
+        self.thresh = 0.0
+
+    def print_result(self, basename, cached, res):
+        with print_lock:
+            self.cp.print_cell('{0:%H:%M:%S}'.format(datetime.datetime.now()))
+
+            if cached:
+                self.cp.print_cell('cache', color='yellow')
+            else:
+                self.cp.print_cell('new', color='green')
+
+            self.cp.print_cell('{0}'.format(basename), color='blue')
+
+            self.cp.print_cell(res['bunches'])
+            self.cp.print_cell(res['unstable'][0])
+            self.cp.print_cell(res['unstable'][1])
+            self.cp.print_cell(res['stability'][0], fmt='3.2f')
+            self.cp.print_cell(res['stability'][1], fmt='3.2f')
+            self.cp.print_cell(res['stability'][2], fmt='3.2f')
+
+            # Print action
+            action_text, action_color = {
+                FileAction.error: ('error', 'blue'),
+                FileAction.deleted: ('delete', 'red'),
+                FileAction.filtered: ('filter', 'yellow'),
+                FileAction.kept: ('keep', 'green')
+            }[res['action']]
+            self.cp.print_cell(action_text, color=action_color)
+
+    def process_file(self, basename):
+        '''Process a file'''
+        filename = self.ht.file(basename)
+
+        # Skip missing files
+        if not os.path.isfile(filename):
+            return FileAction.error
+
+        cached_file = self.cache.get_for_name(basename)
+
+        if cached_file is not None:
+            if not self.force:
+                # File has already been processed
+                res = self.action_file(filename, cached_file['bunches'])
+                self.print_result(basename, True, res)
+                return res['action']
+            else:
+                self.cache.delete(basename)
+
+        with self.ht.open_file(filename) as htf:
+            htf.locate_bunches()
+            bunches = {}
+
+            # If no bunches are found, do not go any further
+            if len(htf.bunches) == 0:
+                self.cache.insert(basename, bunches)
+                res = self.action_file(filename, bunches)
+                self.print_result(basename, False, res)
+                return res['action']
+
+            else:
+                # Look for interesting bunches
+                htf.optimise_overlap()
+                htf.calculate_bunch_stability()
+
+                for bunch in htf.bunches:
+                    h_min, h_max = htf.bunch_stability['horizontal'][bunch]
+                    v_min, v_max = htf.bunch_stability['vertical'][bunch]
+                    bunches[bunch] = (h_min, h_max, v_min, v_max)
+
+                self.cache.insert(basename, bunches)
+                res = self.action_file(filename, bunches)
+                self.print_result(basename, False, res)
+                return res['action']
+
+    def action_file(self, filename, bunches):
+        '''Action a file'''
+        nb_bunches = len(bunches)
+
+        ret = {
+            'bunches': nb_bunches,
+            'unstable': (None, None),
+            'stability': (None, None, None),
+        }
+
+        # Delete file if no bunches
+        if nb_bunches == 0:
+            ret['action'] = self.del_file(filename, self.del_empty | self.del_all)
+            return ret
+
+        stability_h = {k: (v[0], v[1]) for k, v in bunches.items()}
+        stability_v = {k: (v[2], v[3]) for k, v in bunches.items()}
+
+        # Find unstable bunches
+        unstable_h = len(self.find_unstable_bunches(stability_h))
+        unstable_v = len(self.find_unstable_bunches(stability_v))
+
+        bunch_thresh = [max_amp / min_amp for (min_amp, max_amp) in (
+            list(stability_h.values()) + list(stability_v.values())
+        )]
+
+        ret['unstable'] = (unstable_h, unstable_v)
+        ret['stability'] = (min(bunch_thresh), np.mean(bunch_thresh), max(bunch_thresh))
+
+        if unstable_h == 0 and unstable_v == 0:
+            # Delete file if no interesting bunches
+            ret['action'] = self.del_file(filename, self.del_all)
+        else:
+            # Otherwise keep file
+            ret['action'] = self.keep_file(filename)
+
+        return ret
+
+    def del_file(self, filename, delete):
+        '''Delete a file'''
+        if delete:
+            # Remove the file
+            try:
+                os.remove(filename)
+            except:
+                return FileAction.error
+
+            # Remove the parent directory if it is empty
+            try:
+                os.rmdir(os.dirname(filename))
+            except:
+                pass
+
+            basename = os.path.basename(filename)
+            self.cache.delete(basename)
+
+            return FileAction.deleted
+        else:
+            return FileAction.filtered
+
+    def keep_file(self, filename):
+        '''Keep a file'''
+        return FileAction.kept
+
+    def find_unstable_bunches(self, data):
+        '''Find unstable bunches based on threshold'''
+        unstable = []
+        for bunch, (min_amp, max_amp) in data.items():
+            if max_amp >= self.thresh * min_amp:
+                unstable.append(bunch)
+        return sorted(unstable)
+
+
+class ColumnPrinter(object):
+    def __init__(self, color=True):
+        self.columns = []
+        self.cell = 0
+        self.color = color
+
+    def add_column(self, title, width, align):
+        self.columns.append((title, width, align))
+
+    def print_ruler(self):
+        for i, column in enumerate(self.columns):
+            print('+', end='')
+            print('-' * (column[1] + 2), end='')
+            if i == len(self.columns) - 1:
+                print('+')
+
+    def print_header(self):
+        self.print_ruler()
+        for column in self.columns:
+            self.print_cell(column[0])
+        self.print_ruler()
+
+    def print_cell(self, text, color=None, fmt=None, **kwargs):
+        print('|', end='')
+
+        if color is not None and self.color:
+            colors = ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']
+            c_sta = '\x1b[{0}m'.format(30 + colors.index(color))
+            c_end = '\x1b[0m'
+        else:
+            c_sta = ''
+            c_end = ''
+
+        if text is None:
+            text = '-'
+        elif fmt is not None:
+            text = '{0:{1}}'.format(text, fmt)
+        else:
+            text = str(text)
+
+        print('{3} {0:{2}{1}s} {4}'.format(
+            str(text), self.columns[self.cell][1], self.columns[self.cell][2], c_sta, c_end
+        ), end='', **kwargs)
+
+        if self.cell == len(self.columns) - 1:
+            print('|')
+            self.cell = 0
+        else:
+            self.cell += 1
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MonitorPanel AskForClosingConfirmation="false" AskForWritingConfirmation="false" BlinkingInterval="1600" Class="cern.ade.inspector.gui.panel.MonitorPanel" GridSize="10" SimulateWriting="false" Size="605,730" SnapToGrid="false" Title="SPS Head-Tail Control" WritingEnabled="true">
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#26" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="155,25" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="285,32" SizeRatio="0.0" Text="SPS Head-Tail Control" TextColor="255,255,255,255" UID="3bb951e5-d47f-4321-83aa-2138c52b23a7" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="2"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#10" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="368,52" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="72,19" SizeRatio="0.0" Text="2018-05-14" TextColor="128,128,128,255" UID="20811c7a-95e5-4d40-b42c-69436c4bc81a" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="1"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#10" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="155,52" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="57,20" SizeRatio="0.0" Text="SPS.BQHT" TextColor="128,128,128,255" UID="de0d4140-c858-40d6-bf88-0c94b94c6102" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="3"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="39,40,34,255" BlinkerType="Disabled" BorderColor="196,196,196,255" MaxSize="2147483647,2147483647" MinSize="50,50" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="10,80" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="580,580" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" Type="SimpleContainer" UID="7e04ab1e-b0c4-406e-92ea-5d6ae5d002fc" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0"/>
+    <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="574,574">
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+        <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="5,5" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="10,10" SizeRatio="0.0" Text="" TextColor="255,255,255,255" UID="353d34bd-532c-420d-b944-584074e8b04e" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="13"/>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="128,128,128,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.0" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="false" Font="Dialog#0#11" FormatType="Disabled" HexValue="false" MaxSize="2147483647,24" MaxValue="60.0" MinSize="40,24" MinValue="0.0" NormalColor="128,128,128,255" OffColor="128,128,128,255" Position="27,517" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,24" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Load Event" Type="TextMonitor" UID="e66c110c-2427-417c-8237-6e29e14934ff" UseSIPrefixes="false" UserUnit=" " VisibleInViewMode="true" WarningColor="128,128,128,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.1" XmlVersion="2" ZOrder="5">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-ARM/LoadEvent#loadEvent" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-ARM" FIELD_NAME="loadEvent" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="LoadEvent" SELECTOR="" VALUE_TYPE="STRING"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-ARM/LoadEvent#loadEvent" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-ARM" FIELD_NAME="loadEvent" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="LoadEvent" SELECTOR="" VALUE_TYPE="STRING"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="128,128,128,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#0#11" FormatType="Disabled" HexValue="false" MaxSize="1600,24" MaxValue="0.0" MinSize="40,24" MinValue="0.0" NormalColor="128,128,128,255" OffColor="128,128,128,255" Position="297,317" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,24" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="" Type="TextMonitor" UID="5b4ec24b-bb75-41c8-9f02-157b5ff468f7" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="128,128,128,255" XmlVersion="2" ZOrder="10">
+          <PROPERTY_VALUE Type="Element">
+            <BLOCK TYPE="constant" UID="d04012a1-a3ca-470f-ac96-9b370ae2c4a2" X="350" Y="40">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'Range '" VALUE_TYPE="STRING" VARIABLE="K0"/>
+                </BLOCK>
+          </PROPERTY_VALUE>
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/GainRange" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DESCRIPTION="" EQUATION="((((('Range ' + toString(#{P1})) + ' to ') + toString(#{P0})) + ' ') + #{P2})" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="GainRange" USER="tlevens" VALUE_TYPE="STRING">
+                <BLOCK TYPE="constant" UID="d04012a1-a3ca-470f-ac96-9b370ae2c4a2" X="350" Y="40">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'Range '" VALUE_TYPE="STRING" VARIABLE="K0"/>
+                </BLOCK>
+                <BLOCK TYPE="function" UID="89aa81ca-9c12-4e54-8276-3e8a0ef8d0ed" X="350" Y="130">
+                  <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="a9fd058b-c047-47ce-8998-76b1c1309af0" X="450" Y="130">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="74901895-ed31-4757-9066-8bc08fbcdba0" X="550" Y="220">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="function" UID="81f90501-0ec5-4b64-b90e-2f6260c812b5" X="550" Y="310">
+                  <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="parameter" UID="22f46d46-7047-4d6e-b44b-15fd958bba7a" X="450" Y="310">
+                  <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch2Gain_max" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P0"/>
+                </BLOCK>
+                <BLOCK TYPE="parameter" UID="cc220812-19f3-474e-b8ce-18a5dc8057b1" X="250" Y="130">
+                  <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch2Gain_min" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P1"/>
+                </BLOCK>
+                <BLOCK TYPE="constant" UID="138af142-3eec-463c-8974-6a895021f0dd" X="450" Y="220">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="' to '" VALUE_TYPE="STRING" VARIABLE="K1"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="0cecdb04-0288-41d0-b548-368d33a9c6ed" X="650" Y="310">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="parameter" UID="6f43b31d-56df-4f65-a3fd-1b0992c48042" X="740" Y="490">
+                  <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch2Gain_units" FLAVOR="PROPERTY_VALUE" NAME="P2" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" TYPE="parameter" VALUE_TYPE="STRING" VARIABLE="P2"/>
+                </BLOCK>
+                <BLOCK TYPE="constant" UID="a9401aa8-6640-4cf0-8c12-3730d9bcf6ee" X="650" Y="400">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K2" TYPE="constant" VALUE="' '" VALUE_TYPE="STRING" VARIABLE="K2"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="6701c3c3-7d7e-4f7f-a70b-b2fdcd361197" X="740" Y="400">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="b6957b83-0a86-4f82-adfb-ae3d84bbec89" X="870" Y="490">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="89aa81ca-9c12-4e54-8276-3e8a0ef8d0ed" BLOCK_B="a9fd058b-c047-47ce-8998-76b1c1309af0"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="d04012a1-a3ca-470f-ac96-9b370ae2c4a2" BLOCK_B="a9fd058b-c047-47ce-8998-76b1c1309af0"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="a9fd058b-c047-47ce-8998-76b1c1309af0" BLOCK_B="74901895-ed31-4757-9066-8bc08fbcdba0"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="138af142-3eec-463c-8974-6a895021f0dd" BLOCK_B="74901895-ed31-4757-9066-8bc08fbcdba0"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="74901895-ed31-4757-9066-8bc08fbcdba0" BLOCK_B="0cecdb04-0288-41d0-b548-368d33a9c6ed"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="81f90501-0ec5-4b64-b90e-2f6260c812b5" BLOCK_B="0cecdb04-0288-41d0-b548-368d33a9c6ed"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="cc220812-19f3-474e-b8ce-18a5dc8057b1" BLOCK_B="89aa81ca-9c12-4e54-8276-3e8a0ef8d0ed"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="22f46d46-7047-4d6e-b44b-15fd958bba7a" BLOCK_B="81f90501-0ec5-4b64-b90e-2f6260c812b5"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="0cecdb04-0288-41d0-b548-368d33a9c6ed" BLOCK_B="6701c3c3-7d7e-4f7f-a70b-b2fdcd361197"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="a9401aa8-6640-4cf0-8c12-3730d9bcf6ee" BLOCK_B="6701c3c3-7d7e-4f7f-a70b-b2fdcd361197"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="6701c3c3-7d7e-4f7f-a70b-b2fdcd361197" BLOCK_B="b6957b83-0a86-4f82-adfb-ae3d84bbec89"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="6f43b31d-56df-4f65-a3fd-1b0992c48042" BLOCK_B="b6957b83-0a86-4f82-adfb-ae3d84bbec89"/>
+              </PROPERTY_VALUE>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+          <BLOCK Type="Element">
+            <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+          </BLOCK>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/GainRange" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DESCRIPTION="" EQUATION="((((('Range ' + toString(#{P1})) + ' to ') + toString(#{P0})) + ' ') + #{P2})" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="GainRange" USER="tlevens" VALUE_TYPE="STRING">
+              <BLOCK TYPE="constant" UID="d04012a1-a3ca-470f-ac96-9b370ae2c4a2" X="350" Y="40">
+                <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'Range '" VALUE_TYPE="STRING" VARIABLE="K0"/>
+              </BLOCK>
+              <BLOCK TYPE="function" UID="89aa81ca-9c12-4e54-8276-3e8a0ef8d0ed" X="350" Y="130">
+                <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="a9fd058b-c047-47ce-8998-76b1c1309af0" X="450" Y="130">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="74901895-ed31-4757-9066-8bc08fbcdba0" X="550" Y="220">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="function" UID="81f90501-0ec5-4b64-b90e-2f6260c812b5" X="550" Y="310">
+                <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="parameter" UID="22f46d46-7047-4d6e-b44b-15fd958bba7a" X="450" Y="310">
+                <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch2Gain_max" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P0"/>
+              </BLOCK>
+              <BLOCK TYPE="parameter" UID="cc220812-19f3-474e-b8ce-18a5dc8057b1" X="250" Y="130">
+                <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch2Gain_min" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P1"/>
+              </BLOCK>
+              <BLOCK TYPE="constant" UID="138af142-3eec-463c-8974-6a895021f0dd" X="450" Y="220">
+                <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="' to '" VALUE_TYPE="STRING" VARIABLE="K1"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="0cecdb04-0288-41d0-b548-368d33a9c6ed" X="650" Y="310">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="parameter" UID="6f43b31d-56df-4f65-a3fd-1b0992c48042" X="740" Y="490">
+                <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch2Gain_units" FLAVOR="PROPERTY_VALUE" NAME="P2" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" TYPE="parameter" VALUE_TYPE="STRING" VARIABLE="P2"/>
+              </BLOCK>
+              <BLOCK TYPE="constant" UID="a9401aa8-6640-4cf0-8c12-3730d9bcf6ee" X="650" Y="400">
+                <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K2" TYPE="constant" VALUE="' '" VALUE_TYPE="STRING" VARIABLE="K2"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="6701c3c3-7d7e-4f7f-a70b-b2fdcd361197" X="740" Y="400">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="b6957b83-0a86-4f82-adfb-ae3d84bbec89" X="870" Y="490">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="89aa81ca-9c12-4e54-8276-3e8a0ef8d0ed" BLOCK_B="a9fd058b-c047-47ce-8998-76b1c1309af0"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="d04012a1-a3ca-470f-ac96-9b370ae2c4a2" BLOCK_B="a9fd058b-c047-47ce-8998-76b1c1309af0"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="a9fd058b-c047-47ce-8998-76b1c1309af0" BLOCK_B="74901895-ed31-4757-9066-8bc08fbcdba0"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="138af142-3eec-463c-8974-6a895021f0dd" BLOCK_B="74901895-ed31-4757-9066-8bc08fbcdba0"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="74901895-ed31-4757-9066-8bc08fbcdba0" BLOCK_B="0cecdb04-0288-41d0-b548-368d33a9c6ed"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="81f90501-0ec5-4b64-b90e-2f6260c812b5" BLOCK_B="0cecdb04-0288-41d0-b548-368d33a9c6ed"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="cc220812-19f3-474e-b8ce-18a5dc8057b1" BLOCK_B="89aa81ca-9c12-4e54-8276-3e8a0ef8d0ed"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="22f46d46-7047-4d6e-b44b-15fd958bba7a" BLOCK_B="81f90501-0ec5-4b64-b90e-2f6260c812b5"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="0cecdb04-0288-41d0-b548-368d33a9c6ed" BLOCK_B="6701c3c3-7d7e-4f7f-a70b-b2fdcd361197"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="a9401aa8-6640-4cf0-8c12-3730d9bcf6ee" BLOCK_B="6701c3c3-7d7e-4f7f-a70b-b2fdcd361197"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="6701c3c3-7d7e-4f7f-a70b-b2fdcd361197" BLOCK_B="b6957b83-0a86-4f82-adfb-ae3d84bbec89"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="6f43b31d-56df-4f65-a3fd-1b0992c48042" BLOCK_B="b6957b83-0a86-4f82-adfb-ae3d84bbec89"/>
+            </PROPERTY_VALUE>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="29,30,24,255" BlinkerType="Disabled" BorderColor="128,128,128,255" MaxSize="2147483647,2147483647" MinSize="50,50" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="297,467" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,50" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" Type="SimpleContainer" UID="55ac72d4-2d67-4535-a4c4-62a9d891e756" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0"/>
+        <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="244,44">
+          <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+            <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="5,5" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="10,10" SizeRatio="0.0" Text="" TextColor="255,255,255,255" UID="85f239cd-8f59-4575-92af-1d16fae4de0a" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="4"/>
+          </Element>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+            <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.0" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#1#12" FormatType="Disabled" HexValue="false" MaxSize="2147483647,25" MaxValue="60.0" MinSize="40,25" MinValue="0.0" NormalColor="204,204,204,255" OffColor="100,100,100,255" Position="47,10" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Timeout" Type="TextMonitor" UID="469e2e5e-d7d8-45ce-a0c7-0ea0d7a84f6c" UseSIPrefixes="false" UserUnit=" min" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.1" XmlVersion="2" ZOrder="3">
+              <RangeProperty Type="Element">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Timer#timerRemaining" Index="-1" Information="" PrimaryDefaultType="SHORT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="timerRemaining" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Timer" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="SHORT"/>
+</DataSubscriptionInfo>
+              </RangeProperty>
+            </Configuration>
+            <Properties>
+              <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Timer#timerRemaining" Index="-1" Information="" PrimaryDefaultType="SHORT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="timerRemaining" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Timer" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="SHORT"/>
+              </DataSubscriptionInfo>
+            </Properties>
+          </Monitor>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.synoptics.LEDSynMonitor">
+            <Configuration Action="" AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="1.0" AlertLowEnabled="true" AlertLowValue="0.0" BackgroundColor="255,255,255,0" BlinkerType="Disabled" BlockSize="24,24" Font="Dialog#0#12" MaxSize="1500,1000" MaxValue="100.0" MinSize="15,15" MinValue="0.0" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="7,5" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" ShowValueInsteadOfTitle="false" Size="34,34" SizeRatio="0.0" TextColor="255,255,255,255" TextOrientation="1" TextPosition="3" Title="" Type="LEDSynMonitor" UID="e063086f-f265-45b0-92d7-73726f10860e" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.96" WarningLowEnabled="true" WarningLowValue="0.04" XmlVersion="2" ZOrder="2">
+              <RangeProperty Type="Element">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Timer#timerRemaining" Index="-1" Information="" PrimaryDefaultType="SHORT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="timerRemaining" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Timer" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="SHORT"/>
+</DataSubscriptionInfo>
+              </RangeProperty>
+            </Configuration>
+            <Properties>
+              <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Timer#timerRemaining" Index="-1" Information="" PrimaryDefaultType="SHORT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="timerRemaining" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Timer" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="SHORT"/>
+              </DataSubscriptionInfo>
+            </Properties>
+          </Monitor>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.imageButton.ImageMultiStateButton">
+            <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" Font="Dialog#0#16" ImageStateButton-Effects="NONE" MaxSize="1600,1200" MaxValue="NaN" MinSize="35,35" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="174,5" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="35,35" SizeRatio="0.0" TextColor="255,255,255,255" Title="Refresh" Type="ImageMultiStateButton" UID="82a594c1-1801-4e36-83e4-2118df3d8ef0" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="1"/>
+            <State Image="iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAABuUlEQVR42u2WTSuEURTHmZJmTJGZ&#13;&#10;hbcSMd9CCAv28lpelkqUhFnLRthJFmRKk7ylbORLiA9hM5Moxtt4/E6dqds0M/fOFKs59es2z3PO&#13;&#10;/d9755xzn4qKsv23eZ4XgDqo1zFQwLdSKEWkA2ZgG+JwoeMOzEJnlr8spBuCxQqtwj2kvNz2Dg8Q&#13;&#10;NXa0qYsJuYr44BA+syZPwiMk4Nt4/gUHsK6/r4oRE6G0MZEc3RA0Qw00Qj8c6e7EfoyYSycxnJaN&#13;&#10;Hb3AgsV/FF6zTsAuhkM73GmAHNOixb8aNuCjFLE+eNKAa4tvCxznSZwbCNvEgjAPexCx+DbBOEzq&#13;&#10;KEzAFPTKrl3+syrwl9tY1qn45WRcHCWzumAMRgwktYehwRLfBruwBLU2sTDc5smuM2i1xJ+rr9Tc&#13;&#10;kE0spPVhmhT3li1heD+nncbTXhkpRexNUttB6NlY3JrLf2aKpbXXZTp7DAa0tmp0HIRTY0cSE3PN&#13;&#10;pJB2a0+7974xUWayhHb9pLGYTLOWBflcxSRBTvQ+qtRnK5b7LKXvo8XWiLSqHrlpc9zU05oocc26&#13;&#10;uN7ccoN3lFKQBb8btGCdvkHK9mf2C0xybwHdggtPAAAAAElFTkSuQmCC" IsFallbackState="true" Name="Reset Timeout" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+              <StatePropertyValue DataEditType="Boolean" IsDelay="false" Name="SPS.BQHT/TimerReset#timerReset" PossibleValues="True&#10;False&#10;" Selector="SPS.USER.ZERO" Value="True">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/TimerReset#timerReset" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                  <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="timerReset" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="TimerReset" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="BOOLEAN"/>
+                </DataSubscriptionInfo>
+              </StatePropertyValue>
+            </State>
+          </Monitor>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.imageButton.ImageMultiStateButton">
+            <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" Font="Dialog#0#16" ImageStateButton-Effects="NONE" MaxSize="1600,1200" MaxValue="NaN" MinSize="35,35" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="204,5" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="35,35" SizeRatio="0.0" TextColor="255,255,255,255" Title="Refresh" Type="ImageMultiStateButton" UID="482a2c41-96d4-45cd-a345-888b267ec1ae" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="0"/>
+            <State Image="iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAA+UlEQVR42u2VUQrCMAyG57HU+aQF&#13;&#10;W2F6nfm4HUPQi4no1FMIrSmkUMLmmnVMkf3wU1izfsuapkky6i9ljJnEzIdCSvDm04LuOYwSXHQF&#13;&#10;HcAv8BO8a4lV4AfGn7igAl90skDRECtw3sm+V3Jga/xSXxU4JXFzfG7IhylWMeAeUODdAnB+Br7U&#13;&#10;gLadqg/GJfiGC2kcLWDvgbSXuYiqTpKBJpn4oEVf52wKPpt6Xele9gHMG2B536BhMsPyDtmzNKoX&#13;&#10;4oGtAqvRVu2KVY0eSJHO4DJoO2cZN7MmUGgHkdxuP0xvrOn6WeCfsPHHmPtMBt5nip3R127qUT+p&#13;&#10;N9ynwbU80lTwAAAAAElFTkSuQmCC" IsFallbackState="true" Name="Reset Timeout" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+              <StatePropertyValue DataEditType="Boolean" IsDelay="false" Name="SPS.BQHT/TimerReset#timerReset" PossibleValues="True&#10;False&#10;" Selector="SPS.USER.ZERO" Value="False">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/TimerReset#timerReset" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                  <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="timerReset" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="TimerReset" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="BOOLEAN"/>
+                </DataSubscriptionInfo>
+              </StatePropertyValue>
+            </State>
+          </Monitor>
+        </Container>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="128,128,128,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.0" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="false" Font="Dialog#0#11" FormatType="Disabled" HexValue="false" MaxSize="2147483647,24" MaxValue="60.0" MinSize="40,24" MinValue="0.0" NormalColor="128,128,128,255" OffColor="128,128,128,255" Position="27,537" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,24" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Injection @" Type="TextMonitor" UID="26b3b16e-04d9-46d6-a7b9-2cf2449534f8" UseSIPrefixes="false" UserUnit=" " VisibleInViewMode="true" WarningColor="128,128,128,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.1" XmlVersion="2" ZOrder="6">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SIX.MC-CTML/ControlValue#controlValue" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="SIX.MC-CTML" FIELD_NAME="controlValue" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="ControlValue" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SIX.MC-CTML/ControlValue#acqC" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SIX.MC-CTML" FIELD_NAME="controlValue" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="ControlValue" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.synoptics.LEDSynMonitor">
+        <Configuration Action="" AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="255,255,255,0" BlinkerType="Disabled" BlockSize="24,24" Font="Dialog#0#14" MaxSize="1500,1000" MaxValue="9.999999999E9" MinSize="15,15" MinValue="-9.999999999E9" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="330,20" RangeType="String" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" ShowValueInsteadOfTitle="false" Size="166,34" SizeRatio="0.0" StringRangeAlert="ERROR" StringRangeNormal="ACQUIRING" StringRangeOff="IDLE" StringRangeWarning="TRIGGERED" TextColor="255,255,255,255" TextOrientation="0" TextPosition="0" Title="Acquisition Status" Type="LEDSynMonitor" UID="bfd13761-46a5-4d03-83f4-14203d60641f" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="7">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Status#state" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="state" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Status" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="ENUM"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Status#state" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="state" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Status" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="ENUM"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="0" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="70.0" MinSize="175,34" MinValue="0.0" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="10.0" NumericUpDown-Update="true" NumericUpDown-Value="20" OffColor="100,100,100,255" Position="327,387" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="190,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="Delta H Attenuator" UID="a5fec3d1-d2b5-4b9b-ba3c-0f83f55a17db" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="3">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch2Atten" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch2Atten" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch2Atten" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch2Atten" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="0" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="70.0" MinSize="175,34" MinValue="0.0" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="10.0" NumericUpDown-Update="true" NumericUpDown-Value="20" OffColor="100,100,100,255" Position="327,357" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="190,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="Sigma Attenuator  " UID="ffe65201-ceae-4238-91d3-3189798c05ec" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="1">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch1Atten" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch1Atten" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch1Atten" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch1Atten" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="1" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,130" MaxValue="NaN" MinSize="70,130" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="297,187" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,130" SizeRatio="0.0" TextColor="255,255,255,255" Title="Channel Gain" Type="WriteButton" UID="27ed00e0-da62-4ec1-8ea1-0673cecfb5ec" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="8"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch1Gain" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch1Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch2Gain" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch2Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch3Gain" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch3Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Sigma" LOAD_AT_STARTUP="false" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="-22.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch1Gain" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch1Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Delta H" LOAD_AT_STARTUP="false" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="-22.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch2Gain" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch2Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Delta V" LOAD_AT_STARTUP="false" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="-22.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch3Gain" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch3Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="1" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,100" MaxValue="NaN" MinSize="70,100" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="297,67" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,100" SizeRatio="0.0" TextColor="255,255,255,255" Title="Acquisition" Type="WriteButton" UID="0d2b141c-8d0e-4b90-9153-4ab10e0a3c1a" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="9"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#acqLength" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="acqLength" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#acqSegments" Index="-1" Information="" PrimaryDefaultType="SHORT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="acqSegments" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="SHORT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Length (ms)" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#acqLength" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="acqLength" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Segments" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#acqSegments" Index="-1" Information="" PrimaryDefaultType="SHORT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="acqSegments" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="SHORT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="0" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="70.0" MinSize="174,34" MinValue="0.0" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="10.0" NumericUpDown-Update="true" NumericUpDown-Value="20" OffColor="100,100,100,255" Position="327,417" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="190,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="Delta V Attenuator" UID="6fbb1bbc-ce41-4b75-a8de-66528cbc6e79" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="2">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch3Atten" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch3Atten" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SPS.BQHT/Setting#ch3Atten" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SPS.BQHT" FIELD_NAME="ch3Atten" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,100" MaxValue="NaN" MinSize="70,100" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="27,207" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,100" SizeRatio="0.0" TextColor="255,255,255,255" Title="Pre-Pulse Arm" Type="WriteButton" UID="5c6f959d-e92f-422e-acc4-e1024615ce66" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="12"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-PP-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-PP-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-PP-ARM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-PP-ARM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Enable" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-PP-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-PP-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Pre-Pulse #" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-PP-ARM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-PP-ARM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,190" MaxValue="NaN" MinSize="70,190" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="27,327" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,190" SizeRatio="0.0" TextColor="255,255,255,255" Title="Timing Arm" Type="WriteButton" UID="4bb62ab3-46da-4ea2-a5e8-5244e24cfc39" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="4"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-ARM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-ARM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-MUL-DEL/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-MUL-DEL" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-MUL-DEL/Delay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-MUL-DEL" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-MUL-REP/Delay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-MUL-REP" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Enable" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Delay (ms)" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="20">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-ARM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-ARM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Multi-Trigger" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-MUL-DEL/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-MUL-DEL" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="M.T. Delay (ms)" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-MUL-DEL/Delay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-MUL-DEL" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="M.T. Repetitions" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-CT-MUL-REP/Delay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-CT-MUL-REP" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,160" MaxValue="NaN" MinSize="70,160" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="27,27" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,160" SizeRatio="0.0" TextColor="255,255,255,255" Title="Trigger Pattern" Type="WriteButton" UID="7520a1cd-0a6c-4677-9593-c2cd11cf8881" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="11"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-TURN/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-TURN" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-BUNCH/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-BUNCH" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-HNUM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-HNUM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-REP/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-REP" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Turn Delay" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-TURN/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-TURN" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Bunch Delay" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-BUNCH/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-BUNCH" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Harmonic #" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="924">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-HNUM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-HNUM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Repetitions" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SX.BQHT-REP/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="SX.BQHT-REP" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="SPS.USER.ZERO" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+    </Container>
+  </Element>
+</MonitorPanel>

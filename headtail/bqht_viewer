@@ -1,0 +1,1358 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+'''
+Head-Tail Viewer
+
+Copyright (c) CERN 2015-2017
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Authors:
+    Tom Levens <tom.levens@cern.ch>
+'''
+
+import argparse
+import h5py
+import itertools
+import logging
+import matplotlib as mpl
+import numpy as np
+import os
+import sys
+import traceback
+import webbrowser
+
+from decimal import Decimal
+from functools import wraps
+
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+
+from modules import bqht
+from modules.icons import Icons
+
+__version__ = '2018-05-18'
+
+app_name = 'Head-Tail Viewer'
+app_auth = 'CERN BE-BI'
+app_link = 'https://wikis.cern.ch/display/BEBI/BQHT'
+
+
+def main():
+    args = argparse.ArgumentParser(description=app_name)
+    args.add_argument('--version', action='version', version='%(prog)s {0}'.format(__version__))
+    args.add_argument('sys', help='system', nargs='*')
+    args.add_argument('--file', '-f', help='open a specific HDF5 file')
+    args.add_argument('--pls', help='PLS line')
+    args.add_argument('--cfg', help='config file')
+    args.add_argument('--dir', help='override data directory')
+    args.add_argument('--archive', action='store_true', default=False,
+                      help='read data from EOS')
+    argv = args.parse_args()
+
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
+
+    if (argv.cfg is not None) and (not os.path.isfile(argv.cfg)):
+        args.error('config file not found: {0}'.format(argv.cfg))
+
+    ht = bqht.BQHT(cfg_file=argv.cfg)
+
+    if len(argv.sys) == 0:
+        systems = ht.systems
+    else:
+        systems = list(map(lambda x: x.upper(), argv.sys))
+
+    for system in systems:
+        if system not in ht.systems:
+            args.error('{0} is not a valid system ( {1} )'.format(system, ' | '.join(sorted(ht.systems))))
+
+    if argv.dir is not None and not os.path.isdir(argv.dir):
+        args.error('directory {0} does not exist'.format(argv.dir))
+
+    # Create Qt application
+    app = QApplication(sys.argv)
+
+    # Set system
+    if len(systems) > 1:
+        geom = QDesktopWidget().availableGeometry(QDesktopWidget().primaryScreen())
+        box = QMessageBox()
+        box.setWindowTitle('Head-Tail Selector')
+        box.setText('Please select a Head-Tail system')
+        for i, system in enumerate(systems):
+            cfg = ht._cp[system]
+            button = QPushButton(cfg['title'])
+            button.setShortcut('Ctrl+{0}'.format(i+1))
+            button.setStyleSheet('QPushButton {{ background-color: {0}; color: white; }}'.format(cfg['color']))
+            box.addButton(button, QMessageBox.ActionRole)
+        box.setWindowIcon(QIcon(Icons().pythonPixmap()))
+        box.show()
+        box.move(geom.x() + (geom.width() - box.width()) / 2, geom.y() + (geom.height() - box.width()) / 2)
+        ht.system = systems[box.exec_()]
+    else:
+        ht.system = systems[0]
+
+    if argv.pls is not None:
+        pls = argv.pls
+    else:
+        pls = os.getenv('PLS_LINE')
+
+    if not pls:
+        pls = 'ALL'
+
+    # Handle cases where PLS is provided in the following forms:
+    #   - 'ZERO'
+    #   - 'SPS.USER.ZERO'
+    #   - 'SPS.USER.ZERO 0'
+    ht.user = pls.split(' ')[0].split('.')[-1]
+
+    ht.archive = argv.archive
+
+    # Create window
+    win = BQHTMainWindow(ht, argv.dir)
+    win.show()
+
+    # Load file
+    latest_file = win.find_latest_file()
+    if argv.file is not None:
+        win.load_file(argv.file, False)
+    elif latest_file is not None:
+        win.load_file(latest_file, not argv.archive)
+    else:
+        win.status_msg = 'no file open'
+        win.set_statusbar(win.status_msg, logging.ERROR)
+
+    app.exec_()
+
+
+class BQHTMainWindow(QMainWindow):
+    def __init__(self, ht, use_dir, parent=None):
+        '''Overload of QMainWindow class'''
+        super().__init__(parent)
+
+        self.log = logging.getLogger(os.path.basename(__file__))
+
+        self.log.info('{0} version {1}, library version {2}'.format(app_name, __version__, bqht.__version__))
+
+        self.ht = ht
+        self.htf = None
+        self.log.info('Using configuration file: {0}'.format(self.ht.cfg_file))
+
+        self.use_dir = use_dir
+        if use_dir is not None:
+            self.log.info('Using data directory: {0}'.format(self.use_dir))
+
+        self.setWindowIcon(QIcon(Icons().pythonPixmap()))
+
+        if self.ht.user != 'ALL':
+            self.log.info('User is {0}'.format(self.ht.user))
+
+        self.lines = [[], [], [], []]
+        self.images = []
+        self.prev_xlims = (0, 0)
+        self.prev_ylims = [(0, 0), (0, 0), (0, 0), (0, 0)]
+
+        self.create_menu()
+        self.create_main_frame()
+        self.create_status_bar()
+        self.setup_timer()
+
+        self.resize(QSize(1024, 768))
+
+        self.log.addHandler(BQHTLoggingHandler(self))
+        self.set_system(self.ht.system, initial=True)
+
+    def _check_file_open(func):
+        @wraps(func)
+        def wrapper(self, *args, **kwargs):
+            if not self.htf:
+                return None
+            return func(self, *args, **kwargs)
+        return wrapper
+
+    def closeEvent(self, event):
+        '''Bye bye'''
+        self.log.info('Exiting...')
+        super().closeEvent(event)
+
+    def open_file(self):
+        '''Show a dialog for opening a file'''
+        path, _ = QFileDialog.getOpenFileName(self, 'Open file', self.workingdir, 'HDF5 (*.h5)')
+
+        if path:
+            self.clear_statusbar()
+            self.load_file(path, False)
+
+    @_check_file_open
+    def save_trace(self, *args):
+        '''Save trace data to a HDF5 file'''
+        path, _ = QFileDialog.getSaveFileName(self, 'Save traces', self.workingdir, 'HDF5 (*.h5)')
+
+        if path:
+            filename, ext = os.path.splitext(path)
+
+            if ext != '.h5':
+                path = '{0}.h5'.format(path)
+
+            try:
+                savefile = h5py.File(path, 'w')
+
+                numlines = int(self.view_num.getVal())
+
+                for p, (plane, sig) in enumerate(self.htf.planes_signals):
+                    name = '{0}/{1}'.format(plane, sig)
+                    for i in range(0, numlines):
+                        line = np.transpose(np.array(self.lines[p][i].get_data()))
+                        dataset = savefile.create_dataset('{0}/line{1}'.format(name, i), line.shape, data=line)
+
+                savefile.close()
+
+                msg = 'Traces saved to {0}'.format(path)
+                self.set_statusbar(msg, logging.INFO)
+                self.log.info(msg)
+            except Exception as e:
+                self.log.error('Could not save traces to {0} [{1}]'.format(path, e.args[0]))
+                traceback.print_exc()
+
+    def load_file(self, path, watch=None):
+        '''Load a file and plot'''
+        try:
+            self.log.info('Opening file {0}'.format(path))
+            if watch is not None:
+                self.watch_cb.setChecked(watch)
+            if self.htf is not None:
+                self.htf.close()
+            self.htf = self.ht.open_file(path)
+            self.workingdir = os.path.dirname(path)
+            self.optimise_overlap()
+            self.update_bunches()
+            self.draw_fig()
+            self.set_statusbar(self.status_msg, logging.INFO)
+            if not self.htf.bunches and not self.ht.archive:
+                msgBox = BQHTMessageBox(self)
+                msgBox.setWindowTitle('Confirmation')
+                msgBox.setText('No bunches detected, delete file?'),
+                msgBox.setIcon(QMessageBox.Question)
+                msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+                msgBox.setDefaultButton(QMessageBox.Yes)
+                msgBox.setTimeout(3)
+                q = msgBox.exec_()
+                if q == QMessageBox.Yes:
+                    self._del_file(path)
+        except Exception as e:
+            self.log.error('Could not open {0} [{1}]'.format(path, e.args[0]))
+            traceback.print_exc()
+
+    def find_latest_file(self):
+        '''Returns the latest file'''
+        files = self.ht.files
+        if len(files) > 0:
+            return files[-1]
+        else:
+            return None
+
+    @_check_file_open
+    def prev_file(self, checked=None, cb=True):
+        '''Load the previous file'''
+        try:
+            files = self.ht.files
+            file_idx = files.index(self.htf.filename)
+
+            if file_idx == 0:
+                return file_idx
+            else:
+                if cb:
+                    self.watch_cb.setChecked(False)
+                self.clear_statusbar()
+                self.load_file(files[file_idx-1])
+        except ValueError:
+            return None
+
+    @_check_file_open
+    def next_file(self, checked=None, cb=True):
+        '''Load the next file'''
+        try:
+            files = self.ht.files
+            file_idx = files.index(self.htf.filename)
+
+            if file_idx == len(files)-1:
+                return file_idx
+            else:
+                if cb:
+                    self.watch_cb.setChecked(False)
+                self.clear_statusbar()
+                self.load_file(files[file_idx+1])
+        except ValueError:
+            return None
+
+    @_check_file_open
+    def del_file(self, *args):
+        '''Delete the current file'''
+        filename = self.htf.filename
+        basename = os.path.basename(filename)
+
+        q = QMessageBox.question(self, 'Confirmation', 'Are you sure you want to delete\n{0}'.format(basename),
+                                 QMessageBox.Yes, QMessageBox.No)
+
+        if q == QMessageBox.Yes:
+            self._del_file(filename)
+
+    def _del_file(self, filename):
+        try:
+            self.prev_file(cb=False)
+            os.remove(filename)
+            self.log.info('Deleted file {0}'.format(filename))
+        except Exception as e:
+            self.log.error('Could delete file {0} [{1}]'.format(filename, e.args[0]))
+            traceback.print_exc()
+
+    @_check_file_open
+    def save_file(self, *args):
+        '''Save the file'''
+        filename = self.htf.filename
+        basename = os.path.basename(filename)
+        savedir = os.path.join(os.path.dirname(filename), 'save')
+        savefile = os.path.join(savedir, basename)
+
+        try:
+            if not os.path.isdir(savedir):
+                os.mkdir(savedir)
+                os.chmod(savedir, 0o02775)
+
+            msg = None
+
+            if os.path.isfile(savefile):
+                q = QMessageBox.question(self, 'Confirmation', 'File already saved, remove?',
+                                         QMessageBox.Yes, QMessageBox.No)
+
+                if q == QMessageBox.Yes:
+                    os.unlink(savefile)
+                    msg = 'Deleted file {0}'.format(savefile)
+            else:
+                os.link(filename, savefile)
+                msg = 'Saved to {0}'.format(savefile)
+
+            if msg is not None:
+                self.set_statusbar(msg, logging.INFO)
+                self.log.info(msg)
+        except Exception as e:
+            self.log.error('Could not save to {0} [{1}]'.format(savefile, e.args[0]))
+            traceback.print_exc()
+
+    def watch_dir(self):
+        '''Function called periodically to load new files'''
+        if self.watch_cb.isChecked():
+            self.load_latest()
+
+    def load_latest(self):
+            latest_file = self.find_latest_file()
+            if (latest_file is not None) and ((self.htf is None) or (latest_file != self.htf.filename)):
+                self.load_file(latest_file)
+
+    def clear_statusbar(self):
+        '''Restore the status bar to default text and color'''
+        self.status_level = logging.NOTSET
+        self.status_text.setText(self.status_msg)
+        self.statusBar().setStyleSheet('QLabel {{ background-color: {0}; }}'.format(self.bgcolor.name()))
+
+    def set_statusbar(self, text, level):
+        '''Show a status bar message'''
+        if level >= self.status_level:
+            if level >= logging.ERROR:
+                color = '#F00'
+            elif level >= logging.WARNING:
+                color = '#FC0'
+            else:
+                color = '#0F0'
+            self.status_text.setText(text)
+            self.statusBar().setStyleSheet('QLabel {{ background-color: {0}; }}'.format(color))
+            self.statusbar_tick.start(5000)
+            self.status_level = level
+
+    def setup_timer(self):
+        '''Setup timers'''
+        self.watch_dir_tick = QTimer()
+        self.watch_dir_tick.timeout.connect(self.watch_dir)
+        self.watch_dir_tick.start(1000)
+
+        self.statusbar_tick = QTimer()
+        self.statusbar_tick.setSingleShot(True)
+        self.statusbar_tick.timeout.connect(self.clear_statusbar)
+
+    def about(self):
+        '''Show about dialog'''
+        msg = '''<h2>{0}</h2>
+                 <p><i>{1}</i></p>
+                 <p><table border="0" cellspacing="5">
+                 <tr><td><b>GUI version:</b></td><td>{2}</td></tr>
+                 <tr><td><b>Lib. version:</b></td><td>{3}</td></tr>
+                 </table></p>
+                 <p><a href="{4}">{4}</a></p>
+              '''.format(app_name, app_auth, __version__, bqht.__version__, app_link)
+        box = QMessageBox(self)
+        box.setWindowTitle('About')
+        box.setIconPixmap(Icons().bqhtViewerPixmap())
+        box.setTextFormat(Qt.RichText)
+        box.setText(msg)
+        box.addButton(QMessageBox.Ok)
+        box.exec_()
+
+    def help(self):
+        '''Launch help in web browser'''
+        webbrowser.open(app_link)
+
+    def sel_system_menu(self):
+        '''Function called when selecting a system in the menu'''
+        self.ht.archive = self.archive_action.isChecked()
+        for action in self.system_actions:
+            if action.isChecked():
+                self.set_system(action.text())
+                break
+
+    def sel_user_menu(self):
+        '''Function called when selecting a user in the menu'''
+        for action in self.user_actions:
+            if action is not None and action.isChecked():
+                self.ht.user = action.text()
+                self.log.info('Setting user to {0}'.format(self.ht.user))
+                self.set_window_title(self.ht.user)
+
+    def set_window_title(self, user):
+        '''Set the window titie'''
+        user_str = '' if user == 'ALL' else ' - {0}.USER.{1}'.format(self.ht.acc, user)
+        self.setWindowTitle('{0} - {1}{2}'.format(app_name, self.ht.title, user_str))
+
+    def set_system(self, system, initial=False):
+        '''Set the system'''
+        try:
+            self.ht.system = system
+            self.log.info('System set to {0}'.format(system))
+        except Exception as e:
+            self.log.info('Could not set system to {0} [{1}]'.format(system, e.args[0]))
+            return
+
+        if self.use_dir is not None:
+            self.ht.dir = self.use_dir
+
+        self.workingdir = self.ht.dir
+
+        self.title.setText('{0}'.format(self.ht.title))
+
+        self.title.setStyleSheet(
+            ''' QLabel {{
+                    background-color:   {0};
+                    color:              white;
+                    font-size:          16px;
+                    padding:            4px;
+                    font-weight:        bold;
+                    border:             1px solid {1};
+                    margin:             0px;
+                }}
+            '''.format(self.ht.color, self.fgcolor.name())
+        )
+
+        self.first_bunch.setMax(self.ht.harmonic)
+        self.last_bunch.setMax(self.ht.harmonic)
+        self.max_bunch = self.ht.harmonic
+
+        self.view_repeat.setVal(str(round(self.ht.frev * 1.0e9, 4)))
+
+        self.view_offset.setVal(str(round(self.ht.offset * 1.0e9, 1)))
+        self.prev_view_offset = self.view_offset.getVal()
+        self.view_offset.setMax(str(round(self.ht.max_offset * 1.0e9, 1)))
+
+        if self.ht.cable_comp:
+            self.cable_comp_cb.setEnabled(1)
+        else:
+            self.cable_comp_cb.setDisabled(1)
+
+        for action in self.system_actions:
+            if action.text() == system:
+                action.setChecked(True)
+
+        self.user_menu.clear()
+        self.user_actions = []
+
+        for user in self.ht.users:
+            action = self.create_action(user, parent=self.user_group, slot=self.sel_user_menu, checkable=True)
+
+            if user == self.ht.user:
+                action.setChecked(True)
+
+            self.user_actions.append(action)
+
+        if len(self.user_actions) > 1:
+            self.user_actions.insert(1, None)
+
+        self.add_actions(self.user_menu, self.user_actions)
+
+        self.set_window_title(self.ht.user)
+
+        if self.ht.archive:
+            self.watch_cb.setChecked(False)
+
+        if not initial:
+            self.load_latest()
+
+    def _print_bunches(self, bunches):
+        '''Print bunch list'''
+        return ', '.join([
+            str(x[0]) if len(x) == 1 else '{0}-{1}'.format(x[0], x[-1])
+            for x in [
+                list(map(lambda x: x[1], g))
+                for _, g in itertools.groupby(enumerate(bunches), lambda x: x[0] - x[1])
+            ]
+        ])
+
+    @_check_file_open
+    def update_bunches(self):
+        '''Update the bunch list'''
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+
+        try:
+            self.log.info('Locating bunches')
+
+            self.htf.locate_bunches()
+
+            if len(self.htf.bunches) > 0:
+                self.log.info('Found bunches: {0}'.format(self._print_bunches(self.htf.bunches)))
+                self.log.info('Populated turns: {0}'.format(self._print_bunches(self.htf.populated_turns)))
+            else:
+                self.log.info('No bunches found')
+
+            self.bunch_list.clear()
+            last_bunch = None
+            for bunch in self.htf.bunches:
+                item = QListWidgetItem(self.bunch_list)
+                item.setText('# {0}'.format(bunch+1))
+                if last_bunch is None or bunch > last_bunch + 5:
+                    item.setForeground(Qt.blue)
+                last_bunch = bunch
+        except Exception as e:
+            self.log.error('Could not locate bunches [{0}]'.format(e.args[0]))
+            traceback.print_exc()
+
+        QApplication.restoreOverrideCursor()
+
+    @_check_file_open
+    def optimise_overlap(self):
+        '''Opermise the repeat value'''
+        if self.htf.data['horizontal']['sigma'].segments == 1:
+            self.view_repeat.setEnabled(1)
+        else:
+            self.view_repeat.setDisabled(1)
+
+        self.htf.locate_bunches()
+
+        if self.repeat_cb.isChecked() and len(self.htf.bunches) > 0:
+            QApplication.setOverrideCursor(Qt.WaitCursor)
+
+            try:
+                self.log.info('Optimising repeat')
+                self.htf.optimise_overlap()
+                self.view_repeat.setVal(str(round(self.htf.frev * 1.0e9, 4)))
+                self.log.info('New repeat value: {0}'.format(self.htf.frev))
+            except Exception as e:
+                self.log.error('Could not optimise repeat [{0}]'.format(e.args[0]))
+                traceback.print_exc()
+
+            QApplication.restoreOverrideCursor()
+
+    @_check_file_open
+    def change_repeat_cb(self, *args):
+        self.optimise_overlap()
+        self.draw_fig()
+
+    def fix_colors(self, *args):
+        self.fc_view_start = int(self.view_start.getVal()) - 1
+        self.fc_view_num = int(self.view_num.getVal())
+        self.fc_view_inc = int(self.view_inc.getVal())
+        self.draw_fig()
+
+    def colors(self, nb_turns, view_start, view_inc, view_num):
+        colors = mpl.cm.jet(np.linspace(0, 1, view_inc * view_num))
+        colors = np.pad(colors, ((view_start, nb_turns - (view_start + view_num)), (0, 0)), 'edge')
+        return colors
+
+    @_check_file_open
+    def draw_fig(self, *args):
+        '''Draw the figures'''
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+
+        try:
+            for ax in self.axes:
+                ax.lines.clear()
+                ax.images.clear()
+
+            # Update offset and frev
+            view_offset = self.view_offset.getVal()
+            if view_offset != self.prev_view_offset:
+                self.ht.offset = float(view_offset) / 1.0e9
+                self.htf.offset = float(view_offset) / 1.0e9
+                self.prev_view_offset = view_offset
+                self.optimise_overlap()
+                self.update_bunches()
+
+            self.htf.frev = float(self.view_repeat.getVal()) / 1.0e9
+
+            # decimate = int(self.view_decimate.getVal())
+
+            # Find the minimum values across all planes
+            self.max_bunch = min([self.htf.data[p][s].number_of_bunches for p, s in self.htf.planes_signals])
+            nb_turns = min([self.htf.data[p][s].number_of_turns for p, s in self.htf.planes_signals])
+            data_size = min([self.htf.data[p][s].size for p, s in self.htf.planes_signals])
+
+            first_bunch = int(self.first_bunch.getVal())
+            last_bunch = int(self.last_bunch.getVal())
+
+            # Limit the first and last bunch to the maximum bunch number
+            if first_bunch > self.max_bunch:
+                first_bunch = self.max_bunch
+                self.first_bunch.setVal(self.max_bunch)
+
+            if last_bunch > self.max_bunch:
+                last_bunch = self.max_bunch
+                self.last_bunch.setVal(self.max_bunch)
+
+            # GUI defines bunches 1..N while in the data they are 0..N-1
+            first_bunch -= 1
+            last_bunch -= 1
+
+            self.view_inc.setMax(nb_turns)
+            view_inc = int(self.view_inc.getVal())
+
+            self.view_num.setMax(nb_turns // view_inc)
+            view_num = int(self.view_num.getVal())
+
+            self.view_start.setMax(nb_turns - (view_num * view_inc) + 1)
+            view_start = int(self.view_start.getVal()) - 1
+
+            view_stop = view_start + (view_inc * view_num)
+
+            show_fs = self.show_fs_cb.isChecked()
+            remove_baseline = self.baseline_cb.isChecked()
+            plot2d = self.plot2d_cb.isChecked()
+
+            if plot2d:
+                self.scale_y_cb.setDisabled(1)
+                self.show_fs_cb.setDisabled(1)
+                self.fix_colors_cb.setDisabled(1)
+                self.baseline_cb.setEnabled(1)
+            else:
+                self.scale_y_cb.setEnabled(1)
+                self.show_fs_cb.setEnabled(1)
+                self.fix_colors_cb.setEnabled(1)
+
+                if show_fs:
+                    self.baseline_cb.setDisabled(1)
+                    remove_baseline = False
+                else:
+                    self.baseline_cb.setEnabled(1)
+
+            # Create colors for traces
+            if self.fix_colors_cb.isChecked():
+                colors = self.colors(nb_turns, self.fc_view_start, self.fc_view_inc, self.fc_view_num)
+            else:
+                colors = self.colors(nb_turns, view_start, view_inc, view_num)
+
+            x0 = None
+
+            turn_range = range(view_start, view_stop, view_inc)
+
+            im_y_min = view_start + 1 - view_inc/2
+            im_y_max = view_stop + 1 - view_inc/2
+
+            # Plotting
+            for p, (plane, signal) in enumerate(self.htf.planes_signals):
+                dataset = self.htf.data[plane][signal]
+                dataset.remove_baseline = remove_baseline if signal == 'delta' else False
+                dataset.remove_jitter = self.repeat_cb.isChecked()
+                dataset.cable_comp = self.cable_comp_cb.isChecked()
+                dataset.align = plot2d
+
+                yy = []
+
+                for j, i in enumerate(turn_range):
+                    x, y = dataset[i, first_bunch:last_bunch]
+
+                    # Scale X to bunches
+                    x = ((x - dataset.offset) / dataset.frev) * dataset.harmonic + 1
+
+                    if p == 0 and j == 0:
+                        x0 = x
+
+                    yy.append(y)
+
+                    if not plot2d:
+                        if j < len(self.lines[p]):
+                            self.lines[p][j].set_data(x, y)
+                            self.lines[p][j].set_color(colors[i])
+                            self.axes[p].lines.append(self.lines[p][j])
+                        else:
+                            self.lines[p].append(self.axes[p].plot(x, y, c=colors[i], lw=1.0)[0])
+
+                if plot2d:
+                    # Plot 2D
+                    max_yy = max(map(abs, (np.min(yy), np.max(yy))))
+                    if p < len(self.images):
+                        self.images[p].set_data(yy)
+                        self.images[p].set_clim(-max_yy, max_yy)
+                        self.images[p].set_extent((x0[0], x0[-1], im_y_min, im_y_max))
+                        self.axes[p].images.append(self.images[p])
+                    else:
+                        self.images.append(self.axes[p].imshow(yy, aspect='auto', origin='lower',
+                                           cmap=mpl.cm.jet, vmin=-max_yy, vmax=max_yy,
+                                           extent=(x0[0], x0[-1], im_y_min, im_y_max)))
+                else:
+                    if show_fs:
+                        dt = np.iinfo(dataset._dataset.dtype)
+                        self.axes[p].axhline(dataset.convert_data(dt.max), c='r', ls='--', lw=1.0)
+                        self.axes[p].axhline(dataset.convert_data(dt.min), c='r', ls='--', lw=1.0)
+
+            # Update display
+            xlims = (x0[0], x0[-1])
+            scale_x = xlims != self.prev_xlims
+            self.prev_xlims = xlims
+
+            if scale_x:
+                # self.mpl_toolbar._views.clear()
+                # self.mpl_toolbar._positions.clear()
+                self.axes[0].set_xlim(xlims)
+
+            scale_y = self.scale_y_cb.isChecked() or plot2d
+
+            for a, ax in enumerate(self.axes):
+                if plot2d:
+                    ax.grid(False)
+                    ylims = (im_y_min, im_y_max)
+                    ax.set_ylim(ylims)
+                    ax.yaxis.set_major_locator(mpl.ticker.FixedLocator(np.array(turn_range)+1, nbins=5))
+                else:
+                    ax.grid(True)
+
+                    ax.relim()
+                    ax.autoscale(axis='y')
+
+                    ylim = ax.get_ylim()
+                    max_y = max(map(abs, ylim))
+
+                    ylims = (-max_y, max_y)
+
+                    if scale_y:
+                        ax.set_ylim(ylims)
+                        self.prev_ylims[a] = ylims
+                    else:
+                        ax.set_ylim(self.prev_ylims[a])
+
+                    ax.yaxis.set_major_locator(mpl.ticker.AutoLocator())
+
+                    if show_fs and self.ht.limit > 0:
+                        ax.axhline(self.ht.limit, c='m', ls=':', lw=1.0)
+                        ax.axhline(-self.ht.limit, c='m', ls=':', lw=1.0)
+
+                # Hacky...
+                if len(self.mpl_toolbar._views._elements) > 0:
+                    self.mpl_toolbar._views._elements[0][a] = (xlims[0], xlims[1], ylims[0], ylims[1])
+
+            if scale_x or scale_y:
+                self.mpl_toolbar.push_current()
+
+            self.status_msg = '{0}  |  {1:d} MB  |  {2:.1f} MS  |  {3:.0f} turns'.format(
+                os.path.basename(self.htf.filename),
+                self.htf.filesize // 1024**2,
+                float(data_size) / 1000**2,
+                nb_turns
+            )
+
+            self.canvas.draw()
+        except Exception as e:
+            self.log.error('Could draw figure [{0}]'.format(e.args[0]))
+            traceback.print_exc()
+
+        QApplication.restoreOverrideCursor()
+
+    def update_first(self):
+        '''Function called to update the first bunch field'''
+        first = self.first_bunch.getVal()
+        last = self.last_bunch.getVal()
+
+        if last < first:
+            self.last_bunch.setVal(first)
+
+        self.bunch_list.clearSelection()
+        self.draw_fig()
+
+    def update_last(self):
+        '''Function called to update the last bunch field'''
+        first = self.first_bunch.getVal()
+        last = self.last_bunch.getVal()
+
+        if first > last:
+            self.first_bunch.setVal(last)
+
+        self.bunch_list.clearSelection()
+        self.draw_fig()
+
+    def sel_bunch(self):
+        '''Function called to select a bunch from the list'''
+        items = self.bunch_list.selectedItems()
+
+        if len(items) > 0:
+            bunches = sorted(map(lambda x: int(x.text().split(' ')[1]), items))
+            self.first_bunch.setVal(bunches[0])
+            self.last_bunch.setVal(bunches[-1])
+            self.draw_fig()
+
+    def sel_all_bunches(self):
+        '''Function to select all bunches'''
+        self.first_bunch.setVal(1)
+        self.last_bunch.setVal(self.max_bunch)
+        self.bunch_list.clearSelection()
+        self.draw_fig()
+
+    def on_resize(self, event):
+        '''Tighten the layout on window resize'''
+        self.fig.tight_layout()
+
+    def create_main_frame(self):
+        '''Create the main frame'''
+        self.main_frame = QWidget()
+
+        self.fig = mpl.figure.Figure()
+        self.canvas = FigureCanvas(self.fig)
+        self.canvas.setParent(self.main_frame)
+
+        self.axes = [None, None, None, None]
+        self.axes[0] = self.fig.add_subplot(411)
+        self.axes[1] = self.fig.add_subplot(412, sharex=self.axes[0])
+        self.axes[2] = self.fig.add_subplot(413, sharex=self.axes[0])
+        self.axes[3] = self.fig.add_subplot(414, sharex=self.axes[0])
+
+        self.mpl_toolbar = NavigationToolbar(self.canvas, self.main_frame)
+
+        # Plot titles for each trace
+        plot_titles = (
+            'Horizontal Delta',
+            'Horizontal Sigma',
+            'Vertical Delta',
+            'Vertical Sigma'
+        )
+
+        for a, ax in enumerate(self.axes):
+            ax.set_title(plot_titles[a], fontsize=11)
+            ax.tick_params(axis='x', labelsize=9)
+            ax.tick_params(axis='y', labelsize=9)
+            ax.grid(True)
+            ax.xaxis.get_offset_text().set_size(9)
+            ax.yaxis.get_offset_text().set_size(9)
+
+            x_fmt = mpl.ticker.ScalarFormatter(useOffset=False)
+            ax.xaxis.set_major_formatter(x_fmt)
+
+            if a < 3:
+                ax.xaxis.get_offset_text().set_visible(False)
+                for label in ax.get_xticklabels():
+                    label.set_visible(False)
+
+        self.fig.tight_layout()
+
+        self.bgcolor = self.main_frame.palette().color(QPalette.Window)
+        self.fgcolor = self.main_frame.palette().color(QPalette.WindowText)
+
+        self.fig.set_facecolor((self.bgcolor.red() / 255.0,
+                                self.bgcolor.green() / 255.0,
+                                self.bgcolor.blue() / 255.0,
+                                1.0))
+
+        self.canvas.mpl_connect('resize_event', self.on_resize)
+
+        auto_label = QLabel('Options:')
+        auto_label.setAlignment(Qt.AlignRight | Qt.AlignTop)
+
+        self.watch_cb = QCheckBox('Load')
+        self.watch_cb.setChecked(True)
+        self.watch_cb.setToolTip('Automatically load new files')
+
+        self.scale_y_cb = QCheckBox('Scale Y')
+        self.scale_y_cb.setChecked(True)
+        self.scale_y_cb.stateChanged.connect(self.draw_fig)
+        self.scale_y_cb.setToolTip('Automatically rescale the Y-axis')
+
+        self.show_fs_cb = QCheckBox('Show FS')
+        self.show_fs_cb.setChecked(False)
+        self.show_fs_cb.stateChanged.connect(self.draw_fig)
+        self.show_fs_cb.setToolTip('Show the digitizer full-scale')
+
+        self.repeat_cb = QCheckBox('Repeat')
+        self.repeat_cb.setChecked(True)
+        self.repeat_cb.stateChanged.connect(self.change_repeat_cb)
+        self.repeat_cb.setToolTip('Automatically adjust repeat value')
+
+        self.baseline_cb = QCheckBox('Baseline')
+        self.baseline_cb.setChecked(True)
+        self.baseline_cb.stateChanged.connect(self.draw_fig)
+        self.baseline_cb.setToolTip('Remove baseline from delta signals')
+
+        self.plot2d_cb = QCheckBox('2D Plot')
+        self.plot2d_cb.setChecked(False)
+        self.plot2d_cb.stateChanged.connect(self.draw_fig)
+        self.plot2d_cb.setToolTip('Show a 2D plot')
+
+        self.fix_colors_cb = QCheckBox('Fixed Colours')
+        self.fix_colors_cb.setChecked(False)
+        self.fix_colors_cb.stateChanged.connect(self.fix_colors)
+        self.fix_colors_cb.setToolTip('Fix the color scale based on the currently displayed number of traces')
+
+        self.cable_comp_cb = QCheckBox('Compensation')
+        self.cable_comp_cb.setChecked(False)
+        self.cable_comp_cb.stateChanged.connect(self.draw_fig)
+        self.cable_comp_cb.setToolTip('Compensate cable response')
+
+        view_offset_label = QLabel('Offset:')
+        view_offset_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+        self.view_offset = BQHTLineEdit()
+        self.view_offset.returnPressed.connect(self.draw_fig)
+        self.view_offset.setVal(0)
+        self.view_offset.setMin(0)
+        self.view_offset.setInteger(False)
+        self.view_offset.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum))
+
+        view_repeat_label = QLabel('Repeat:')
+        view_repeat_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+        self.view_repeat = BQHTLineEdit()
+        self.view_repeat.returnPressed.connect(self.draw_fig)
+        self.view_repeat.setVal(1)
+        self.view_repeat.setMin(1)
+        self.view_repeat.setInteger(False)
+        self.view_repeat.setInc('0.1')
+        self.view_repeat.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum))
+
+        view_start_label = QLabel('Start:')
+        view_start_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+        self.view_start = BQHTLineEdit()
+        self.view_start.returnPressed.connect(self.draw_fig)
+        self.view_start.setVal(1)
+        self.view_start.setMin(1)
+        self.view_start.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum))
+
+        view_num_label = QLabel('Num:')
+        view_num_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+        self.view_num = BQHTLineEdit()
+        self.view_num.returnPressed.connect(self.draw_fig)
+        self.view_num.setVal(1)
+        self.view_num.setMin(1)
+        self.view_num.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum))
+
+        view_inc_label = QLabel('Inc:')
+        view_inc_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+        self.view_inc = BQHTLineEdit()
+        self.view_inc.returnPressed.connect(self.draw_fig)
+        self.view_inc.setVal(1)
+        self.view_inc.setMin(1)
+        self.view_inc.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum))
+
+        first_bunch_label = QLabel('From:')
+        first_bunch_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+        self.first_bunch = BQHTLineEdit()
+        self.first_bunch.returnPressed.connect(self.update_first)
+        self.first_bunch.setVal(1)
+        self.first_bunch.setMin(1)
+        self.first_bunch.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum))
+
+        last_bunch_label = QLabel('To:')
+        last_bunch_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+        self.last_bunch = BQHTLineEdit()
+        self.last_bunch.returnPressed.connect(self.update_last)
+        self.last_bunch.setVal(self.ht.harmonic)
+        self.last_bunch.setMin(1)
+        self.last_bunch.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum))
+
+        self.all_bunches_button = QPushButton('&All')
+        self.all_bunches_button.clicked.connect(self.sel_all_bunches)
+
+        bunch_list_label = QLabel('Bunch:')
+        bunch_list_label.setAlignment(Qt.AlignRight | Qt.AlignTop)
+
+        self.bunch_list = BQHTListWidget()
+        self.bunch_list.setAlternatingRowColors(True)
+        self.bunch_list.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        self.bunch_list.itemSelectionChanged.connect(self.sel_bunch)
+        self.bunch_list.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.MinimumExpanding))
+
+        self.prev_button = QToolButton()
+        self.next_button = QToolButton()
+        self.del_button = QToolButton()
+        self.save_button = QToolButton()
+
+        self.prev_button.setArrowType(Qt.LeftArrow)
+        self.next_button.setArrowType(Qt.RightArrow)
+        self.del_button.setIcon(QIcon(Icons().deletePixmap()))
+        self.save_button.setIcon(QIcon(Icons().savePixmap()))
+
+        self.prev_button.setToolTip('Load previous file')
+        self.next_button.setToolTip('Load next file')
+        self.del_button.setToolTip('Delete file')
+        self.save_button.setToolTip('Save file')
+
+        self.prev_button.clicked.connect(self.prev_file)
+        self.next_button.clicked.connect(self.next_file)
+        self.del_button.clicked.connect(self.del_file)
+        self.save_button.clicked.connect(self.save_file)
+
+        buttons = QWidget()
+        buttonslayout = QHBoxLayout(buttons)
+        buttonslayout.addStretch(2)
+        buttonslayout.addWidget(self.prev_button)
+        buttonslayout.addWidget(self.next_button)
+        buttonslayout.addStretch(1)
+        buttonslayout.addWidget(self.del_button)
+        buttonslayout.addWidget(self.save_button)
+        buttonslayout.addStretch(2)
+
+        mainlayout = QVBoxLayout()
+
+        self.title = QLabel()
+        self.title.setAlignment(Qt.AlignCenter)
+        self.title.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Maximum))
+        mainlayout.addWidget(self.title)
+
+        innerlayout = QHBoxLayout()
+
+        toolbar = QWidget()
+        toolbarlayout = QGridLayout(toolbar)
+
+        # Adding controls to toolbar
+        i = 0
+
+        toolbarlayout.addWidget(auto_label, i, 0, 3, 1)
+        toolbarlayout.addWidget(self.watch_cb, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(self.scale_y_cb, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(self.show_fs_cb, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(self.repeat_cb, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(self.baseline_cb, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(self.plot2d_cb, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(self.fix_colors_cb, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(self.cable_comp_cb, i, 1)
+        i += 1
+
+        line1 = QFrame()
+        line1.setFrameShape(QFrame.HLine)
+        line1.setFrameShadow(QFrame.Sunken)
+        toolbarlayout.addWidget(line1, i, 0, 1, 2)
+        i += 1
+
+        toolbarlayout.addWidget(view_offset_label, i, 0)
+        toolbarlayout.addWidget(self.view_offset, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(view_repeat_label, i, 0)
+        toolbarlayout.addWidget(self.view_repeat, i, 1)
+        i += 1
+
+        line2 = QFrame()
+        line2.setFrameShape(QFrame.HLine)
+        line2.setFrameShadow(QFrame.Sunken)
+        toolbarlayout.addWidget(line2, i, 0, 1, 2)
+        i += 1
+
+        toolbarlayout.addWidget(view_start_label, i, 0)
+        toolbarlayout.addWidget(self.view_start, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(view_num_label, i, 0)
+        toolbarlayout.addWidget(self.view_num, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(view_inc_label, i, 0)
+        toolbarlayout.addWidget(self.view_inc, i, 1)
+        i += 1
+
+        line3 = QFrame()
+        line3.setFrameShape(QFrame.HLine)
+        line3.setFrameShadow(QFrame.Sunken)
+        toolbarlayout.addWidget(line3, i, 0, 1, 2)
+        i += 1
+
+        toolbarlayout.addWidget(first_bunch_label, i, 0)
+        toolbarlayout.addWidget(self.first_bunch, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(last_bunch_label, i, 0)
+        toolbarlayout.addWidget(self.last_bunch, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(self.all_bunches_button, i, 1)
+        i += 1
+
+        toolbarlayout.addWidget(bunch_list_label, i, 0)
+        toolbarlayout.addWidget(self.bunch_list, i, 1)
+        i += 1
+
+        line5 = QFrame()
+        line5.setFrameShape(QFrame.HLine)
+        line5.setFrameShadow(QFrame.Sunken)
+        toolbarlayout.addWidget(line5, i, 0, 1, 2)
+        i += 1
+
+        toolbarlayout.addWidget(buttons, i, 0, 1, 2)
+        i += 1
+
+        # Finished adding controls
+
+        innerlayout.addWidget(toolbar)
+
+        plotlayout = QVBoxLayout()
+        plotlayout.addWidget(self.canvas)
+        plotlayout.addWidget(self.mpl_toolbar)
+
+        innerlayout.addLayout(plotlayout)
+
+        mainlayout.addLayout(innerlayout)
+
+        self.main_frame.setLayout(mainlayout)
+        self.setCentralWidget(self.main_frame)
+
+    def create_status_bar(self):
+        '''Create the status bar'''
+        self.status_msg = ''
+        self.status_level = logging.NOTSET
+        self.status_text = QLabel()
+        self.status_text.setTextInteractionFlags(Qt.TextSelectableByMouse)
+        self.statusBar().addWidget(self.status_text, 1)
+
+    def create_menu(self):
+        '''Create the menu bar'''
+        # File menu
+        self.file_menu = self.menuBar().addMenu('&File')
+        load_file_action = self.create_action('&Open file...', shortcut='Ctrl+O', slot=self.open_file)
+        save_file_action = self.create_action('&Save file', shortcut='Ctrl+S', slot=self.save_file)
+        del_file_action = self.create_action('&Delete file', shortcut='Ctrl+D', slot=self.del_file)
+        save_trace_action = self.create_action('&Save trace data...', shortcut='Ctrl+Shift+S', slot=self.save_trace)
+        quit_action = self.create_action('&Quit', shortcut='Ctrl+Q', slot=self.close)
+        self.add_actions(self.file_menu, (load_file_action, None, save_file_action, del_file_action, None,
+                                          save_trace_action, None, quit_action))
+
+        # System menu
+        self.system_menu = self.menuBar().addMenu('&System')
+        self.system_group = QActionGroup(self.system_menu)
+        self.system_actions = []
+
+        for system in self.ht.systems:
+            action = self.create_action(system, parent=self.system_group, slot=self.sel_system_menu, checkable=True)
+            self.system_actions.append(action)
+
+        self.archive_action = self.create_action('Archive', slot=self.sel_system_menu, checkable=True)
+        self.archive_action.setChecked(self.ht.archive)
+        self.add_actions(self.system_menu, self.system_actions + [None, self.archive_action])
+
+        # User menu
+        self.user_menu = self.menuBar().addMenu('&User')
+        self.user_group = QActionGroup(self.user_menu)
+        self.user_actions = []
+
+        # Help menu
+        self.help_menu = self.menuBar().addMenu('&Help')
+        help_action = self.create_action('&Help', shortcut='F1', slot=self.help)
+        about_action = self.create_action('&About', slot=self.about)
+        self.add_actions(self.help_menu, (help_action, None, about_action))
+
+    def add_actions(self, target, actions):
+        '''Helper function to create a menu'''
+        for action in actions:
+            if action is None:
+                target.addSeparator()
+            else:
+                target.addAction(action)
+
+    def create_action(self, text, parent=None, slot=None, shortcut=None, icon=None, tip=None, checkable=False):
+        '''Helper function to create a menu item'''
+        action = QAction(text, parent if parent is not None else self)
+        if icon is not None:
+            action.setIcon(QIcon(':/%s.png' % icon))
+        if shortcut is not None:
+            action.setShortcut(shortcut)
+        if tip is not None:
+            action.setToolTip(tip)
+            # action.setStatusTip(tip)
+        if slot is not None:
+            action.triggered.connect(slot)
+        if checkable:
+            action.setCheckable(True)
+        return action
+
+
+class BQHTMessageBox(QMessageBox):
+    def __init__(self, parent=None):
+        self.timeout = None
+        self.tick = QTimer()
+        self.tick.timeout.connect(self.timerEvent)
+        super().__init__(parent)
+
+    def setTimeout(self, timeout):
+        self.timeout = timeout
+
+    def timerEvent(self):
+        if self.timeout is None:
+            return
+        self.timeout -= 1
+        self.updateButtonText()
+        if self.timeout == 0:
+            self.defaultButton().animateClick()
+
+    def updateButtonText(self):
+        self.defaultButton().setText('{0} ({1})'.format(self.default_button_text, self.timeout))
+
+    def showEvent(self, event):
+        if self.timeout is not None:
+            self.default_button_text = self.defaultButton().text()
+            self.updateButtonText()
+            self.tick.start(1000)
+        super().showEvent(event)
+
+
+class BQHTLoggingHandler(logging.Handler):
+    def __init__(self, parent):
+        super().__init__()
+        self._parent = parent
+
+    def emit(self, record):
+        if record.levelno >= logging.WARNING:
+            self._parent.set_statusbar('{0}: {1}'.format(record.levelname, record.msg), record.levelno)
+
+
+class BQHTLineEdit(QLineEdit):
+    def __init__(self):
+        '''Overload of QLineEdit to better support numeric entry'''
+        super().__init__()
+        self.inc = Decimal(1)
+        self.min_val = Decimal('-Infinity')
+        self.max_val = Decimal('Infinity')
+        self.setVal(0)
+        self.valid = QRegExpValidator()
+        self.setValidator(self.valid)
+        self.setInteger(True)
+
+    def setInteger(self, isint):
+        self.integer = isint
+        regexp = '-?\d+' if isint else '-?\d+(\.\d+)?'
+        self.valid.setRegExp(QRegExp(regexp))
+
+    def setVal(self, val):
+        self.val = Decimal(val)
+        self.setText(str(self.val))
+
+    def getVal(self):
+        return self.val
+
+    def setInc(self, inc):
+        self.inc = Decimal(inc)
+
+    def setMin(self, min_val):
+        self.min_val = Decimal(min_val)
+        if self.val < self.min_val:
+            self.setVal(self.min_val)
+
+    def setMax(self, max_val):
+        self.max_val = Decimal(max_val)
+        if self.val > self.max_val:
+            self.setVal(self.max_val)
+
+    def _constrainVal(self):
+        if self.text() == '':
+            self.setText(str(self.val))
+        else:
+            new_val = Decimal(self.text())
+            if new_val > self.max_val:
+                new_val = self.max_val
+                self.setText(str(new_val))
+            elif new_val < self.min_val:
+                new_val = self.min_val
+                self.setText(str(new_val))
+            self.val = new_val
+
+    def focusOutEvent(self, event):
+        self._constrainVal()
+        QLineEdit.focusOutEvent(self, event)
+
+    def _getInc(self, event):
+        if event.modifiers() & Qt.AltModifier:
+            inc = Decimal('0.1') * self.inc
+        elif event.modifiers() & Qt.ShiftModifier:
+            inc = Decimal(10) * self.inc
+        else:
+            inc = self.inc
+        if self.integer and abs(inc) < 1.0:
+            inc = 0
+        return inc
+
+    def keyPressEvent(self, event):
+        return_key = QKeyEvent(QEvent.KeyPress, Qt.Key_Return, Qt.NoModifier, '\n')
+        if event.key() == Qt.Key_Return or event.key() == Qt.Key_Enter:
+            self._constrainVal()
+            QLineEdit.keyPressEvent(self, return_key)
+        elif event.key() == Qt.Key_Up:
+            val = self.val + self._getInc(event)
+            if val <= self.max_val:
+                self.setVal(val)
+                QLineEdit.keyPressEvent(self, return_key)
+        elif event.key() == Qt.Key_Down:
+            val = self.val - self._getInc(event)
+            if val >= self.min_val:
+                self.setVal(val)
+                QLineEdit.keyPressEvent(self, return_key)
+        else:
+            QLineEdit.keyPressEvent(self, event)
+
+    def sizeHint(self):
+        return QSize(90, 24)
+
+
+class BQHTListWidget(QListWidget):
+    '''Overload of QListWidget with better size hint'''
+
+    def sizeHint(self):
+        return QSize(90, 24)
+
+
+if __name__ == '__main__':
+    main()

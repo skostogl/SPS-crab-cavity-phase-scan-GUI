@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MonitorPanel AskForClosingConfirmation="false" AskForWritingConfirmation="false" BlinkingInterval="1600" Class="cern.ade.inspector.gui.panel.MonitorPanel" GridSize="10" SimulateWriting="false" Size="985,1025" SnapToGrid="true" Title="BTF Vertical Beam 1 (Test)" WritingEnabled="true">
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#16" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="220,360" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="53,24" SizeRatio="0.0" Text="Phase" TextColor="255,255,255,255" UID="97e861f4-b910-43c0-be70-bda6ce268f69" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="16"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#16" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="670,70" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="138,27" SizeRatio="0.0" Text="Cross Amplitude" TextColor="255,255,255,255" UID="b46e8659-14d2-4bbe-b686-53d76a1568d1" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="13"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#16" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="200,70" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="90,27" SizeRatio="0.0" Text="Amplitude" TextColor="255,255,255,255" UID="c0d4de6a-a653-4bee-bda4-c858216871d2" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="15"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#16" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="690,360" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="103,24" SizeRatio="0.0" Text="Cross Phase" TextColor="255,255,255,255" UID="76a6ad2f-20f0-4ca9-b34b-3563604c9f18" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="14"/>
+  </Element>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="false" Font="Dialog#1#12" FormatType="Disabled" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="204,204,204,255" OffColor="100,100,100,255" Position="270,890" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="200,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Points Done" Type="TextMonitor" UID="a3ef8a37-aa7a-4abe-abe3-5ff609893998" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="6">
+      <RangeProperty Type="Element">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#pointsMeasured" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="pointsMeasured" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+        </DataSubscriptionInfo>
+      </RangeProperty>
+    </Configuration>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#pointsMeasured" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="pointsMeasured" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+      </DataSubscriptionInfo>
+    </Properties>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="1" DecodedValue="false" EngineeringNotation="false" Font="Dialog#1#12" FormatType="Disabled" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="204,204,204,255" OffColor="100,100,100,255" Position="40,930" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="200,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Sweep Duration" Type="TextMonitor" UID="7a225f4c-342c-4155-b1a3-0abe0b86a5d6" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="3">
+      <FormatConfiguration Type="Configuration">
+        <Configuration InputDataFormat="Seconds" InputType="Unix Timestamp" OutputFormat="hh:mm:ss" SpecialCaseOutput="" SpecialCaseValue="" XmlVersion="2"/>
+      </FormatConfiguration>
+      <RangeProperty Type="Element">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfStatusV#duration" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="duration" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfStatusV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+        </DataSubscriptionInfo>
+      </RangeProperty>
+    </Configuration>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfStatusV#duration" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="duration" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfStatusV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+      </DataSubscriptionInfo>
+    </Properties>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="1" DecodedValue="false" EngineeringNotation="false" Font="Dialog#1#12" FormatType="Disabled" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="204,204,204,255" OffColor="100,100,100,255" Position="270,910" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="200,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Time Elapsed" Type="TextMonitor" UID="0e027ca0-bfbc-4fd9-b052-c052ade4a0f9" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="5">
+      <PROPERTY_VALUE Type="Element">
+        <BLOCK TYPE="operator" UID="9743ec6b-f1bd-49aa-8428-57ca9ab42e6b" X="590" Y="330">
+              <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="*" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+            </BLOCK>
+      </PROPERTY_VALUE>
+      <RangeProperty Type="Element">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/Elapsed" Index="-1" Information="" PrimaryDefaultType="DOUBLE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DESCRIPTION="" EQUATION="(#{P1} * (#{P2} / #{P3}))" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="Elapsed" USER="tlevens" VALUE_TYPE="DOUBLE">
+            <BLOCK TYPE="operator" UID="9743ec6b-f1bd-49aa-8428-57ca9ab42e6b" X="590" Y="330">
+              <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="*" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+            </BLOCK>
+            <BLOCK TYPE="parameter" UID="b28dfd3f-9b42-4e2b-a814-41f5306d21d0" X="260" Y="320">
+              <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="pointsMeasured" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P1"/>
+            </BLOCK>
+            <BLOCK TYPE="parameter" UID="dd8f102f-9307-4f2f-a661-d74851e8d34e" X="260" Y="420">
+              <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="duration" FLAVOR="PROPERTY_VALUE" NAME="P2" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="DOUBLE" VARIABLE="P2"/>
+            </BLOCK>
+            <BLOCK TYPE="parameter" UID="55229527-84d7-4608-9f5e-25e055b8b030" X="260" Y="528">
+              <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="points" FLAVOR="PROPERTY_VALUE" NAME="P3" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P3"/>
+            </BLOCK>
+            <BLOCK TYPE="operator" UID="2cce3b2f-4041-44f0-bdaa-dd9031dcb2af" X="450" Y="460">
+              <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="/" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+            </BLOCK>
+            <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="b28dfd3f-9b42-4e2b-a814-41f5306d21d0" BLOCK_B="9743ec6b-f1bd-49aa-8428-57ca9ab42e6b"/>
+            <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="dd8f102f-9307-4f2f-a661-d74851e8d34e" BLOCK_B="2cce3b2f-4041-44f0-bdaa-dd9031dcb2af"/>
+            <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="55229527-84d7-4608-9f5e-25e055b8b030" BLOCK_B="2cce3b2f-4041-44f0-bdaa-dd9031dcb2af"/>
+            <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="2cce3b2f-4041-44f0-bdaa-dd9031dcb2af" BLOCK_B="9743ec6b-f1bd-49aa-8428-57ca9ab42e6b"/>
+          </PROPERTY_VALUE>
+        </DataSubscriptionInfo>
+      </RangeProperty>
+      <BLOCK Type="Element">
+        <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="*" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+      </BLOCK>
+    </Configuration>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/Elapsed" Index="-1" Information="" PrimaryDefaultType="DOUBLE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DESCRIPTION="" EQUATION="(#{P1} * (#{P2} / #{P3}))" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="Elapsed" USER="tlevens" VALUE_TYPE="DOUBLE">
+          <BLOCK TYPE="operator" UID="9743ec6b-f1bd-49aa-8428-57ca9ab42e6b" X="590" Y="330">
+            <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="*" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+          </BLOCK>
+          <BLOCK TYPE="parameter" UID="b28dfd3f-9b42-4e2b-a814-41f5306d21d0" X="260" Y="320">
+            <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="pointsMeasured" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P1"/>
+          </BLOCK>
+          <BLOCK TYPE="parameter" UID="dd8f102f-9307-4f2f-a661-d74851e8d34e" X="260" Y="420">
+            <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="duration" FLAVOR="PROPERTY_VALUE" NAME="P2" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="DOUBLE" VARIABLE="P2"/>
+          </BLOCK>
+          <BLOCK TYPE="parameter" UID="55229527-84d7-4608-9f5e-25e055b8b030" X="260" Y="528">
+            <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="points" FLAVOR="PROPERTY_VALUE" NAME="P3" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P3"/>
+          </BLOCK>
+          <BLOCK TYPE="operator" UID="2cce3b2f-4041-44f0-bdaa-dd9031dcb2af" X="450" Y="460">
+            <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="/" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+          </BLOCK>
+          <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="b28dfd3f-9b42-4e2b-a814-41f5306d21d0" BLOCK_B="9743ec6b-f1bd-49aa-8428-57ca9ab42e6b"/>
+          <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="dd8f102f-9307-4f2f-a661-d74851e8d34e" BLOCK_B="2cce3b2f-4041-44f0-bdaa-dd9031dcb2af"/>
+          <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="55229527-84d7-4608-9f5e-25e055b8b030" BLOCK_B="2cce3b2f-4041-44f0-bdaa-dd9031dcb2af"/>
+          <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="2cce3b2f-4041-44f0-bdaa-dd9031dcb2af" BLOCK_B="9743ec6b-f1bd-49aa-8428-57ca9ab42e6b"/>
+        </PROPERTY_VALUE>
+      </DataSubscriptionInfo>
+    </Properties>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="1" DecodedValue="false" EngineeringNotation="false" Font="Dialog#1#12" FormatType="Disabled" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="204,204,204,255" OffColor="100,100,100,255" Position="270,930" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="200,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Time Remaining" Type="TextMonitor" UID="8776839f-6656-4d1d-8fb5-f08cb62b85f4" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="4">
+      <PROPERTY_VALUE Type="Element">
+        <BLOCK TYPE="parameter" UID="ae368e23-8036-4e5e-b0dc-76148c37a95f" X="360" Y="319">
+              <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="pointsMeasured" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P1"/>
+            </BLOCK>
+      </PROPERTY_VALUE>
+      <RangeProperty Type="Element">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/Remaining" Index="-1" Information="" PrimaryDefaultType="DOUBLE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DESCRIPTION="" EQUATION="(#{P3} - (#{P1} * (#{P3} / #{P4})))" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="Remaining" USER="tlevens" VALUE_TYPE="DOUBLE">
+            <BLOCK TYPE="parameter" UID="ae368e23-8036-4e5e-b0dc-76148c37a95f" X="360" Y="319">
+              <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="pointsMeasured" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P1"/>
+            </BLOCK>
+            <BLOCK TYPE="operator" UID="d5d90753-d91d-4670-a502-0efe6ce42e72" X="650" Y="290">
+              <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="*" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+            </BLOCK>
+            <BLOCK TYPE="operator" UID="59b264d8-adbc-4244-86cd-e50d30918380" X="850" Y="210">
+              <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="-" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+            </BLOCK>
+            <BLOCK TYPE="parameter" UID="49cf7e2c-b065-4a4b-b9ce-ac6246673a76" X="358" Y="435">
+              <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="duration" FLAVOR="PROPERTY_VALUE" NAME="P3" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="DOUBLE" VARIABLE="P3"/>
+            </BLOCK>
+            <BLOCK TYPE="parameter" UID="25108899-3ffa-4f67-a216-1a8e4bdd1764" X="360" Y="530">
+              <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="points" FLAVOR="PROPERTY_VALUE" NAME="P4" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P4"/>
+            </BLOCK>
+            <BLOCK TYPE="operator" UID="c039af2b-b500-4374-8d4e-f13ee35463ab" X="550" Y="400">
+              <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="/" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+            </BLOCK>
+            <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="ae368e23-8036-4e5e-b0dc-76148c37a95f" BLOCK_B="d5d90753-d91d-4670-a502-0efe6ce42e72"/>
+            <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="d5d90753-d91d-4670-a502-0efe6ce42e72" BLOCK_B="59b264d8-adbc-4244-86cd-e50d30918380"/>
+            <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="49cf7e2c-b065-4a4b-b9ce-ac6246673a76" BLOCK_B="c039af2b-b500-4374-8d4e-f13ee35463ab"/>
+            <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="25108899-3ffa-4f67-a216-1a8e4bdd1764" BLOCK_B="c039af2b-b500-4374-8d4e-f13ee35463ab"/>
+            <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="c039af2b-b500-4374-8d4e-f13ee35463ab" BLOCK_B="d5d90753-d91d-4670-a502-0efe6ce42e72"/>
+            <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="49cf7e2c-b065-4a4b-b9ce-ac6246673a76" BLOCK_B="59b264d8-adbc-4244-86cd-e50d30918380"/>
+          </PROPERTY_VALUE>
+        </DataSubscriptionInfo>
+      </RangeProperty>
+      <BLOCK Type="Element">
+        <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="*" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+      </BLOCK>
+    </Configuration>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/Remaining" Index="-1" Information="" PrimaryDefaultType="DOUBLE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DESCRIPTION="" EQUATION="(#{P3} - (#{P1} * (#{P3} / #{P4})))" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="Remaining" USER="tlevens" VALUE_TYPE="DOUBLE">
+          <BLOCK TYPE="parameter" UID="ae368e23-8036-4e5e-b0dc-76148c37a95f" X="360" Y="319">
+            <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="pointsMeasured" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P1"/>
+          </BLOCK>
+          <BLOCK TYPE="operator" UID="d5d90753-d91d-4670-a502-0efe6ce42e72" X="650" Y="290">
+            <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="*" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+          </BLOCK>
+          <BLOCK TYPE="operator" UID="59b264d8-adbc-4244-86cd-e50d30918380" X="850" Y="210">
+            <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="-" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+          </BLOCK>
+          <BLOCK TYPE="parameter" UID="49cf7e2c-b065-4a4b-b9ce-ac6246673a76" X="358" Y="435">
+            <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="duration" FLAVOR="PROPERTY_VALUE" NAME="P3" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="DOUBLE" VARIABLE="P3"/>
+          </BLOCK>
+          <BLOCK TYPE="parameter" UID="25108899-3ffa-4f67-a216-1a8e4bdd1764" X="360" Y="530">
+            <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="points" FLAVOR="PROPERTY_VALUE" NAME="P4" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="INTEGER" VARIABLE="P4"/>
+          </BLOCK>
+          <BLOCK TYPE="operator" UID="c039af2b-b500-4374-8d4e-f13ee35463ab" X="550" Y="400">
+            <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="/" TYPE="operator" VALUE_TYPE="DOUBLE"/>
+          </BLOCK>
+          <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="ae368e23-8036-4e5e-b0dc-76148c37a95f" BLOCK_B="d5d90753-d91d-4670-a502-0efe6ce42e72"/>
+          <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="d5d90753-d91d-4670-a502-0efe6ce42e72" BLOCK_B="59b264d8-adbc-4244-86cd-e50d30918380"/>
+          <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="49cf7e2c-b065-4a4b-b9ce-ac6246673a76" BLOCK_B="c039af2b-b500-4374-8d4e-f13ee35463ab"/>
+          <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="25108899-3ffa-4f67-a216-1a8e4bdd1764" BLOCK_B="c039af2b-b500-4374-8d4e-f13ee35463ab"/>
+          <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="c039af2b-b500-4374-8d4e-f13ee35463ab" BLOCK_B="d5d90753-d91d-4670-a502-0efe6ce42e72"/>
+          <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="49cf7e2c-b065-4a4b-b9ce-ac6246673a76" BLOCK_B="59b264d8-adbc-4244-86cd-e50d30918380"/>
+        </PROPERTY_VALUE>
+      </DataSubscriptionInfo>
+    </Properties>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="false" Font="Dialog#1#12" FormatType="Disabled" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="204,204,204,255" OffColor="100,100,100,255" Position="40,910" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="200,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Number of Points" Type="TextMonitor" UID="87cbea4d-2d48-4b2b-b388-4f3f5210b08a" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="2">
+      <RangeProperty Type="Element">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfStatusV#points" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="points" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfStatusV" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+        </DataSubscriptionInfo>
+      </RangeProperty>
+    </Configuration>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfStatusV#points" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="points" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfStatusV" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+      </DataSubscriptionInfo>
+    </Properties>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="50,820" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="410,60" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQTrig.TEST.B1/BtfTrigger#plane" Type="MultiStateButton" UID="072565cf-c39f-4951-a1f3-a842ba845230" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0"/>
+    <State IsFallbackState="false" Name="Trigger" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="off">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQTrig.TEST.B1/BtfTrigger#plane" PossibleValues="vertical&#10;horizontal&#10;off&#10;" Selector="" Value="vertical">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfTrigger#plane" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="plane" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfTrigger" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="true" Name="Stop" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="vertical">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQTrig.TEST.B1/BtfTrigger#plane" PossibleValues="vertical&#10;horizontal&#10;off&#10;" Selector="" Value="off">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfTrigger#plane" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="plane" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfTrigger" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="Wait" OffColor="160,160,160,255" OnColor="161,161,84,255" StateValue="horizontal"/>
+    <FeedbackProperty>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfStatusV#status" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="status" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfStatusV" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+      </DataSubscriptionInfo>
+    </FeedbackProperty>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="6" DecodedValue="false" EngineeringNotation="false" Font="Dialog#1#12" FormatType="Disabled" HexValue="false" MaxSize="1600,25" MaxValue="0.0" MinSize="40,25" MinValue="0.0" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="40,890" RangeBooleanInver="false" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="200,25" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="Bandwidth" Type="TextMonitor" UID="7033cfbc-e216-465b-887f-b63ce85013c1" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1">
+      <PROPERTY_VALUE Type="Element">
+        <BLOCK TYPE="parameter" UID="5a5cf70f-5da1-4588-b36a-478169e2eab7" X="360" Y="190">
+              <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="bandwidth" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="BtfStatusV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="DOUBLE" VARIABLE="P0"/>
+            </BLOCK>
+      </PROPERTY_VALUE>
+      <RangeProperty Type="Element">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/BW_OK" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DESCRIPTION="" EQUATION="(#{P0} &lt;= #{P1})" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="BW_OK" USER="tlevens" VALUE_TYPE="BOOLEAN">
+            <BLOCK TYPE="parameter" UID="5a5cf70f-5da1-4588-b36a-478169e2eab7" X="360" Y="190">
+              <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="bandwidth" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="BtfStatusV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="DOUBLE" VARIABLE="P0"/>
+            </BLOCK>
+            <BLOCK TYPE="operator" UID="12444445-1796-49c5-9ab8-4e94ec290bc3" X="600" Y="190">
+              <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="&lt;=" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+            </BLOCK>
+            <BLOCK TYPE="parameter" UID="90015a5f-f3b7-4e1e-aa01-3d6af5c7886e" X="360" Y="280">
+              <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="freqStep" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="DOUBLE" VARIABLE="P1"/>
+            </BLOCK>
+            <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="5a5cf70f-5da1-4588-b36a-478169e2eab7" BLOCK_B="12444445-1796-49c5-9ab8-4e94ec290bc3"/>
+            <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="90015a5f-f3b7-4e1e-aa01-3d6af5c7886e" BLOCK_B="12444445-1796-49c5-9ab8-4e94ec290bc3"/>
+          </PROPERTY_VALUE>
+        </DataSubscriptionInfo>
+      </RangeProperty>
+      <BLOCK Type="Element">
+        <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="freqStep" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="DOUBLE" VARIABLE="P1"/>
+      </BLOCK>
+    </Configuration>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfStatusV#bandwidth" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="bandwidth" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfStatusV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+      </DataSubscriptionInfo>
+    </Properties>
+  </Monitor>
+  <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="69,70,64,255" BlinkerType="Disabled" BorderColor="69,70,64,255" MaxSize="2147483647,2147483647" MinSize="10,10" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="10,10" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="960,60" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" UID="61d41ed2-1767-4c8c-a3a3-fdd70d52aa3a" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="17"/>
+    <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="954,54">
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+        <Configuration Font="Dialog#2#14" HorizontalAlignment="true" MaxSize="1600,1200" MinSize="40,40" Position="450,30" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="39,22" SizeRatio="0.0" Text="Test" TextColor="255,255,255,255" UID="bb8ada26-5efa-4109-bb5a-393e4cdd74e0" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="0"/>
+      </Element>
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+        <Configuration Font="Dialog#0#24" HorizontalAlignment="true" MaxSize="1600,1200" MinSize="40,40" Position="350,0" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="236,30" SizeRatio="0.0" Text="BTF Vertical Beam 1 " TextColor="255,255,255,255" UID="0a5a5712-0bea-409c-b304-735081b1e10f" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="1"/>
+      </Element>
+    </Container>
+  </Element>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.chart.ChartMonitor" Version="2">
+    <Configuration Action="" AlertColor="255,100,100,255" BackgroundColor="69,70,64,255" BlinkerType="Disabled" BorderColor="69,70,64,255" Chart-BufferSize="200" Chart-LegendPosition="-4,7" Chart-LegendVisible="false" Chart-PlotBackground="0,0,0,255" Chart-PlotForeground="0,0,0,255" Chart-XGridMajorColor="48,48,48,255" Chart-XGridMinorColor="220,220,220,255" Chart-XScale="rO0ABXNyAExjZXJuLmFkZS5pbnNwZWN0b3IuZ3VpLnBhbmVsLm1vbml0b3JzLmNvbXBvbmVudHMuY2hhcnQuc2NhbGUuU2NhbGVEZWZpbml0aW9uL7KlNO+dHjcCAAlaAAlhdXRvU2NhbGVEAA1sb2dhcml0aG1CYXNlRAADbWF4RAADbWluTAAPZm9yZWdyb3VuZENvbG9ydAAQTGphdmEvYXd0L0NvbG9yO0wAFGxhYmVsRm9yZWdyb3VuZENvbG9ycQB+AAFMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7TAAEc2lkZXQASExjZXJuL2FkZS9pbnNwZWN0b3IvZ3VpL3BhbmVsL21vbml0b3JzL2NvbXBvbmVudHMvY2hhcnQvc2NhbGUvU2NhbGVTaWRlO0wABHR5cGV0AEhMY2Vybi9hZGUvaW5zcGVjdG9yL2d1aS9wYW5lbC9tb25pdG9ycy9jb21wb25lbnRzL2NoYXJ0L3NjYWxlL1NjYWxlVHlwZTt4cAFAJAAAAAAAAEBZAAAAAAAAAAAAAAAAAABzcgAOamF2YS5hd3QuQ29sb3IBpReDEI8zdQIABUYABmZhbHBoYUkABXZhbHVlTAACY3N0ABtMamF2YS9hd3QvY29sb3IvQ29sb3JTcGFjZTtbAAlmcmdidmFsdWV0AAJbRlsABmZ2YWx1ZXEAfgAIeHAAAAAA/wAAAHBwcHNxAH4ABgAAAAD/////cHBwdAAAfnIARmNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZVNpZGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AARMRUZUfnIARmNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZVR5cGUAAAAAAAAAABIAAHhxAH4ADXQABk5PUk1BTA==" Chart-YGridMajorColor="26,26,26,255" Chart-YGridMinorColor="220,220,220,255" Chart-YScales="rO0ABXNyABNqYXZhLnV0aWwuQXJyYXlMaXN0eIHSHZnHYZ0DAAFJAARzaXpleHAAAAABdwQAAAABc3IATGNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZURlZmluaXRpb24vsqU0750eNwIACVoACWF1dG9TY2FsZUQADWxvZ2FyaXRobUJhc2VEAANtYXhEAANtaW5MAA9mb3JlZ3JvdW5kQ29sb3J0ABBMamF2YS9hd3QvQ29sb3I7TAAUbGFiZWxGb3JlZ3JvdW5kQ29sb3JxAH4AA0wABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZztMAARzaWRldABITGNlcm4vYWRlL2luc3BlY3Rvci9ndWkvcGFuZWwvbW9uaXRvcnMvY29tcG9uZW50cy9jaGFydC9zY2FsZS9TY2FsZVNpZGU7TAAEdHlwZXQASExjZXJuL2FkZS9pbnNwZWN0b3IvZ3VpL3BhbmVsL21vbml0b3JzL2NvbXBvbmVudHMvY2hhcnQvc2NhbGUvU2NhbGVUeXBlO3hwAUAkAAAAAAAAQFkAAAAAAAAAAAAAAAAAAHNyAA5qYXZhLmF3dC5Db2xvcgGlF4MQjzN1AgAFRgAGZmFscGhhSQAFdmFsdWVMAAJjc3QAG0xqYXZhL2F3dC9jb2xvci9Db2xvclNwYWNlO1sACWZyZ2J2YWx1ZXQAAltGWwAGZnZhbHVlcQB+AAp4cAAAAAD/AAAAcHBwc3EAfgAIAAAAAP////9wcHB0AAB+cgBGY2Vybi5hZGUuaW5zcGVjdG9yLmd1aS5wYW5lbC5tb25pdG9ycy5jb21wb25lbnRzLmNoYXJ0LnNjYWxlLlNjYWxlU2lkZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABExFRlR+cgBGY2Vybi5hZGUuaW5zcGVjdG9yLmd1aS5wYW5lbC5tb25pdG9ycy5jb21wb25lbnRzLmNoYXJ0LnNjYWxlLlNjYWxlVHlwZQAAAAAAAAAAEgAAeHEAfgAPdAAGTk9STUFMeA==" MaxSize="1600,1200" MaxValue="0.0" MinSize="100,100" MinValue="0.0" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="500,380" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="470,260" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQTrig.TEST.B1/BtfAcquisitionV#phaseH" Type="cern.ade.inspector.gui.panel.monitors.components.chart.ChartMonitor" UID="f06f5431-0ed1-4b8b-941d-2353733c59ab" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="8"/>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#phaseH" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="phaseH" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+    </Properties>
+    <PropertyDataSet BufferSize="200" ChartType="LINE_CIRCLE" Color="255,0,255,255" Gain="1.0" HasIndex="true" Index="-1" InvertAxis="true" LegendName="Cross Phase" OffsetX="0.0" OffsetY="0.0" SampleFrequency="1.0" StrokeWidth="1" YAxisIndex="0" xSpanMax="0.0" xSpanMin="0.0" ySpanMax="0.0" ySpanMin="0.0">
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#phaseH" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="phaseH" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+    </PropertyDataSet>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.chart.ChartMonitor" Version="2">
+    <Configuration Action="" AlertColor="255,100,100,255" BackgroundColor="69,70,64,255" BlinkerType="Disabled" BorderColor="69,70,64,255" Chart-BufferSize="200" Chart-LegendPosition="-3,7" Chart-LegendVisible="false" Chart-PlotBackground="0,0,0,255" Chart-PlotForeground="0,0,0,255" Chart-XGridMajorColor="26,26,26,255" Chart-XGridMinorColor="220,220,220,255" Chart-XScale="rO0ABXNyAExjZXJuLmFkZS5pbnNwZWN0b3IuZ3VpLnBhbmVsLm1vbml0b3JzLmNvbXBvbmVudHMuY2hhcnQuc2NhbGUuU2NhbGVEZWZpbml0aW9uL7KlNO+dHjcCAAlaAAlhdXRvU2NhbGVEAA1sb2dhcml0aG1CYXNlRAADbWF4RAADbWluTAAPZm9yZWdyb3VuZENvbG9ydAAQTGphdmEvYXd0L0NvbG9yO0wAFGxhYmVsRm9yZWdyb3VuZENvbG9ycQB+AAFMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7TAAEc2lkZXQASExjZXJuL2FkZS9pbnNwZWN0b3IvZ3VpL3BhbmVsL21vbml0b3JzL2NvbXBvbmVudHMvY2hhcnQvc2NhbGUvU2NhbGVTaWRlO0wABHR5cGV0AEhMY2Vybi9hZGUvaW5zcGVjdG9yL2d1aS9wYW5lbC9tb25pdG9ycy9jb21wb25lbnRzL2NoYXJ0L3NjYWxlL1NjYWxlVHlwZTt4cAFAJAAAAAAAAEBZAAAAAAAAAAAAAAAAAABzcgAOamF2YS5hd3QuQ29sb3IBpReDEI8zdQIABUYABmZhbHBoYUkABXZhbHVlTAACY3N0ABtMamF2YS9hd3QvY29sb3IvQ29sb3JTcGFjZTtbAAlmcmdidmFsdWV0AAJbRlsABmZ2YWx1ZXEAfgAIeHAAAAAA/wAAAHBwcHNxAH4ABgAAAAD/////cHBwdAAAfnIARmNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZVNpZGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AARMRUZUfnIARmNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZVR5cGUAAAAAAAAAABIAAHhxAH4ADXQABk5PUk1BTA==" Chart-YGridMajorColor="26,26,26,255" Chart-YGridMinorColor="220,220,220,255" Chart-YScales="rO0ABXNyABNqYXZhLnV0aWwuQXJyYXlMaXN0eIHSHZnHYZ0DAAFJAARzaXpleHAAAAACdwQAAAACc3IATGNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZURlZmluaXRpb24vsqU0750eNwIACVoACWF1dG9TY2FsZUQADWxvZ2FyaXRobUJhc2VEAANtYXhEAANtaW5MAA9mb3JlZ3JvdW5kQ29sb3J0ABBMamF2YS9hd3QvQ29sb3I7TAAUbGFiZWxGb3JlZ3JvdW5kQ29sb3JxAH4AA0wABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZztMAARzaWRldABITGNlcm4vYWRlL2luc3BlY3Rvci9ndWkvcGFuZWwvbW9uaXRvcnMvY29tcG9uZW50cy9jaGFydC9zY2FsZS9TY2FsZVNpZGU7TAAEdHlwZXQASExjZXJuL2FkZS9pbnNwZWN0b3IvZ3VpL3BhbmVsL21vbml0b3JzL2NvbXBvbmVudHMvY2hhcnQvc2NhbGUvU2NhbGVUeXBlO3hwAUAkAAAAAAAAQFkAAAAAAAAAAAAAAAAAAHNyAA5qYXZhLmF3dC5Db2xvcgGlF4MQjzN1AgAFRgAGZmFscGhhSQAFdmFsdWVMAAJjc3QAG0xqYXZhL2F3dC9jb2xvci9Db2xvclNwYWNlO1sACWZyZ2J2YWx1ZXQAAltGWwAGZnZhbHVlcQB+AAp4cAAAAAD/AAAAcHBwc3EAfgAIAAAAAP////9wcHB0AAB+cgBGY2Vybi5hZGUuaW5zcGVjdG9yLmd1aS5wYW5lbC5tb25pdG9ycy5jb21wb25lbnRzLmNoYXJ0LnNjYWxlLlNjYWxlU2lkZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABExFRlR+cgBGY2Vybi5hZGUuaW5zcGVjdG9yLmd1aS5wYW5lbC5tb25pdG9ycy5jb21wb25lbnRzLmNoYXJ0LnNjYWxlLlNjYWxlVHlwZQAAAAAAAAAAEgAAeHEAfgAPdAAGTk9STUFMc3EAfgACAUAkAAAAAAAAQFkAAAAAAAAAAAAAAAAAAHNxAH4ACAAAAAD/AAAAcHBwc3EAfgAIAAAAAP////9wcHB0AAB+cQB+AA50AAVSSUdIVHEAfgATeA==" MaxSize="1600,1200" MaxValue="0.0" MinSize="100,100" MinValue="0.0" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="10,90" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="470,260" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQTrig.TEST.B1/BtfAcquisitionV#amplitudeV" Type="cern.ade.inspector.gui.panel.monitors.components.chart.ChartMonitor" UID="90969906-7b52-4dd7-b474-3369798c80dc" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="9"/>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#amplitudeV" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="amplitudeV" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#excAmplitude" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="excAmplitude" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+    </Properties>
+    <PropertyDataSet BufferSize="200" ChartType="LINE_CIRCLE" Color="0,255,255,255" Gain="1.0" HasIndex="true" Index="-1" InvertAxis="true" LegendName="Amplitude" OffsetX="0.0" OffsetY="0.0" SampleFrequency="1.0" StrokeWidth="1" YAxisIndex="0" xSpanMax="0.0" xSpanMin="0.0" ySpanMax="0.0" ySpanMin="0.0">
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#amplitudeV" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="amplitudeV" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+    </PropertyDataSet>
+    <PropertyDataSet BufferSize="200" ChartType="LINE_CIRCLE" Color="102,102,102,255" Gain="1.0" HasIndex="true" Index="-1" InvertAxis="true" LegendName="Excitation Amplitude" OffsetX="0.0" OffsetY="0.0" SampleFrequency="1.0" StrokeWidth="1" YAxisIndex="1" xSpanMax="0.0" xSpanMin="0.0" ySpanMax="0.0" ySpanMin="0.0">
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#excAmplitude" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="excAmplitude" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+    </PropertyDataSet>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.chart.ChartMonitor" Version="2">
+    <Configuration Action="" AlertColor="255,100,100,255" BackgroundColor="69,70,64,255" BlinkerType="Disabled" BorderColor="69,70,64,255" Chart-BufferSize="200" Chart-LegendPosition="-4,7" Chart-LegendVisible="false" Chart-PlotBackground="0,0,0,255" Chart-PlotForeground="0,0,0,255" Chart-XGridMajorColor="26,26,26,255" Chart-XGridMinorColor="220,220,220,255" Chart-XScale="rO0ABXNyAExjZXJuLmFkZS5pbnNwZWN0b3IuZ3VpLnBhbmVsLm1vbml0b3JzLmNvbXBvbmVudHMuY2hhcnQuc2NhbGUuU2NhbGVEZWZpbml0aW9uL7KlNO+dHjcCAAlaAAlhdXRvU2NhbGVEAA1sb2dhcml0aG1CYXNlRAADbWF4RAADbWluTAAPZm9yZWdyb3VuZENvbG9ydAAQTGphdmEvYXd0L0NvbG9yO0wAFGxhYmVsRm9yZWdyb3VuZENvbG9ycQB+AAFMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7TAAEc2lkZXQASExjZXJuL2FkZS9pbnNwZWN0b3IvZ3VpL3BhbmVsL21vbml0b3JzL2NvbXBvbmVudHMvY2hhcnQvc2NhbGUvU2NhbGVTaWRlO0wABHR5cGV0AEhMY2Vybi9hZGUvaW5zcGVjdG9yL2d1aS9wYW5lbC9tb25pdG9ycy9jb21wb25lbnRzL2NoYXJ0L3NjYWxlL1NjYWxlVHlwZTt4cAFAJAAAAAAAAEBZAAAAAAAAAAAAAAAAAABzcgAOamF2YS5hd3QuQ29sb3IBpReDEI8zdQIABUYABmZhbHBoYUkABXZhbHVlTAACY3N0ABtMamF2YS9hd3QvY29sb3IvQ29sb3JTcGFjZTtbAAlmcmdidmFsdWV0AAJbRlsABmZ2YWx1ZXEAfgAIeHAAAAAA/wAAAHBwcHNxAH4ABgAAAAD/////cHBwdAAAfnIARmNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZVNpZGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AARMRUZUfnIARmNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZVR5cGUAAAAAAAAAABIAAHhxAH4ADXQABk5PUk1BTA==" Chart-YGridMajorColor="26,26,26,255" Chart-YGridMinorColor="220,220,220,255" Chart-YScales="rO0ABXNyABNqYXZhLnV0aWwuQXJyYXlMaXN0eIHSHZnHYZ0DAAFJAARzaXpleHAAAAACdwQAAAACc3IATGNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZURlZmluaXRpb24vsqU0750eNwIACVoACWF1dG9TY2FsZUQADWxvZ2FyaXRobUJhc2VEAANtYXhEAANtaW5MAA9mb3JlZ3JvdW5kQ29sb3J0ABBMamF2YS9hd3QvQ29sb3I7TAAUbGFiZWxGb3JlZ3JvdW5kQ29sb3JxAH4AA0wABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZztMAARzaWRldABITGNlcm4vYWRlL2luc3BlY3Rvci9ndWkvcGFuZWwvbW9uaXRvcnMvY29tcG9uZW50cy9jaGFydC9zY2FsZS9TY2FsZVNpZGU7TAAEdHlwZXQASExjZXJuL2FkZS9pbnNwZWN0b3IvZ3VpL3BhbmVsL21vbml0b3JzL2NvbXBvbmVudHMvY2hhcnQvc2NhbGUvU2NhbGVUeXBlO3hwAUAkAAAAAAAAQFkAAAAAAAAAAAAAAAAAAHNyAA5qYXZhLmF3dC5Db2xvcgGlF4MQjzN1AgAFRgAGZmFscGhhSQAFdmFsdWVMAAJjc3QAG0xqYXZhL2F3dC9jb2xvci9Db2xvclNwYWNlO1sACWZyZ2J2YWx1ZXQAAltGWwAGZnZhbHVlcQB+AAp4cAAAAAD/AAAAcHBwc3EAfgAIAAAAAP////9wcHB0AAB+cgBGY2Vybi5hZGUuaW5zcGVjdG9yLmd1aS5wYW5lbC5tb25pdG9ycy5jb21wb25lbnRzLmNoYXJ0LnNjYWxlLlNjYWxlU2lkZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABExFRlR+cgBGY2Vybi5hZGUuaW5zcGVjdG9yLmd1aS5wYW5lbC5tb25pdG9ycy5jb21wb25lbnRzLmNoYXJ0LnNjYWxlLlNjYWxlVHlwZQAAAAAAAAAAEgAAeHEAfgAPdAAGTk9STUFMc3EAfgACAUAkAAAAAAAAQFkAAAAAAAAAAAAAAAAAAHNxAH4ACAAAAAD/AAAAcHBwc3EAfgAIAAAAAP////9wcHB0AAB+cQB+AA50AAVSSUdIVHEAfgATeA==" MaxSize="1600,1200" MaxValue="0.0" MinSize="100,100" MinValue="0.0" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="500,90" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="470,260" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQTrig.TEST.B1/BtfAcquisitionV#amplitudeH" Type="cern.ade.inspector.gui.panel.monitors.components.chart.ChartMonitor" UID="d19a02b5-d73f-41a7-92c1-3b45d7b76971" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="10"/>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#amplitudeH" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="amplitudeH" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#excAmplitude" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="excAmplitude" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+    </Properties>
+    <PropertyDataSet BufferSize="200" ChartType="LINE_CIRCLE" Color="255,0,255,255" Gain="1.0" HasIndex="true" Index="-1" InvertAxis="true" LegendName="Cross Amplitude" OffsetX="0.0" OffsetY="0.0" SampleFrequency="1.0" StrokeWidth="1" YAxisIndex="0" xSpanMax="0.0" xSpanMin="0.0" ySpanMax="0.0" ySpanMin="0.0">
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#amplitudeH" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="amplitudeH" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+    </PropertyDataSet>
+    <PropertyDataSet BufferSize="200" ChartType="LINE_CIRCLE" Color="102,102,102,255" Gain="1.0" HasIndex="true" Index="-1" InvertAxis="true" LegendName="Excitation Amplitude" OffsetX="0.0" OffsetY="0.0" SampleFrequency="1.0" StrokeWidth="1" YAxisIndex="1" xSpanMax="0.0" xSpanMin="0.0" ySpanMax="0.0" ySpanMin="0.0">
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#excAmplitude" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="excAmplitude" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+    </PropertyDataSet>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.chart.ChartMonitor" Version="2">
+    <Configuration Action="" AlertColor="255,100,100,255" BackgroundColor="69,70,64,255" BlinkerType="Disabled" BorderColor="69,70,64,255" Chart-BufferSize="200" Chart-LegendPosition="-3,7" Chart-LegendVisible="false" Chart-PlotBackground="0,0,0,255" Chart-PlotForeground="0,0,0,255" Chart-XGridMajorColor="26,26,26,255" Chart-XGridMinorColor="220,220,220,255" Chart-XScale="rO0ABXNyAExjZXJuLmFkZS5pbnNwZWN0b3IuZ3VpLnBhbmVsLm1vbml0b3JzLmNvbXBvbmVudHMuY2hhcnQuc2NhbGUuU2NhbGVEZWZpbml0aW9uL7KlNO+dHjcCAAlaAAlhdXRvU2NhbGVEAA1sb2dhcml0aG1CYXNlRAADbWF4RAADbWluTAAPZm9yZWdyb3VuZENvbG9ydAAQTGphdmEvYXd0L0NvbG9yO0wAFGxhYmVsRm9yZWdyb3VuZENvbG9ycQB+AAFMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7TAAEc2lkZXQASExjZXJuL2FkZS9pbnNwZWN0b3IvZ3VpL3BhbmVsL21vbml0b3JzL2NvbXBvbmVudHMvY2hhcnQvc2NhbGUvU2NhbGVTaWRlO0wABHR5cGV0AEhMY2Vybi9hZGUvaW5zcGVjdG9yL2d1aS9wYW5lbC9tb25pdG9ycy9jb21wb25lbnRzL2NoYXJ0L3NjYWxlL1NjYWxlVHlwZTt4cAFAJAAAAAAAAEBZAAAAAAAAAAAAAAAAAABzcgAOamF2YS5hd3QuQ29sb3IBpReDEI8zdQIABUYABmZhbHBoYUkABXZhbHVlTAACY3N0ABtMamF2YS9hd3QvY29sb3IvQ29sb3JTcGFjZTtbAAlmcmdidmFsdWV0AAJbRlsABmZ2YWx1ZXEAfgAIeHAAAAAA/wAAAHBwcHNxAH4ABgAAAAD/////cHBwdAAAfnIARmNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZVNpZGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AARMRUZUfnIARmNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZVR5cGUAAAAAAAAAABIAAHhxAH4ADXQABk5PUk1BTA==" Chart-YGridMajorColor="26,26,26,255" Chart-YGridMinorColor="220,220,220,255" Chart-YScales="rO0ABXNyABNqYXZhLnV0aWwuQXJyYXlMaXN0eIHSHZnHYZ0DAAFJAARzaXpleHAAAAABdwQAAAABc3IATGNlcm4uYWRlLmluc3BlY3Rvci5ndWkucGFuZWwubW9uaXRvcnMuY29tcG9uZW50cy5jaGFydC5zY2FsZS5TY2FsZURlZmluaXRpb24vsqU0750eNwIACVoACWF1dG9TY2FsZUQADWxvZ2FyaXRobUJhc2VEAANtYXhEAANtaW5MAA9mb3JlZ3JvdW5kQ29sb3J0ABBMamF2YS9hd3QvQ29sb3I7TAAUbGFiZWxGb3JlZ3JvdW5kQ29sb3JxAH4AA0wABG5hbWV0ABJMamF2YS9sYW5nL1N0cmluZztMAARzaWRldABITGNlcm4vYWRlL2luc3BlY3Rvci9ndWkvcGFuZWwvbW9uaXRvcnMvY29tcG9uZW50cy9jaGFydC9zY2FsZS9TY2FsZVNpZGU7TAAEdHlwZXQASExjZXJuL2FkZS9pbnNwZWN0b3IvZ3VpL3BhbmVsL21vbml0b3JzL2NvbXBvbmVudHMvY2hhcnQvc2NhbGUvU2NhbGVUeXBlO3hwAUAkAAAAAAAAQFkAAAAAAAAAAAAAAAAAAHNyAA5qYXZhLmF3dC5Db2xvcgGlF4MQjzN1AgAFRgAGZmFscGhhSQAFdmFsdWVMAAJjc3QAG0xqYXZhL2F3dC9jb2xvci9Db2xvclNwYWNlO1sACWZyZ2J2YWx1ZXQAAltGWwAGZnZhbHVlcQB+AAp4cAAAAAD/AAAAcHBwc3EAfgAIAAAAAP////9wcHB0AAB+cgBGY2Vybi5hZGUuaW5zcGVjdG9yLmd1aS5wYW5lbC5tb25pdG9ycy5jb21wb25lbnRzLmNoYXJ0LnNjYWxlLlNjYWxlU2lkZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABExFRlR+cgBGY2Vybi5hZGUuaW5zcGVjdG9yLmd1aS5wYW5lbC5tb25pdG9ycy5jb21wb25lbnRzLmNoYXJ0LnNjYWxlLlNjYWxlVHlwZQAAAAAAAAAAEgAAeHEAfgAPdAAGTk9STUFMeA==" MaxSize="1600,1200" MaxValue="0.0" MinSize="100,100" MinValue="0.0" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="10,380" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="470,260" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQTrig.TEST.B1/BtfAcquisitionV#phaseV" Type="cern.ade.inspector.gui.panel.monitors.components.chart.ChartMonitor" UID="8e4a9fef-f775-4ccb-8a2f-7ff2baf6ae21" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="7"/>
+    <Properties>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#phaseV" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="phaseV" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+    </Properties>
+    <PropertyDataSet BufferSize="200" ChartType="LINE_CIRCLE" Color="0,255,255,255" Gain="1.0" HasIndex="true" Index="-1" InvertAxis="true" LegendName="Phase" OffsetX="0.0" OffsetY="0.0" SampleFrequency="1.0" StrokeWidth="1" YAxisIndex="0" xSpanMax="0.0" xSpanMin="0.0" ySpanMax="0.0" ySpanMin="0.0">
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfAcquisitionV#phaseV" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="phaseV" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfAcquisitionV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+      </DataSubscriptionInfo>
+    </PropertyDataSet>
+  </Monitor>
+  <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="35,36,32,255" BlinkerType="Disabled" BorderColor="0,0,0,255" MaxSize="2147483647,2147483647" MinSize="10,10" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="10,650" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="490,160" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" UID="ec843ef0-5b8b-4eb0-a036-49a9607c1f88" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="11"/>
+    <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="484,154">
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+        <Configuration Font="Dialog#0#18" HorizontalAlignment="true" MaxSize="1600,1200" MinSize="40,40" Position="130,10" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="211,28" SizeRatio="0.0" Text="Vertical Sweep Settings" TextColor="255,255,255,255" UID="c3ab58b5-12c1-46e7-be23-1f2e0822fc65" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="7"/>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="106,34" MinValue="0.0" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.1" NumericUpDown-Update="true" NumericUpDown-Value="6.500" OffColor="100,100,100,255" Position="157,77" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="140,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="Delay H" UID="8196b227-fd52-4d48-a8dc-1cb694e57da3" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="4">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#delayH" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="delayH" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+        </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#delayH" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="delayH" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="1" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="95,34" MinValue="0.0" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.0" NumericUpDown-Update="true" NumericUpDown-Value="0.0" OffColor="100,100,100,255" Position="17,77" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="130,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="Speed" UID="edd0176e-ffd5-45b7-af18-fd1051e22947" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="6">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#sweepDelay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="sweepDelay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+        </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#sweepDelay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="sweepDelay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="105,34" MinValue="0.0" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.1" NumericUpDown-Update="true" NumericUpDown-Value="6.500" OffColor="100,100,100,255" Position="157,47" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="140,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="Delay V" UID="74fa5d2e-a1b1-4ca9-9879-527bee7fa1d1" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="5">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#delayV" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="delayV" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+        </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#delayV" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="delayV" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="0" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="15.0" MinSize="125,34" MinValue="0.0" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.0" NumericUpDown-Update="true" NumericUpDown-Value="7" OffColor="100,100,100,255" Position="17,47" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="130,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="Bandwidth" UID="203fedb9-6317-42c7-9868-9e4cdc541194" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="3">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#bandwidth" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="bandwidth" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+        </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#bandwidth" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="bandwidth" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="6" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="2.0" MinSize="116,34" MinValue="-2.0" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.1" NumericUpDown-Update="true" NumericUpDown-Value="0.010000" OffColor="100,100,100,255" Position="307,77" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="170,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="Freq Step" UID="1a04232a-d5a9-44b9-ae27-ecfbf8aa139f" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="2">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#freqStep" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="freqStep" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+        </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#freqStep" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="freqStep" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="2.0" MinSize="118,34" MinValue="0.0" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.1" NumericUpDown-Update="true" NumericUpDown-Value="0.000" OffColor="100,100,100,255" Position="307,47" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="170,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="Freq Start" UID="ff447a01-7642-439c-8d1d-99a84f74ce63" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="1">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#freqStart" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="freqStart" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+        </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#freqStart" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="freqStart" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="2.0" MinSize="117,34" MinValue="0.0" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.1" NumericUpDown-Update="true" NumericUpDown-Value="2.000" OffColor="100,100,100,255" Position="307,107" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="170,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="Freq Stop" UID="f515083b-17a0-4386-a989-5e09673a88fb" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="0">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#freqStop" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="freqStop" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+        </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#freqStop" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="freqStop" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="DOUBLE"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+    </Container>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="35,36,32,255" BlinkerType="Disabled" BorderColor="0,0,0,255" MaxSize="2147483647,2147483647" MinSize="10,10" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="520,650" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="450,250" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" UID="2df14e2c-5c21-48b0-b6c1-f707cbc87277" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="12"/>
+    <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="444,244">
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+        <Configuration Font="Dialog#0#18" HorizontalAlignment="true" MaxSize="1600,1200" MinSize="40,40" Position="100,10" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="244,28" SizeRatio="0.0" Text="Excitation Amplitude Table" TextColor="255,255,255,255" UID="18dd1745-46bc-4c81-b585-ba9491694fb7" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="1"/>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.valueTable.ValueTableMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" LockInTableEditMode="true" MaxSize="1600,1600" MinSize="400,150" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="17,47" RangeType="Disabled" ReceiveValueUpdatesInTableEditMode="true" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" ShowDataManipulationButtons="true" ShowFilter="false" ShowImportExport="false" Size="410,180" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQTrig.TEST.B1/BtfSettingV#amplitude" Type="ValueTableMonitor" UID="0c4835a9-f91f-40d1-8b59-ce74c5f0c7db" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.TEST.B1/BtfSettingV#amplitude" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.TEST.B1" FIELD_NAME="amplitude" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="BtfSettingV" SELECTOR="NULL" VALUE_TYPE="ARRAY"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+    </Container>
+  </Element>
+</MonitorPanel>
