@@ -25,15 +25,26 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Set WindowTitle
         self.setWindowTitle("SPS CC phase scan application")
-       
+        
+        # Set window size
+        desktop = QDesktopWidget().availableGeometry()
+        x = (desktop.width() - self.frameGeometry().width()) / 2
+        y = (desktop.height() - self.frameGeometry().height()) / 2
+        self.setGeometry(int(x), int(y), int(desktop.width()*0.7), int(desktop.height()*0.9))
+
+
         # Load all h5 files when file button is clicked
         self.pushButton_HT_load.clicked.connect(self.HT_path_loaded)
+        self.pushButton_HT_load.setText("\U0001F4C1")
         
         # Possibility to increase rows in table with measurements (it is also done automatically)
         self.button_add_meas.clicked.connect(self.add_measurement)
+        self.button_add_meas.setText("\U00002795 Add")
 
         # Possibility yo remove rows from measurements
         self.delete_button.clicked.connect(self.delete_row)
+        self.delete_button.setText("\U00002796 Remove")
+        
 
         # Initialize size of measurement table
         self.table_file_phase.setColumnWidth(0,270)
@@ -42,6 +53,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # Run button
         self.run_button.setStyleSheet("background-color : lightblue")
         self.run_button.clicked.connect(self.on_button_clicked)
+        self.run_button.setText("\U00002192 Run")
 
         # Choose h5 files by clicking from file list
         self.HT_list_of_files.itemClicked.connect(self.item_clicked)
@@ -64,6 +76,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # Fit button
         self.fitButton.setEnabled(False)
         self.fitButton.clicked.connect(self.apply_fit)
+        self.fitButton.setText("\U0001F4C8 Fit")
 
         # Default paths
         self.output_path.setPlainText(output_path)
@@ -275,10 +288,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 def main():
-	app = QtWidgets.QApplication([])
-	application = MainWindow()
-	application.show()
-	sys.exit(app.exec())
+    app = QtWidgets.QApplication([])
+    application = MainWindow()
+    application.show()
+    sys.exit(app.exec())
 
 if __name__ == '__main__':
     # Some default names and paths
