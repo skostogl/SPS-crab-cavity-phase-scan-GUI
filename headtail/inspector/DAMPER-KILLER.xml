@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MonitorPanel AskForClosingConfirmation="false" AskForWritingConfirmation="true" BlinkingInterval="1600" Class="cern.ade.inspector.gui.panel.MonitorPanel" GridSize="10" SimulateWriting="false" Size="505,220" SnapToGrid="true" Title="Damper Killer" WritingEnabled="true">
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="10,10" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="240,70" SizeRatio="0.0" TextColor="255,255,255,255" Title="HX.SR4ADTHB1-0-6/Trig#trig" Type="MultiStateButton" UID="dd0310fc-f985-431b-af61-22683515869f" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="3"/>
+    <State IsFallbackState="false" Name="Stop Dampers B1" OffColor="84,84,161,255" OnColor="84,84,161,255" StateValue="">
+      <StatePropertyValue DataEditType="Boolean" IsDelay="false" Name="HX.SR4ADTHB1-0-6/Trig#trig" PossibleValues="True&#10;False&#10;" Selector="" Value="True">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.SR4ADTHB1-0-6/Trig#trig" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.SR4ADTHB1-0-6" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="Boolean" IsDelay="false" Name="HX.SR4ADTVB1-0-6/Trig#trig" PossibleValues="True&#10;False&#10;" Selector="" Value="True">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.SR4ADTVB1-0-6/Trig#trig" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.SR4ADTVB1-0-6" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="10,80" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="240,70" SizeRatio="0.0" TextColor="255,255,255,255" Title="HX.SR4ADTHB1-0-6/Trig#trig" Type="MultiStateButton" UID="805bf270-0d5b-4900-ac63-b25682a9f299" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="2"/>
+    <State IsFallbackState="false" Name="Stop Dampers B2" OffColor="161,84,84,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="Boolean" IsDelay="false" Name="HX.SR4ADTHB2-0-6/Trig#trig" PossibleValues="True&#10;False&#10;" Selector="" Value="True">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.SR4ADTHB2-0-6/Trig#trig" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.SR4ADTHB2-0-6" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="Boolean" IsDelay="false" Name="HX.SR4ADTVB2-0-6/Trig#trig" PossibleValues="True&#10;False&#10;" Selector="" Value="True">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.SR4ADTVB2-0-6/Trig#trig" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.SR4ADTVB2-0-6" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="250,80" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="240,70" SizeRatio="0.0" TextColor="255,255,255,255" Title="HX.SR4ADTHB1-0-6/Trig#trig" Type="MultiStateButton" UID="10153f9f-bb41-4906-b3c6-bbc97ad69cad" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1"/>
+    <State IsFallbackState="false" Name="Start Dampers B2" OffColor="161,84,84,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="Boolean" IsDelay="false" Name="HX.SR4ADTHB2-0-5/Trig#trig" PossibleValues="True&#10;False&#10;" Selector="" Value="True">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.SR4ADTHB2-0-5/Trig#trig" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.SR4ADTHB2-0-5" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="Boolean" IsDelay="false" Name="HX.SR4ADTVB2-0-5/Trig#trig" PossibleValues="True&#10;False&#10;" Selector="" Value="True">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.SR4ADTVB2-0-5/Trig#trig" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.SR4ADTVB2-0-5" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="250,10" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="240,70" SizeRatio="0.0" TextColor="255,255,255,255" Title="HX.SR4ADTHB1-0-6/Trig#trig" Type="MultiStateButton" UID="9f4a9373-0a4f-4ccb-acef-c41164420f68" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0"/>
+    <State IsFallbackState="false" Name="Start Dampers B1" OffColor="84,84,161,255" OnColor="84,84,161,255" StateValue="">
+      <StatePropertyValue DataEditType="Boolean" IsDelay="false" Name="HX.SR4ADTHB1-0-5/Trig#trig" PossibleValues="True&#10;False&#10;" Selector="" Value="True">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.SR4ADTHB1-0-5/Trig#trig" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.SR4ADTHB1-0-5" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="Boolean" IsDelay="false" Name="HX.SR4ADTVB1-0-5/Trig#trig" PossibleValues="True&#10;False&#10;" Selector="" Value="True">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.SR4ADTVB1-0-5/Trig#trig" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.SR4ADTVB1-0-5" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+</MonitorPanel>

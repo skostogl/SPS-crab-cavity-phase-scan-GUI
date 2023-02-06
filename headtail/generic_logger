@@ -1,0 +1,381 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+'''
+Generic Logger
+
+Copyright (c) CERN 2015-2017
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Authors:
+    Tom Levens <tom.levens@cern.ch>
+'''
+
+import argparse
+import datetime
+import h5py
+import logging
+import numpy as np
+import os
+import pyjapc
+import sys
+import threading
+import time
+import webbrowser
+
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+
+__version__ = '2017-12-01'
+
+
+class LoggerMainWindow(QMainWindow):
+    def __init__(self, argv, parent=None):
+        '''Main window class'''
+        super().__init__(parent)
+
+        logging.basicConfig(level=logging.INFO)
+        self.log = logging.getLogger(__name__)
+
+        self.setWindowTitle('Generic Logger')
+
+        self.japc = None
+        self.running = False
+
+        self.main_frame = QWidget()
+
+        self.field_list = []
+
+        self.setWindowIcon(self.style().standardIcon(QStyle.SP_DriveFDIcon))
+
+        self.lock = threading.Lock()
+
+        mainlayout = QGridLayout()
+
+        selector_label = QLabel('Selector:')
+        selector_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self.selector = QLineEdit()
+        mainlayout.addWidget(selector_label, 0, 0)
+        mainlayout.addWidget(self.selector, 0, 1)
+
+        device_label = QLabel('Device:')
+        device_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self.device = QLineEdit()
+        self.device.returnPressed.connect(self.get_fields)
+        mainlayout.addWidget(device_label, 1, 0)
+        mainlayout.addWidget(self.device, 1, 1)
+
+        property_label = QLabel('Property:')
+        property_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        self.property = QLineEdit()
+        self.property.returnPressed.connect(self.get_fields)
+        mainlayout.addWidget(property_label, 2, 0)
+        mainlayout.addWidget(self.property, 2, 1)
+
+        line0 = QFrame()
+        line0.setFrameShape(QFrame.HLine)
+        line0.setFrameShadow(QFrame.Sunken)
+        mainlayout.addWidget(line0, 3, 0, 1, 2)
+
+        field_label = QLabel('Fields:')
+        field_label.setAlignment(Qt.AlignRight | Qt.AlignTop)
+        self.field = QListWidget()
+        self.field.setAlternatingRowColors(True)
+        mainlayout.addWidget(field_label, 4, 0)
+        mainlayout.addWidget(self.field, 4, 1)
+
+        line1 = QFrame()
+        line1.setFrameShape(QFrame.HLine)
+        line1.setFrameShadow(QFrame.Sunken)
+        mainlayout.addWidget(line1, 5, 0, 1, 2)
+
+        dir_label = QLabel('Directory:')
+        dir_label.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+        dir_selector = QWidget()
+        dir_selector_layout = QHBoxLayout(dir_selector)
+        self.dir = QLineEdit()
+        self.dir_button = QToolButton()
+        self.dir_button.setIcon(self.style().standardIcon(QStyle.SP_DirIcon))
+        self.dir_button.clicked.connect(self.choose_dir)
+        dir_selector_layout.addWidget(self.dir)
+        dir_selector_layout.addWidget(self.dir_button)
+        mainlayout.addWidget(dir_label, 6, 0)
+        mainlayout.addWidget(dir_selector, 6, 1)
+
+        line2 = QFrame()
+        line2.setFrameShape(QFrame.HLine)
+        line2.setFrameShadow(QFrame.Sunken)
+        mainlayout.addWidget(line2, 7, 0, 1, 2)
+
+        self.start_button = QPushButton('&Start Logging')
+        self.start_button.setStyleSheet('QPushButton { background-color: green; }')
+        self.start_button.clicked.connect(self.start_stop)
+        mainlayout.addWidget(self.start_button, 7, 0, 1, 2)
+
+        self.main_frame.setLayout(mainlayout)
+        self.setCentralWidget(self.main_frame)
+
+        if argv.selector is not None:
+            self.selector.setText(argv.selector)
+        else:
+            self.selector.setText('LHC.USER.ALL')
+
+        if argv.device is not None:
+            self.device.setText(argv.device)
+
+        if argv.property is not None:
+            self.property.setText(argv.property)
+
+        if argv.field is not None:
+            self.default_fields = argv.field.split(',')
+        else:
+            self.default_fields = None
+
+        if argv.dir is not None:
+            self.dir.setText(argv.dir)
+        else:
+            self.dir.setText(os.path.expanduser('~'))
+
+        if argv.device is not None and argv.property is not None:
+            self.get_fields()
+
+    def start_stop(self):
+        '''Function to start/stop the logging'''
+        if self.running:
+            self.stop_subs()
+        else:
+            self.start_subs()
+
+    def logger(self, name, val, hdr):
+        '''Subscription callback function'''
+        with self.lock:
+            if hdr['isFirstUpdate'] or not self.running:
+                return
+
+            for field in ('acqStamp', 'cycleStamp'):
+                dat = int(hdr[field] * 1e9)
+                shape = list(self.h5data[field].shape)
+                shape[0] += 1
+                self.h5data[field].resize(shape)
+                self.h5data[field][shape[0] - 1] = dat
+
+            for field in self.fields:
+                dat = val[field]
+                shape = list(self.h5data[field].shape)
+                shape[0] += 1
+                self.h5data[field].resize(shape)
+                self.h5data[field][shape[0] - 1] = dat
+
+        self.numacq += 1
+
+    def process_dev_prop(self):
+        self.dev = self.device.text()
+        prop_filters = self.property.text().split('?')
+        prop = prop_filters[0]
+
+        filterDict = {}
+
+        if len(prop_filters) > 1:
+
+            for f in prop_filters[1].split(','):
+                k, v = f.split('=')
+                if v.isdigit():
+                    filterDict[k] = int(v)
+                elif v == 'True':
+                    filterDict[k] = True
+                elif v == 'False':
+                    filterDict[k] = False
+                else:
+                    filterDict[k] = v
+
+        self.japc.setSelector(self.selector.text(), dataFilter=filterDict)
+
+        self.param = '{0}/{1}'.format(self.dev, prop)
+
+    def process_fields(self):
+        self.fields = []
+        for item in self.field_list:
+            if item.checkState() == Qt.Checked:
+                self.fields.append(item.text())
+
+    def start_subs(self):
+        '''Start the subscriptions'''
+        self.process_dev_prop()
+        self.process_fields()
+
+        self.log.info('Start logging {0}'.format(self.param))
+
+        try:
+            dirname = self.dir.text()
+
+            if not os.path.isdir(dirname):
+                q = QMessageBox.question(self, 'Create directory', 'Directory {0} does not exist, create it?'.format(
+                    dirname), QMessageBox.Yes, QMessageBox.No)
+
+                if q == QMessageBox.Yes:
+                    os.makedirs(dirname)
+                else:
+                    return
+
+            QApplication.setOverrideCursor(Qt.WaitCursor)
+
+            dtypes = {}
+            shapes = {}
+
+            dat = self.japc.getParam('{0}'.format(self.param))
+
+            for field in self.fields:
+                dtypes[field] = dat[field].dtype if isinstance(dat[field], np.ndarray) else type(dat[field])
+                shapes[field] = dat[field].shape if isinstance(dat[field], np.ndarray) else tuple()
+                self.log.info('Field: name={0}, dtype={1}, shape={2}'.format(field, str(dtypes[field]), shapes[field]))
+
+            filename = '{0}_{1}_{2:%Y%m%d}_{2:%H%M%S}.h5'.format(self.dev, self.property.text(),
+                                                                 datetime.datetime.now())
+            filepath = os.path.join(dirname, filename)
+
+            self.log.info('Storing to {0}'.format(filepath))
+
+            self.h5file = h5py.File(filepath)
+            self.h5data = {}
+
+            for field in self.fields:
+                shape = (0,) + shapes[field]
+                maxshape = (None,) + shapes[field]
+                chunks = (1,) + shapes[field] if shapes[field] else (1024,)
+                self.h5data[field] = self.h5file.create_dataset(field,
+                                                                shape,
+                                                                maxshape=maxshape,
+                                                                dtype=dtypes[field],
+                                                                chunks=chunks)
+            for field in ('acqStamp', 'cycleStamp'):
+                self.h5data[field] = self.h5file.create_dataset(field,
+                                                                (0,),
+                                                                maxshape=(None,),
+                                                                dtype=np.int64,
+                                                                chunks=(1024,))
+            self.numacq = 0
+
+            self.japc.subscribeParam(self.param, self.logger, getHeader=True, unixtime=True)
+            self.japc.startSubscriptions()
+            self.running = True
+
+            self.selector.setDisabled(1)
+            self.device.setDisabled(1)
+            self.property.setDisabled(1)
+            self.field.setDisabled(1)
+            self.dir.setDisabled(1)
+            self.dir_button.setDisabled(1)
+
+            self.start_button.setText('&Stop Logging')
+            self.start_button.setStyleSheet('QPushButton { background-color: red; }')
+        except Exception as e:
+            self.log.error(e.args[0])
+            QMessageBox.critical(self, 'Error!', str(e.args[0]))
+
+        QApplication.restoreOverrideCursor()
+
+    def stop_subs(self):
+        '''Stop the subscriptions'''
+        self.log.info('Stop logging {0}'.format(self.param))
+
+        try:
+            QApplication.setOverrideCursor(Qt.WaitCursor)
+
+            self.japc.stopSubscriptions()
+            self.japc.clearSubscriptions()
+
+            with self.lock:
+                self.running = False
+                self.h5file.close()
+
+            self.selector.setEnabled(1)
+            self.device.setEnabled(1)
+            self.property.setEnabled(1)
+            self.field.setEnabled(1)
+            self.dir.setEnabled(1)
+            self.dir_button.setEnabled(1)
+
+            self.start_button.setText('&Start Logging')
+            self.start_button.setStyleSheet('QPushButton { background-color: green; }')
+
+            self.log.info('{0} acquisitions recorded'.format(self.numacq))
+            QMessageBox.information(self, 'Done!', '{0} acquisitions recorded'.format(self.numacq))
+        except Exception as e:
+            self.log.error(e.args[0])
+            QMessageBox.critical(self, 'Error!', str(e.args[0]))
+
+        QApplication.restoreOverrideCursor()
+
+    def get_fields(self):
+        '''Get the list of fields with PyJapc'''
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+
+        if not self.japc:
+            self.japc = pyjapc.PyJapc(self.selector.text(), noSet=True)
+            self.japc.rbacLogin()
+
+        self.process_dev_prop()
+        try:
+            dat = self.japc.getParam(self.param)
+            self.field_list = []
+            self.field.clear()
+            for field in sorted(dat.keys()):
+                item = QListWidgetItem(field)
+                item.setFlags(item.flags() | Qt.ItemIsUserCheckable)
+                item.setFlags(item.flags() & ~Qt.ItemIsSelectable)
+                if self.default_fields is None or field in self.default_fields:
+                    item.setCheckState(Qt.Checked)
+                else:
+                    item.setCheckState(Qt.Unchecked)
+                self.field.addItem(item)
+                self.field_list.append(item)
+        except Exception as e:
+            self.log.error(e.args[0])
+            QMessageBox.critical(self, 'Error!', str(e.args[0]))
+
+        QApplication.restoreOverrideCursor()
+
+    def choose_dir(self):
+        dirname = QFileDialog.getExistingDirectory(self, '', self.dir.text(),
+                                                   QFileDialog.ShowDirsOnly | QFileDialog.DontResolveSymlinks)
+        self.dir.setText(dirname)
+
+
+def main():
+    args = argparse.ArgumentParser(description='Generic Logger')
+    args.add_argument('--version', action='version', version='%(prog)s v{0}'.format(__version__))
+    args.add_argument('--device', help='device')
+    args.add_argument('--property', help='property')
+    args.add_argument('--field', help='field')
+    args.add_argument('--dir', help='directory')
+    args.add_argument('--selector', help='selector')
+    argv = args.parse_args()
+
+    app = QApplication(sys.argv)
+
+    win = LoggerMainWindow(argv)
+    win.show()
+
+    app.exec_()
+
+if __name__ == '__main__':
+    main()
+
+# EOF

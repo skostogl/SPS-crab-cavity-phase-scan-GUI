@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SYS="B1"
+
+NOW=$( date +%Y%m%d_%H%M%S )
+LOG="/var/log/bqht_filter/LHC.${SYS}/LHC.${SYS}_${NOW}.log"
+
+PYTHON="/user/bdisoft/operational/bin/Python/PRO/bin/python"
+FILTER="/user/bdisoft/operational/headtail/bqht_filter"
+
+#su bqhtop -c "${PYTHON} ${FILTER} LHC.${SYS} -n -u -e &> ${LOG}"

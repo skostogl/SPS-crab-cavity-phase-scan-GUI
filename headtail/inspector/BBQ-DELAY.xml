@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MonitorPanel AskForWritingConfirmation="false" BlinkingInterval="1600" Class="cern.ade.inspector.gui.panel.MonitorPanel" GridSize="10" SimulateWriting="false" Size="795,320" SnapToGrid="true" Title="BBQ Gate Delay" WritingEnabled="true">
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#1#24" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,20" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="199,34" SizeRatio="0.0" Text="BBQ Gate Delay" TextColor="255,255,255,255" UID="8b9b266c-25aa-4d99-b7d3-9680938e609b" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="6"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#1#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,170" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="213,25" SizeRatio="0.0" Text="On-Demand Gated B1" TextColor="153,153,255,255" UID="38f58488-84a0-44ca-91f9-60c1d7884e83" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="5"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#1#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,210" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="212,25" SizeRatio="0.0" Text="On-Demand Gated B2" TextColor="255,153,153,255" UID="5055f13a-e45d-4c81-8f44-5edcab366470" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="4"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#1#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,130" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="204,25" SizeRatio="0.0" Text="Continuous Gated B2" TextColor="255,153,153,255" UID="814b70c2-6484-4b86-b7c3-7d54645d1c8c" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="3"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#1#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,90" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="204,25" SizeRatio="0.0" Text="Continuous Gated B1" TextColor="153,153,255,255" UID="1363b2ea-b968-4977-8121-ee39fe7f549a" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="2"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="39,40,34,255" BlinkerType="Disabled" BorderColor="0,0,0,255" MaxSize="2147483647,2147483647" MinSize="10,10" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="240,20" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="140,230" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" UID="20165c06-047a-4378-acb0-a09b99b1de15" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1"/>
+    <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="134,224">
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+        <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="5,5" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="10,10" SizeRatio="0.0" Text="" TextColor="255,255,255,255" UID="2dfae90e-13c9-4d29-a61d-fb1e516c5d08" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="5"/>
+      </Element>
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+        <Configuration Font="Dialog#1#14" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="7,7" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="105,24" SizeRatio="0.0" Text="Coarse Delay" TextColor="255,255,255,255" UID="d602f77e-6d87-49cd-9bde-654ea506cb38" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="4"/>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="0" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="58,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="1.0" NumericUpDown-Update="true" NumericUpDown-Value="350" OffColor="100,100,100,255" Position="7,137" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="" UID="e8d62324-9898-4dab-bda2-acf7b261be49" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="2">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="BOBR_cfv-ua47-bq/Setting#coarseDelayBlock1" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="BOBR_cfv-ua47-bq" FIELD_NAME="coarseDelayBlock1" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="LONG"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="BOBR_cfv-ua47-bq/Setting#coarseDelayBlock1" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="BOBR_cfv-ua47-bq" FIELD_NAME="coarseDelayBlock1" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="LONG"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="0" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="58,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="1.0" NumericUpDown-Update="true" NumericUpDown-Value="350" OffColor="100,100,100,255" Position="7,57" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="" UID="23df9c16-1922-4f51-b126-589f75b2eb59" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="1">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="BOBR_cfv-ua47-bqpll/Setting#coarseDelayBlock1" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="BOBR_cfv-ua47-bqpll" FIELD_NAME="coarseDelayBlock1" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="LONG"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="BOBR_cfv-ua47-bqpll/Setting#coarseDelayBlock1" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="BOBR_cfv-ua47-bqpll" FIELD_NAME="coarseDelayBlock1" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="LONG"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="0" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="58,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="1.0" NumericUpDown-Update="true" NumericUpDown-Value="3465" OffColor="100,100,100,255" Position="7,97" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="" UID="1eda8038-6d81-410c-b9cd-880d623dce9c" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="0">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="BOBR_cfv-ua47-bqpll/Setting#coarseDelayBlock2" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="BOBR_cfv-ua47-bqpll" FIELD_NAME="coarseDelayBlock2" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="LONG"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="BOBR_cfv-ua47-bqpll/Setting#coarseDelayBlock2" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="BOBR_cfv-ua47-bqpll" FIELD_NAME="coarseDelayBlock2" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="LONG"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="0" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="58,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="1.0" NumericUpDown-Update="true" NumericUpDown-Value="3465" OffColor="100,100,100,255" Position="7,177" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="" UID="fea61eea-56ca-4111-ab76-f264b6367274" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="3">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="BOBR_cfv-ua47-bq/Setting#coarseDelayBlock2" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="BOBR_cfv-ua47-bq" FIELD_NAME="coarseDelayBlock2" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="LONG"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="BOBR_cfv-ua47-bq/Setting#coarseDelayBlock2" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="BOBR_cfv-ua47-bq" FIELD_NAME="coarseDelayBlock2" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="LONG"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+    </Container>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="39,40,34,255" BlinkerType="Disabled" BorderColor="0,0,0,255" MaxSize="2147483647,2147483647" MinSize="10,10" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="380,20" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="400,230" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" UID="17c0737d-6802-4e6c-b60e-ea9135ab7d80" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0"/>
+    <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="394,224">
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+        <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="0,0" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="10,10" SizeRatio="0.0" Text="" TextColor="255,255,255,255" UID="62b3a687-ff80-4c57-a186-49f3433c1dcf" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="10"/>
+      </Element>
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+        <Configuration Font="Dialog#1#14" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="7,7" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="84,24" SizeRatio="0.0" Text="Fine Delay" TextColor="255,255,255,255" UID="1451c5b4-b1d8-43c2-907f-dafebeecf456" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="9"/>
+      </Element>
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+        <Configuration Font="Dialog#1#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="137,37" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="83,20" SizeRatio="0.0" Text="Excitation H" TextColor="255,255,255,255" UID="eb849b39-2c64-4a10-be6a-eb8307d8a455" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="3"/>
+      </Element>
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+        <Configuration Font="Dialog#1#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="7,37" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="79,22" SizeRatio="0.0" Text="Acquisition" TextColor="255,255,255,255" UID="4c000914-1e6a-40bc-b0ff-b548e041463b" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="2"/>
+      </Element>
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+        <Configuration Font="Dialog#1#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="277,37" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="83,20" SizeRatio="0.0" Text="Excitation V" TextColor="255,255,255,255" UID="ec2efe2b-e3b8-4abb-bcb5-0b386ddd4e31" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="1"/>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="58,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.125" NumericUpDown-Update="true" NumericUpDown-Value="0.000" OffColor="100,100,100,255" Position="137,137" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="" UID="4d5ed03f-8f12-499d-8c39-f4d2e6873f8b" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="4">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B1/GateSetting#delayCh2" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B1" FIELD_NAME="delayCh2" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B1/GateSetting#delayCh2" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B1" FIELD_NAME="delayCh2" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="58,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.125" NumericUpDown-Update="true" NumericUpDown-Value="0.000" OffColor="100,100,100,255" Position="7,177" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="" UID="979a13f1-5db5-4142-9cfe-c9bd4b1d06c2" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="5">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B2/GateSetting#delayCh1" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B2" FIELD_NAME="delayCh1" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B2/GateSetting#delayCh1" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B2" FIELD_NAME="delayCh1" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="58,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.125" NumericUpDown-Update="true" NumericUpDown-Value="0.000" OffColor="100,100,100,255" Position="267,177" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="" UID="ccac38c2-6ba7-4c62-ab7d-dd867f128a1f" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="8">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B2/GateSetting#delayCh3" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B2" FIELD_NAME="delayCh3" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B2/GateSetting#delayCh3" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B2" FIELD_NAME="delayCh3" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="58,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.125" NumericUpDown-Update="true" NumericUpDown-Value="0.000" OffColor="100,100,100,255" Position="137,177" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="" UID="58cafb7c-e78e-43ee-bcf7-5d2e1ed347d9" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="7">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B2/GateSetting#delayCh2" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B2" FIELD_NAME="delayCh2" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B2/GateSetting#delayCh2" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B2" FIELD_NAME="delayCh2" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="58,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.125" NumericUpDown-Update="true" NumericUpDown-Value="0.000" OffColor="100,100,100,255" Position="267,137" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="" UID="c514f548-8874-4955-b572-ce9b7837eef4" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="6">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B1/GateSetting#delayCh3" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B1" FIELD_NAME="delayCh3" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B1/GateSetting#delayCh3" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B1" FIELD_NAME="delayCh3" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+        <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="58,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.125" NumericUpDown-Update="true" NumericUpDown-Value="0.000" OffColor="100,100,100,255" Position="7,137" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="120,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="" UID="185a1dc7-9406-4351-a17c-8b381841f8de" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="0">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B1/GateSetting#delayCh1" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B1" FIELD_NAME="delayCh1" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQTrig.GATED_OD.B1/GateSetting#delayCh1" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQTrig.GATED_OD.B1" FIELD_NAME="delayCh1" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="GateSetting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+    </Container>
+  </Element>
+</MonitorPanel>

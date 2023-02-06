@@ -1,0 +1,521 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+'''
+BBQ Trigger Viewer
+
+Copyright (c) CERN 2015-2017
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Authors:
+    Tom Levens <tom.levens@cern.ch>
+'''
+
+import argparse
+import configparser
+import datetime
+import getpass
+import logging
+import matplotlib as mpl
+import numpy as np
+import os
+import pyjapc
+import pytz
+import sys
+import threading
+import time
+
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+
+from modules.icons import Icons
+
+__version__ = '2017-03-17'
+
+app_name = 'BBQ Trigger Viewer'
+
+
+def main():
+    args = argparse.ArgumentParser(description=app_name)
+    args.add_argument('--version', action='version', version='%(prog)s {0}'.format(__version__))
+    args.add_argument('sys', help='system')
+    args.add_argument('beam', help='beam')
+    args.add_argument('plane', help='plane')
+    argv = args.parse_args()
+
+    cfg_file = os.path.join(os.path.dirname(__file__), 'config', 'bqtrig.cfg')
+    cp = configparser.ConfigParser(default_section='*')
+    cp.read(cfg_file)
+
+    systems = cp.sections()
+
+    if argv.sys not in systems:
+        args.error('please provide a valid system')
+
+    if argv.beam not in ('B1', 'B2'):
+        args.error('please provide a valid beam')
+
+    if argv.plane not in ('H', 'V'):
+        args.error('please provide a valid plane')
+
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s:%(message)s')
+
+    log = logging.getLogger(os.path.basename(__file__))
+
+    log.info('{0} version {1}'.format(app_name, __version__))
+
+    japc = pyjapc.PyJapc()
+
+    # Perform RBAC login, initial credentials for login-by-location
+    username = None
+    password = None
+    loggedin = False
+
+    while not loggedin:
+        try:
+            japc.rbacLogin(username, password)
+            loggedin = True
+            token = japc.rbacGetToken()
+            token_user = token.getUser()
+            japc.log.info('Authenticated as "{0}" with roles: {1}'.format(
+                token_user.getName(),
+                ', '.join([x.getName() for x in token_user.getRoles()])
+            ))
+        except:
+            # Populate username field with current user
+            if username is None:
+                username = getpass.getuser()
+
+            # Show login dialog
+            by_loc, username, password = pyjapc.rbac_dialog.getPw(username, app_name)
+
+            # Cancel button was pressed
+            if not by_loc and (username is None or password is None):
+                japc.log.error('RBAC login cancelled by user')
+                sys.exit()
+
+    app = QApplication(sys.argv)
+    win = BQTrigMainWindow(japc, argv, cp)
+    win.show()
+    app.exec_()
+
+    japc.rbacLogout()
+
+    # Need a short sleep before destroying the PyJapc object to avoid a core
+    # dump on exit... possibly a subscription can still be delivered?
+    wait = 2
+    log.info('Waiting {0} sec for late subscriptions...'.format(wait))
+    time.sleep(wait)
+    log.info('Bye!')
+
+    del japc
+
+
+class BQTrigMainWindow(QMainWindow):
+    def __init__(self, japc, argv, config, parent=None):
+        '''Overload of QMainWindow class'''
+        super().__init__(parent)
+
+        self.setWindowIcon(QIcon(Icons().pythonPixmap()))
+
+        self.log = logging.getLogger(os.path.basename(__file__))
+
+        self.japc = japc
+
+        self.sys = argv.sys
+        self.beam = argv.beam
+        self.plane = argv.plane
+        self.cfg = config[self.sys]
+
+        self.bbq_dev = 'LHC.BQ.{0}.{1}'.format(self.sys, self.beam)
+        self.trig_dev = 'LHC.BQTrig.{0}.{1}'.format(self.sys, self.beam)
+
+        self.length = float(self.cfg.get('length', 60))
+        self.dec = int(self.cfg.get('decimation', 1))
+        self.rate = float(self.cfg.get('update', 1))
+        self.frev = float(self.cfg.get('frev', 88.9912e-6))
+        self.thresh = 0.0
+
+        self.cnt = 0
+
+        self._lock = threading.Lock()
+
+        main_traces = self.cfg.get('traces')
+
+        if main_traces is not None:
+            main_traces = [[y.strip() for y in x.split('=')] for x in main_traces.split(',')]
+        else:
+            main_traces = []
+
+        trig_traces = self.cfg.get('triggers')
+
+        if trig_traces is not None:
+            trig_traces = [[y.strip() for y in x.split('=')] for x in trig_traces.split(',')]
+        else:
+            trig_traces = []
+
+        self.main_traces = [int(t[0]) for t in main_traces if t != '']
+        self.trig_traces = [int(self.cfg.get('trig-idx'))] + [int(t[0]) for t in trig_traces if t != '']
+
+        self.main_labels = [t[1] for t in main_traces if t != '']
+        self.trig_labels = ['trigger'] + [t[1] for t in trig_traces if t != '']
+
+        self.trig_trace_offset = 2
+        self.main_trace_offset = len(self.trig_traces) + self.trig_trace_offset
+
+        self.log.info('BQBBQLHC device: {0}'.format(self.bbq_dev))
+
+        try:
+            self.japc.getParam('{0}/TrigSetting'.format(self.trig_dev))
+            self.log.info('BQTrig device: {0}'.format(self.trig_dev))
+            self.has_trigger = True
+        except:
+            self.log.info('BQTrig device: None')
+            self.has_trigger = False
+
+        self.trig_field = 'trigAcquisition{0}'.format(self.plane)
+        self.raw_field = 'lastRawData{0}'.format(self.plane)
+        self.fft_field = 'averageMagnitude{0}'.format(self.plane)
+
+        self.get_settings()
+
+        self.create_main_frame()
+
+        self.start_subs()
+
+        self.resize(QSize(628, 479))
+
+    def trigger_setting_update(self, name, val):
+        '''Recieve a settings update subscription from the trigger'''
+        with self._lock:
+            self.thresh = val['trigSetting{0}'.format(self.plane)][int(self.cfg.get('thresh-idx'))]
+            self.log.info('Trigger threshold is {0:.1f}'.format(
+                self.thresh
+            ))
+
+    def sec_to_days(self, sec):
+        return sec / 60 / 60 / 24
+
+    def get_settings(self):
+        '''Get BBQ and trigger settings'''
+        dat = self.japc.getParam('{0}/Setting'.format(self.bbq_dev))
+
+        if dat['acqState'][0] == 0:
+            self.log.info('Turning on BBQ acquisition')
+            self.japc.setParam('{0}/Setting'.format(self.bbq_dev), {'acqState': 1})
+
+        self.nb_turns = dat['nbOfTurns']
+        self.period = dat['acqPeriod'] * 1e-3
+
+        self.acqs = int(self.length / self.period)
+        self.length = self.acqs * self.period
+        self.length_days = self.sec_to_days(self.length)
+
+        self.acq_pts = int(self.period / self.frev)
+        self.acq_overlap = self.nb_turns - self.acq_pts
+
+        self.pts = self.acqs * self.acq_pts
+
+        self.update_rate = int(self.rate / self.period)
+
+        self.log.info('BBQ configured for {0} points at {1:.2f} Hz, overlap is {2}'.format(
+            self.nb_turns, 1 / self.period, self.acq_overlap
+        ))
+        self.log.info('Record length is {0:.1f} sec ({1} acquisitions = {2} points)'.format(
+            self.length, self.acqs, self.pts
+        ))
+        self.log.info('Display is decimated by {0} and updates every {1:.1f} sec'.format(
+            self.dec, 1 / (self.update_rate * self.period)
+        ))
+
+    def closeEvent(self, event):
+        '''Bye bye'''
+        self.stop_subs()
+        self.log.info('Exiting...')
+        QMainWindow.closeEvent(self, event)
+
+    def start_subs(self):
+        '''Start JAPC subscriptions'''
+        self.japc.setSelector('LHC.USER.ALL', dataFilter={'UseCase': 0})
+        self.japc.subscribeParam('{0}/Measurement'.format(self.bbq_dev), self.plotter, noPyConversion=True)
+
+        if self.has_trigger:
+            self.japc.setSelector('LHC.USER.ALL')
+            self.japc.subscribeParam('{0}/TrigAcquisition'.format(self.trig_dev), self.trigger_receiver,
+                                     noPyConversion=True)
+            self.japc.subscribeParam('{0}/TrigSetting'.format(self.trig_dev), self.trigger_setting_update)
+
+        self.japc.startSubscriptions()
+
+    def stop_subs(self):
+        '''Stop JAPC subscriptions'''
+        self.japc.stopSubscriptions()
+        self.japc.clearSubscriptions()
+
+    def on_resize(self, event):
+        '''Tighten the layout on window resize'''
+        self.fig.tight_layout()
+
+    def create_main_frame(self):
+        '''Create and initialise all GUI objects'''
+        self.main_frame = QWidget()
+        mainlayout = QVBoxLayout()
+        self.main_frame.setLayout(mainlayout)
+        self.setCentralWidget(self.main_frame)
+
+        self.title = QLabel()
+        self.title.setAlignment(Qt.AlignCenter)
+        self.title.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Maximum))
+        mainlayout.addWidget(self.title)
+
+        title = self.cfg.get('title', '')
+
+        plane_txt = 'Horizontal' if self.plane == 'H' else 'Vertical' if self.plane == 'V' else ''
+        beam_txt = ' Beam 1' if self.beam == 'B1' else ' Beam 2' if self.beam == 'B2' else ''
+
+        title_txt = 'BBQ {1}{2} - {0}'.format(title, plane_txt, beam_txt)
+
+        self.setWindowTitle(title_txt)
+        self.title.setText(title_txt)
+
+        color = '#00C' if self.beam == 'B1' else '#C00' if self.beam == 'B2' else '#666'
+
+        # Match colors to Qt window
+        self.bgcolor = self.main_frame.palette().color(QPalette.Window)
+        self.fgcolor = self.main_frame.palette().color(QPalette.WindowText)
+
+        self.title.setStyleSheet(
+            ''' QLabel {{
+                    background-color:   {0};
+                    color:              white;
+                    font-size:          16px;
+                    padding:            4px;
+                    font-weight:        bold;
+                    border:             1px solid {1};
+                    margin:             0px;
+                }}
+            '''.format(color, self.fgcolor.name())
+        )
+
+        # Create canvas
+        self.fig = mpl.figure.Figure()
+        self.fig.set_facecolor((self.bgcolor.red() / 255.0,
+                                self.bgcolor.green() / 255.0,
+                                self.bgcolor.blue() / 255.0,
+                                1.0))
+        self.canvas = FigureCanvas(self.fig)
+        self.canvas.setParent(self.main_frame)
+        mainlayout.addWidget(self.canvas)
+
+        # Connect resize event
+        self.canvas.mpl_connect('resize_event', self.on_resize)
+
+        if self.has_trigger:
+            # Create grid spec for 3 axes with 1:3:3 ratio
+            gs = mpl.gridspec.GridSpec(3, 1, height_ratios=(1, 3, 3))
+
+            # Create axes
+            self.main_ax = self.fig.add_subplot(gs[1])
+            self.trig_ax = self.fig.add_subplot(gs[0], sharex=self.main_ax)
+            self.spec_ax = self.fig.add_subplot(gs[2], sharex=self.main_ax)
+        else:
+            # Create grid spec for 2 axes with 1:1 ratio
+            gs = mpl.gridspec.GridSpec(2, 1, height_ratios=(1, 1))
+
+            # Create axes
+            self.main_ax = self.fig.add_subplot(gs[0])
+            self.spec_ax = self.fig.add_subplot(gs[1], sharex=self.main_ax)
+
+        # Create time axis
+        self.utc_offset = self.sec_to_days(pytz.timezone('Europe/Zurich').utcoffset(datetime.datetime.now()).seconds)
+        self.x = np.linspace(-self.length_days + self.utc_offset, self.utc_offset, num=self.pts)[::self.dec]
+
+        # Create data arrays
+        self.main_data = np.zeros(self.pts)
+        y = self.main_data[::self.dec]
+
+        if self.dec > 1:
+            self.x = np.ravel(np.column_stack((self.x, self.x)))
+            y = np.ravel(np.column_stack((y, y)))
+
+        x = self.x + self.sec_to_days(datetime.datetime.now().timestamp())
+
+        self.main_ax.plot(x, y, label='sample')
+
+        # Create trigger data arrays
+        if self.has_trigger:
+            self.trig_data = np.array([[x[-1], False] + [0.0 for _ in self.trig_traces] +
+                                      [0.0 for _ in self.main_traces]])
+
+            self.trig_ax.plot([x[0]], [0], color='r', linestyle='None', marker='v', zorder=10)
+
+            for t, trace in enumerate(self.trig_traces):
+                kwargs = {'color': 'k'} if t == 0 else {}
+                self.trig_ax.plot(self.trig_data[:, 0], self.trig_data[:, t + self.trig_trace_offset],
+                                  label=self.trig_labels[t], **kwargs)
+
+            for t, trace in enumerate(self.main_traces):
+                self.main_ax.plot(self.trig_data[:, 0], self.trig_data[:, t + self.main_trace_offset],
+                                  label=self.main_labels[t])
+
+        # Create data arrays for spectrogram
+        self.fft_data = np.ones((self.acqs, self.nb_turns // 2)) * -160
+        self.fft_mins = np.ones(self.acqs) * -160
+        self.fft_maxs = np.ones(self.acqs) * -160
+
+        self.spec_ax.imshow(np.transpose(self.fft_data), cmap=mpl.cm.viridis, aspect='auto',
+                            extent=(x[0], x[-1], 0, 0.5),
+                            interpolation='nearest')
+
+        # Set x-axis to time
+        self.main_ax.xaxis.set_major_locator(mpl.dates.SecondLocator(bysecond=range(0, 60, 10)))
+        self.main_ax.xaxis.set_major_formatter(mpl.dates.DateFormatter('%H:%M:%S'))
+
+        # Plot formatting
+        for label in self.main_ax.get_xticklabels():
+            label.set_visible(False)
+
+        self.main_ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+        self.main_ax.set_xlim((x[0], x[-1]))
+        self.main_ax.set_ylim((-1, 1))
+        self.main_ax.grid(True)
+        self.main_ax.set_axisbelow(True)
+
+        self.spec_ax.set_axisbelow(True)
+
+        if self.has_trigger:
+            for label in self.trig_ax.get_xticklabels():
+                label.set_visible(False)
+
+            self.main_ax.legend(loc=2, fontsize='small')
+            self.trig_ax.legend(loc=2, fontsize='small')
+            self.trig_ax.set_yticks((0, 1))
+            self.trig_ax.set_ylim((-0.25, 1.25))
+            self.trig_ax.grid(True)
+            self.trig_ax.set_axisbelow(True)
+
+        self.fig.tight_layout()
+
+        self.canvas.draw()
+
+    def trigger_receiver(self, name, jval):
+        '''Trigger reciever function called on PyJapc subscription'''
+        with self._lock:
+            acq_time = self.sec_to_days(jval.getHeader().getAcqStamp() / 1e9) + self.utc_offset
+
+            # if jval.getHeader().isFirstUpdate() == 1:
+            #     return
+
+            val = jval.getValue()
+
+            dat = val.get(self.trig_field).array2D.floats[:]
+
+            # Remove points outside of the displayed time window
+            limit = acq_time - self.length_days
+            self.trig_data = self.trig_data[self.trig_data[:, 0] > limit]
+
+            # Add new point
+            trig = [dat[t] for t in self.trig_traces] + [dat[t] for t in self.main_traces]
+            over_thresh = trig[0] >= self.thresh and trig[0] > self.trig_data[-1][2]
+            trig_data = np.append(self.trig_data, [[acq_time, over_thresh] + trig], axis=0)
+
+            # Sort the array in case the subscriptions arrive out of order
+            self.trig_data = trig_data[trig_data[:, 0].argsort()]
+
+    def plotter(self, name, jval):
+        '''Plotter function called on PyJapc subscription'''
+        with self._lock:
+            acq_time = self.sec_to_days(jval.getHeader().getAcqStamp() / 1e9)
+
+            # if jval.getHeader().isFirstUpdate() == 1:
+            #     return
+
+            val = jval.getValue()
+
+            # Store time domain data
+            data = val.get(self.raw_field).array2D.ints[:] / 2**31
+            self.main_data = np.append(self.main_data, data[:self.acq_pts])[-self.pts:]
+
+            # Reverse the FFT data so that when it is transposed DC is at the
+            # bottom of the spectrogram
+            fft_data = val.get(self.fft_field).array2D.ints[:][::-1]
+
+            # Update FFT data array
+            self.fft_data = np.append(self.fft_data[1:], [fft_data], axis=0)
+
+            # Update min/max arrays
+            self.fft_mins = np.append(self.fft_mins[1:], np.min(fft_data))
+            self.fft_maxs = np.append(self.fft_maxs[1:], np.max(fft_data))
+
+            # Update main trace
+            if self.cnt % self.update_rate == 0:
+                x = self.x + acq_time
+                self.main_ax.set_xlim((x[0], x[-1]))
+
+                pad = int(np.ceil(self.pts / self.dec) * self.dec) - self.pts
+                plot_data = np.pad(self.main_data, (pad, 0), mode='edge').reshape(-1, self.dec)
+
+                y = np.ravel(np.column_stack((np.min(plot_data, axis=1), np.max(plot_data, axis=1))))
+
+                self.main_ax.lines[0].set_data(x, y)
+
+                if self.has_trigger:
+                    for t, trace in enumerate(self.trig_traces):
+                        self.trig_ax.lines[t + 1].set_data(self.trig_data[:, 0],
+                                                           self.trig_data[:, t + self.trig_trace_offset])
+
+                    for t, trace in enumerate(self.main_traces):
+                        self.main_ax.lines[t + 1].set_data(self.trig_data[:, 0],
+                                                           self.trig_data[:, t + self.main_trace_offset])
+
+                    # Rescale trigger axis
+                    self.trig_ax.relim()
+                    self.trig_ax.autoscale(axis='y')
+                    max_y = max([1, round(self.trig_ax.get_ylim()[1])])
+                    off_y = max_y / 4
+                    self.trig_ax.set_ylim(-off_y, max_y + off_y)
+                    self.trig_ax.set_yticks((0, max_y))
+
+                    over_thresh = np.array(self.trig_data[:, 1], dtype=bool)
+                    self.trig_ax.lines[0].set_data(
+                        self.trig_data[:, 0][over_thresh],
+                        self.trig_data[:, 2][over_thresh]
+                    )
+
+                # Rescale main axis
+                self.main_ax.relim()
+                self.main_ax.autoscale(axis='y')
+                max_y = max(map(abs, self.main_ax.get_ylim()))
+                self.main_ax.set_ylim(-max_y, max_y)
+
+                # Update spectrogram
+                self.spec_ax.images[0].set_array(np.transpose(self.fft_data))
+                self.spec_ax.images[0].set_clim(min(self.fft_mins), max(self.fft_maxs))
+                self.spec_ax.images[0].set_extent((x[0], x[-1], 0, 0.5))
+
+                self.canvas.draw()
+
+            self.cnt += 1
+
+
+if __name__ == '__main__':
+    main()

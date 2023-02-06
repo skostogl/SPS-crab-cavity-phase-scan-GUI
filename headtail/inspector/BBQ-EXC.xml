@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MonitorPanel AskForWritingConfirmation="false" BlinkingInterval="1600" Class="cern.ade.inspector.gui.panel.MonitorPanel" GridSize="10" SimulateWriting="false" SnapToGrid="true" Title="BBQ Excitation Control" WritingEnabled="true">
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="80,35" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="200,60" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="HB1" Type="MultiStateButton" UID="eb08458b-8b76-4470-99e3-7f707a579f3f" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="4"/>
+    <State Name="ENABLE" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="true">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB1-0-1/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="ENABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB1-0-1/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB1-0-1" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB1-0-2/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="DISABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB1-0-2/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB1-0-2" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State Name="DISABLE" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="false">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB1-0-1/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="DISABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB1-0-1/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB1-0-1" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB1-0-2/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="ENABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB1-0-2/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB1-0-2" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <FeedbackProperty>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/HB1_Enable" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DESCRIPTION="" EQUATION="((#{P0} == 'ENABLE') &amp;&amp; !((#{P1} == 'ENABLE')))" FLAVOR="SYNTHETIC_VALUE" MACHINE="LHCOP" NAME="HB1_Enable" USER="tlevens" VALUE_TYPE="BOOLEAN">
+<BLOCK TYPE="parameter" UID="ebae1905-5517-4609-a363-982c3264a3b7" X="230" Y="70">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HX.UX45ADTCGB1-0-1" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="ENUM" VARIABLE="P0"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="77c7667b-bc71-4085-8635-7bded369891c" X="230" Y="220">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HX.UX45ADTCGB1-0-2" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="ENUM" VARIABLE="P1"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="a52d8b39-cc5e-4da8-b8a0-bba785deac3d" X="410" Y="110">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'ENABLE'" VALUE_TYPE="STRING" VARIABLE="K0"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="74182b9d-64b7-4341-9cfb-804e8cb4ce93" X="530" Y="70">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="==" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="19b8f83e-8de9-4b40-9b7e-de879bd25e54" X="410" Y="260">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="'ENABLE'" VALUE_TYPE="STRING" VARIABLE="K1"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="b82d9ffd-1b45-4a92-90d9-e4033895a510" X="530" Y="220">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="==" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="9ada6187-6983-475c-a485-032f957f7050" X="620" Y="220">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="!" NAME="Function" TYPE="function" VALUE_TYPE="NONE"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="93652516-1100-4cd6-9ec3-f6102464beb1" X="750" Y="70">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="&amp;&amp;" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="ebae1905-5517-4609-a363-982c3264a3b7" BLOCK_B="74182b9d-64b7-4341-9cfb-804e8cb4ce93"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="a52d8b39-cc5e-4da8-b8a0-bba785deac3d" BLOCK_B="74182b9d-64b7-4341-9cfb-804e8cb4ce93"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="77c7667b-bc71-4085-8635-7bded369891c" BLOCK_B="b82d9ffd-1b45-4a92-90d9-e4033895a510"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="19b8f83e-8de9-4b40-9b7e-de879bd25e54" BLOCK_B="b82d9ffd-1b45-4a92-90d9-e4033895a510"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="74182b9d-64b7-4341-9cfb-804e8cb4ce93" BLOCK_B="93652516-1100-4cd6-9ec3-f6102464beb1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="b82d9ffd-1b45-4a92-90d9-e4033895a510" BLOCK_B="9ada6187-6983-475c-a485-032f957f7050"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="9ada6187-6983-475c-a485-032f957f7050" BLOCK_B="93652516-1100-4cd6-9ec3-f6102464beb1"/>
+</PROPERTY_VALUE>
+      </DataSubscriptionInfo>
+    </FeedbackProperty>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="80,35" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="200,160" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="HB2" Type="MultiStateButton" UID="b6d83b6e-30de-4e60-92fa-8cf02f60f364" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="3"/>
+    <State Name="ENABLE" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="true">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB2-0-1/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="ENABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB2-0-1/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB2-0-1" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB2-0-2/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="DISABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB2-0-2/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB2-0-2" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State Name="DISABLE" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="false">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB2-0-1/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="DISABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB2-0-1/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB2-0-1" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB2-0-2/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="ENABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB2-0-2/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB2-0-2" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <FeedbackProperty>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/HB2_Enable" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DESCRIPTION="" EQUATION="((#{P0} == 'ENABLE') &amp;&amp; !((#{P1} == 'ENABLE')))" FLAVOR="SYNTHETIC_VALUE" MACHINE="LHCOP" NAME="HB2_Enable" USER="tlevens" VALUE_TYPE="BOOLEAN">
+<BLOCK TYPE="parameter" UID="ebae1905-5517-4609-a363-982c3264a3b7" X="230" Y="70">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HX.UX45ADTCGB2-0-1" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="ENUM" VARIABLE="P0"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="77c7667b-bc71-4085-8635-7bded369891c" X="230" Y="220">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HX.UX45ADTCGB2-0-2" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="ENUM" VARIABLE="P1"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="a52d8b39-cc5e-4da8-b8a0-bba785deac3d" X="410" Y="110">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'ENABLE'" VALUE_TYPE="STRING" VARIABLE="K0"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="74182b9d-64b7-4341-9cfb-804e8cb4ce93" X="530" Y="70">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="==" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="19b8f83e-8de9-4b40-9b7e-de879bd25e54" X="410" Y="260">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="'ENABLE'" VALUE_TYPE="STRING" VARIABLE="K1"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="b82d9ffd-1b45-4a92-90d9-e4033895a510" X="530" Y="220">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="==" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="9ada6187-6983-475c-a485-032f957f7050" X="620" Y="220">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="!" NAME="Function" TYPE="function" VALUE_TYPE="NONE"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="93652516-1100-4cd6-9ec3-f6102464beb1" X="750" Y="70">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="&amp;&amp;" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="ebae1905-5517-4609-a363-982c3264a3b7" BLOCK_B="74182b9d-64b7-4341-9cfb-804e8cb4ce93"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="a52d8b39-cc5e-4da8-b8a0-bba785deac3d" BLOCK_B="74182b9d-64b7-4341-9cfb-804e8cb4ce93"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="77c7667b-bc71-4085-8635-7bded369891c" BLOCK_B="b82d9ffd-1b45-4a92-90d9-e4033895a510"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="19b8f83e-8de9-4b40-9b7e-de879bd25e54" BLOCK_B="b82d9ffd-1b45-4a92-90d9-e4033895a510"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="74182b9d-64b7-4341-9cfb-804e8cb4ce93" BLOCK_B="93652516-1100-4cd6-9ec3-f6102464beb1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="b82d9ffd-1b45-4a92-90d9-e4033895a510" BLOCK_B="9ada6187-6983-475c-a485-032f957f7050"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="9ada6187-6983-475c-a485-032f957f7050" BLOCK_B="93652516-1100-4cd6-9ec3-f6102464beb1"/>
+</PROPERTY_VALUE>
+      </DataSubscriptionInfo>
+    </FeedbackProperty>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="80,35" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="200,210" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="VB2" Type="MultiStateButton" UID="4fc73d64-827d-408d-aea9-b3b62fa4afbf" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="2"/>
+    <State Name="ENABLE" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="true">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB2-0-3/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="ENABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB2-0-1/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB2-0-3" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB2-0-4/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="DISABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB2-0-2/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB2-0-4" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State Name="DISABLE" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="false">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB2-0-3/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="DISABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB2-0-1/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB2-0-3" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB2-0-4/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="ENABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB2-0-2/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB2-0-4" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <FeedbackProperty>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/VB2_Enable" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DESCRIPTION="" EQUATION="((#{P0} == 'ENABLE') &amp;&amp; !((#{P1} == 'ENABLE')))" FLAVOR="SYNTHETIC_VALUE" MACHINE="LHCOP" NAME="VB2_Enable" USER="tlevens" VALUE_TYPE="BOOLEAN">
+<BLOCK TYPE="parameter" UID="ebae1905-5517-4609-a363-982c3264a3b7" X="230" Y="70">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HX.UX45ADTCGB2-0-3" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="ENUM" VARIABLE="P0"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="77c7667b-bc71-4085-8635-7bded369891c" X="230" Y="220">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HX.UX45ADTCGB2-0-4" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="ENUM" VARIABLE="P1"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="a52d8b39-cc5e-4da8-b8a0-bba785deac3d" X="410" Y="110">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'ENABLE'" VALUE_TYPE="STRING" VARIABLE="K0"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="74182b9d-64b7-4341-9cfb-804e8cb4ce93" X="530" Y="70">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="==" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="19b8f83e-8de9-4b40-9b7e-de879bd25e54" X="410" Y="260">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="'ENABLE'" VALUE_TYPE="STRING" VARIABLE="K1"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="b82d9ffd-1b45-4a92-90d9-e4033895a510" X="530" Y="220">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="==" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="9ada6187-6983-475c-a485-032f957f7050" X="620" Y="220">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="!" NAME="Function" TYPE="function" VALUE_TYPE="NONE"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="93652516-1100-4cd6-9ec3-f6102464beb1" X="750" Y="70">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="&amp;&amp;" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="ebae1905-5517-4609-a363-982c3264a3b7" BLOCK_B="74182b9d-64b7-4341-9cfb-804e8cb4ce93"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="a52d8b39-cc5e-4da8-b8a0-bba785deac3d" BLOCK_B="74182b9d-64b7-4341-9cfb-804e8cb4ce93"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="77c7667b-bc71-4085-8635-7bded369891c" BLOCK_B="b82d9ffd-1b45-4a92-90d9-e4033895a510"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="19b8f83e-8de9-4b40-9b7e-de879bd25e54" BLOCK_B="b82d9ffd-1b45-4a92-90d9-e4033895a510"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="74182b9d-64b7-4341-9cfb-804e8cb4ce93" BLOCK_B="93652516-1100-4cd6-9ec3-f6102464beb1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="b82d9ffd-1b45-4a92-90d9-e4033895a510" BLOCK_B="9ada6187-6983-475c-a485-032f957f7050"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="9ada6187-6983-475c-a485-032f957f7050" BLOCK_B="93652516-1100-4cd6-9ec3-f6102464beb1"/>
+</PROPERTY_VALUE>
+      </DataSubscriptionInfo>
+    </FeedbackProperty>
+  </Monitor>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#1#24" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,20" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="286,33" SizeRatio="0.0" Text="BBQ Excitation Control" TextColor="255,255,255,255" UID="cc16a6ff-5f82-456e-82c5-a451358829e7" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="0"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,170" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="169,25" SizeRatio="0.0" Text="Beam 2 Horizontal" TextColor="255,153,153,255" UID="d69dce66-a741-48da-9845-1d895f4b02e5" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="6"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,220" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="143,25" SizeRatio="0.0" Text="Beam 2 Vertical" TextColor="255,153,153,255" UID="9de9b9fa-c713-40e8-8591-02c147e074c7" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="5"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,70" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="169,25" SizeRatio="0.0" Text="Beam 1 Horizontal" TextColor="153,153,255,255" UID="f866a3f3-18b5-4590-81bd-4020897afefd" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="8"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,120" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="143,25" SizeRatio="0.0" Text="Beam 1 Vertical" TextColor="153,153,255,255" UID="192ce089-4d81-49dc-bff6-2a3ad414485a" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="7"/>
+  </Element>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="80,35" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="200,110" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="VB1" Type="MultiStateButton" UID="309b0c59-17c2-4cea-a050-8ca124ebc16f" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1"/>
+    <State Name="ENABLE" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="true">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB1-0-3/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="ENABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB1-0-1/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB1-0-3" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB1-0-4/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="DISABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB1-0-2/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB1-0-4" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State Name="DISABLE" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="false">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB1-0-3/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="DISABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB1-0-1/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB1-0-3" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HX.UX45ADTCGB1-0-4/EnableStatus#enableStatus" PossibleValues="ENABLE&#10;DISABLE&#10;" Selector="" Value="ENABLE">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.UX45ADTCGB1-0-2/EnableStatus#enableStatus" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HX.UX45ADTCGB1-0-4" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <FeedbackProperty>
+      <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/VB1_Enable" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+        <PROPERTY_VALUE DESCRIPTION="" EQUATION="((#{P0} == 'ENABLE') &amp;&amp; !((#{P1} == 'ENABLE')))" FLAVOR="SYNTHETIC_VALUE" MACHINE="LHCOP" NAME="VB1_Enable" USER="tlevens" VALUE_TYPE="BOOLEAN">
+<BLOCK TYPE="parameter" UID="ebae1905-5517-4609-a363-982c3264a3b7" X="230" Y="70">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HX.UX45ADTCGB1-0-3" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="ENUM" VARIABLE="P0"/>
+</BLOCK>
+<BLOCK TYPE="parameter" UID="77c7667b-bc71-4085-8635-7bded369891c" X="230" Y="220">
+<EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="HX.UX45ADTCGB1-0-4" FIELD_NAME="enableStatus" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="EnableStatus" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="ENUM" VARIABLE="P1"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="a52d8b39-cc5e-4da8-b8a0-bba785deac3d" X="410" Y="110">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'ENABLE'" VALUE_TYPE="STRING" VARIABLE="K0"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="74182b9d-64b7-4341-9cfb-804e8cb4ce93" X="530" Y="70">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="==" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<BLOCK TYPE="constant" UID="19b8f83e-8de9-4b40-9b7e-de879bd25e54" X="410" Y="260">
+<CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="'ENABLE'" VALUE_TYPE="STRING" VARIABLE="K1"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="b82d9ffd-1b45-4a92-90d9-e4033895a510" X="530" Y="220">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="==" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<BLOCK TYPE="function" UID="9ada6187-6983-475c-a485-032f957f7050" X="620" Y="220">
+<FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="!" NAME="Function" TYPE="function" VALUE_TYPE="NONE"/>
+</BLOCK>
+<BLOCK TYPE="operator" UID="93652516-1100-4cd6-9ec3-f6102464beb1" X="750" Y="70">
+<OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="&amp;&amp;" TYPE="operator" VALUE_TYPE="BOOLEAN"/>
+</BLOCK>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="ebae1905-5517-4609-a363-982c3264a3b7" BLOCK_B="74182b9d-64b7-4341-9cfb-804e8cb4ce93"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="a52d8b39-cc5e-4da8-b8a0-bba785deac3d" BLOCK_B="74182b9d-64b7-4341-9cfb-804e8cb4ce93"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="77c7667b-bc71-4085-8635-7bded369891c" BLOCK_B="b82d9ffd-1b45-4a92-90d9-e4033895a510"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="19b8f83e-8de9-4b40-9b7e-de879bd25e54" BLOCK_B="b82d9ffd-1b45-4a92-90d9-e4033895a510"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="74182b9d-64b7-4341-9cfb-804e8cb4ce93" BLOCK_B="93652516-1100-4cd6-9ec3-f6102464beb1"/>
+<LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="b82d9ffd-1b45-4a92-90d9-e4033895a510" BLOCK_B="9ada6187-6983-475c-a485-032f957f7050"/>
+<LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="9ada6187-6983-475c-a485-032f957f7050" BLOCK_B="93652516-1100-4cd6-9ec3-f6102464beb1"/>
+</PROPERTY_VALUE>
+      </DataSubscriptionInfo>
+    </FeedbackProperty>
+  </Monitor>
+</MonitorPanel>

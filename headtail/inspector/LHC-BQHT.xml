@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MonitorPanel AskForClosingConfirmation="false" AskForWritingConfirmation="false" BlinkingInterval="1600" Class="cern.ade.inspector.gui.panel.MonitorPanel" GridSize="10" SimulateWriting="false" Size="1195,700" SnapToGrid="true" Title="LHC Head-Tail Control" WritingEnabled="true">
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#26" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="449,25" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="293,32" SizeRatio="0.0" Text="LHC Head-Tail Control" TextColor="255,255,255,255" UID="53628a68-1592-4e33-b5cb-0309e85974f2" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="4"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#9" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="676,52" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="65,18" SizeRatio="0.0" Text="2017-12-05" TextColor="128,128,128,255" UID="51e2ee27-3cb8-4448-9499-351781037579" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="0"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="39,40,34,255" BlinkerType="Disabled" BorderColor="196,196,196,255" MaxSize="2147483647,2147483647" MinSize="50,50" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="10,550" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="1170,80" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" Type="SimpleContainer" UID="54be52c6-7e3c-4f54-986b-387d0e665efe" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1"/>
+    <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="1164,74">
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+        <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="5,5" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="10,10" SizeRatio="0.0" Text="" TextColor="255,255,255,255" UID="710dd2c5-01fb-4a6c-84bd-332f989fb58c" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="1"/>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" HideEntries="true" MaxSize="2147483647,40" MaxValue="NaN" MinSize="70,40" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="457,17" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,40" SizeRatio="0.0" TextColor="255,255,255,255" Title="Force Trigger B1+B2" Type="WriteButton" UID="da621c4a-c853-4f1d-9f18-ae8aa17da295" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-FORCE-ARM/Trig#trig" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-FORCE-ARM" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-FORCE-ARM/Trig#trig" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-FORCE-ARM" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="false" LABEL_TXT="Trig B1" LOAD_AT_STARTUP="false" ReceiveUpdates="false" SHOW_LIVE="false" VALUE="0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-FORCE-ARM/Trig#trig" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-FORCE-ARM" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="false" LABEL_TXT="Trig B2" LOAD_AT_STARTUP="false" ReceiveUpdates="false" SHOW_LIVE="false" VALUE="0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-FORCE-ARM/Trig#trig" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-FORCE-ARM" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+    </Container>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="39,40,34,255" BlinkerType="Disabled" BorderColor="255,128,128,255" MaxSize="2147483647,2147483647" MinSize="50,50" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="600,80" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="580,460" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" Type="SimpleContainer" UID="30d54cf9-a686-4a4e-87ae-61d9dd72ecf5" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="2"/>
+    <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="574,454">
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+        <Configuration Font="Dialog#1#18" HorizontalAlignment="true" MaxSize="1600,1200" MinSize="40,40" Position="240,10" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="75,25" SizeRatio="0.0" Text="Beam 2" TextColor="255,128,128,255" UID="3c9be2d2-2e07-4544-9fcf-1f2a0350f0d1" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="8"/>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="128,128,128,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#0#11" FormatType="Disabled" HexValue="false" MaxSize="1600,24" MaxValue="0.0" MinSize="40,24" MinValue="0.0" NormalColor="128,128,128,255" OffColor="128,128,128,255" Position="297,417" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,24" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="" Type="TextMonitor" UID="e18799d2-9dc1-4c05-827e-94a8f69df5fc" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="128,128,128,255" XmlVersion="2" ZOrder="3">
+          <PROPERTY_VALUE Type="Element">
+            <BLOCK TYPE="constant" UID="8989ed95-dd3a-410a-92c3-666f32b80252" X="350" Y="40">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'Range '" VALUE_TYPE="STRING" VARIABLE="K0"/>
+                </BLOCK>
+          </PROPERTY_VALUE>
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/GainRangeB2" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DESCRIPTION="" EQUATION="((((('Range ' + toString(#{P0})) + ' to ') + toString(#{P2})) + ' ') + #{P1})" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="GainRangeB2" USER="tlevens" VALUE_TYPE="STRING">
+                <BLOCK TYPE="constant" UID="8989ed95-dd3a-410a-92c3-666f32b80252" X="350" Y="40">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'Range '" VALUE_TYPE="STRING" VARIABLE="K0"/>
+                </BLOCK>
+                <BLOCK TYPE="function" UID="a222a330-788d-4d2c-aea1-a07e6e541189" X="350" Y="130">
+                  <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="80136934-e207-4752-9e9c-08b47d8b0bd1" X="450" Y="130">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="0ce7d6fa-2be8-4bac-8026-5cc78e261358" X="550" Y="220">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="function" UID="465e876d-5a21-4d5c-a0be-074a3e2554c9" X="550" Y="310">
+                  <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="constant" UID="9cd6d2b3-d496-4342-af15-b9ee2633b704" X="450" Y="220">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="' to '" VALUE_TYPE="STRING" VARIABLE="K1"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="16db6286-0746-4513-a9ce-d91fb8e676a1" X="650" Y="310">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="constant" UID="267a8ece-ceb1-4408-9b37-df5b9edcf04c" X="650" Y="400">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K2" TYPE="constant" VALUE="' '" VALUE_TYPE="STRING" VARIABLE="K2"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="aae4054a-9413-4156-9ef1-5598dbe918ec" X="740" Y="400">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="f06e75c1-4682-437d-861e-f8e91fd351a2" X="870" Y="490">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="parameter" UID="8f0da8e9-2892-49ae-87e0-3fd35ac8a6c6" X="740" Y="490">
+                  <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch2Gain_units" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="STRING" VARIABLE="P1"/>
+                </BLOCK>
+                <BLOCK TYPE="parameter" UID="8ee665e3-bb6c-44b9-929f-0c25b8ecf468" X="260" Y="130">
+                  <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch2Gain_min" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P0"/>
+                </BLOCK>
+                <BLOCK TYPE="parameter" UID="dc6021e9-b50c-48a2-854d-62d3d82eed76" X="450" Y="310">
+                  <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch2Gain_max" FLAVOR="PROPERTY_VALUE" NAME="P2" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P2"/>
+                </BLOCK>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="a222a330-788d-4d2c-aea1-a07e6e541189" BLOCK_B="80136934-e207-4752-9e9c-08b47d8b0bd1"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="8989ed95-dd3a-410a-92c3-666f32b80252" BLOCK_B="80136934-e207-4752-9e9c-08b47d8b0bd1"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="80136934-e207-4752-9e9c-08b47d8b0bd1" BLOCK_B="0ce7d6fa-2be8-4bac-8026-5cc78e261358"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="9cd6d2b3-d496-4342-af15-b9ee2633b704" BLOCK_B="0ce7d6fa-2be8-4bac-8026-5cc78e261358"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="0ce7d6fa-2be8-4bac-8026-5cc78e261358" BLOCK_B="16db6286-0746-4513-a9ce-d91fb8e676a1"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="465e876d-5a21-4d5c-a0be-074a3e2554c9" BLOCK_B="16db6286-0746-4513-a9ce-d91fb8e676a1"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="16db6286-0746-4513-a9ce-d91fb8e676a1" BLOCK_B="aae4054a-9413-4156-9ef1-5598dbe918ec"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="267a8ece-ceb1-4408-9b37-df5b9edcf04c" BLOCK_B="aae4054a-9413-4156-9ef1-5598dbe918ec"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="aae4054a-9413-4156-9ef1-5598dbe918ec" BLOCK_B="f06e75c1-4682-437d-861e-f8e91fd351a2"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="8f0da8e9-2892-49ae-87e0-3fd35ac8a6c6" BLOCK_B="f06e75c1-4682-437d-861e-f8e91fd351a2"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="8ee665e3-bb6c-44b9-929f-0c25b8ecf468" BLOCK_B="a222a330-788d-4d2c-aea1-a07e6e541189"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="dc6021e9-b50c-48a2-854d-62d3d82eed76" BLOCK_B="465e876d-5a21-4d5c-a0be-074a3e2554c9"/>
+              </PROPERTY_VALUE>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+          <BLOCK Type="Element">
+            <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+          </BLOCK>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/GainRangeB2" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DESCRIPTION="" EQUATION="((((('Range ' + toString(#{P0})) + ' to ') + toString(#{P2})) + ' ') + #{P1})" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="GainRangeB2" USER="tlevens" VALUE_TYPE="STRING">
+              <BLOCK TYPE="constant" UID="8989ed95-dd3a-410a-92c3-666f32b80252" X="350" Y="40">
+                <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'Range '" VALUE_TYPE="STRING" VARIABLE="K0"/>
+              </BLOCK>
+              <BLOCK TYPE="function" UID="a222a330-788d-4d2c-aea1-a07e6e541189" X="350" Y="130">
+                <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="80136934-e207-4752-9e9c-08b47d8b0bd1" X="450" Y="130">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="0ce7d6fa-2be8-4bac-8026-5cc78e261358" X="550" Y="220">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="function" UID="465e876d-5a21-4d5c-a0be-074a3e2554c9" X="550" Y="310">
+                <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="constant" UID="9cd6d2b3-d496-4342-af15-b9ee2633b704" X="450" Y="220">
+                <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="' to '" VALUE_TYPE="STRING" VARIABLE="K1"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="16db6286-0746-4513-a9ce-d91fb8e676a1" X="650" Y="310">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="constant" UID="267a8ece-ceb1-4408-9b37-df5b9edcf04c" X="650" Y="400">
+                <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K2" TYPE="constant" VALUE="' '" VALUE_TYPE="STRING" VARIABLE="K2"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="aae4054a-9413-4156-9ef1-5598dbe918ec" X="740" Y="400">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="f06e75c1-4682-437d-861e-f8e91fd351a2" X="870" Y="490">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="parameter" UID="8f0da8e9-2892-49ae-87e0-3fd35ac8a6c6" X="740" Y="490">
+                <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch2Gain_units" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="STRING" VARIABLE="P1"/>
+              </BLOCK>
+              <BLOCK TYPE="parameter" UID="8ee665e3-bb6c-44b9-929f-0c25b8ecf468" X="260" Y="130">
+                <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch2Gain_min" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P0"/>
+              </BLOCK>
+              <BLOCK TYPE="parameter" UID="dc6021e9-b50c-48a2-854d-62d3d82eed76" X="450" Y="310">
+                <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch2Gain_max" FLAVOR="PROPERTY_VALUE" NAME="P2" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P2"/>
+              </BLOCK>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="a222a330-788d-4d2c-aea1-a07e6e541189" BLOCK_B="80136934-e207-4752-9e9c-08b47d8b0bd1"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="8989ed95-dd3a-410a-92c3-666f32b80252" BLOCK_B="80136934-e207-4752-9e9c-08b47d8b0bd1"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="80136934-e207-4752-9e9c-08b47d8b0bd1" BLOCK_B="0ce7d6fa-2be8-4bac-8026-5cc78e261358"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="9cd6d2b3-d496-4342-af15-b9ee2633b704" BLOCK_B="0ce7d6fa-2be8-4bac-8026-5cc78e261358"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="0ce7d6fa-2be8-4bac-8026-5cc78e261358" BLOCK_B="16db6286-0746-4513-a9ce-d91fb8e676a1"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="465e876d-5a21-4d5c-a0be-074a3e2554c9" BLOCK_B="16db6286-0746-4513-a9ce-d91fb8e676a1"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="16db6286-0746-4513-a9ce-d91fb8e676a1" BLOCK_B="aae4054a-9413-4156-9ef1-5598dbe918ec"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="267a8ece-ceb1-4408-9b37-df5b9edcf04c" BLOCK_B="aae4054a-9413-4156-9ef1-5598dbe918ec"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="aae4054a-9413-4156-9ef1-5598dbe918ec" BLOCK_B="f06e75c1-4682-437d-861e-f8e91fd351a2"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="8f0da8e9-2892-49ae-87e0-3fd35ac8a6c6" BLOCK_B="f06e75c1-4682-437d-861e-f8e91fd351a2"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="8ee665e3-bb6c-44b9-929f-0c25b8ecf468" BLOCK_B="a222a330-788d-4d2c-aea1-a07e6e541189"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="dc6021e9-b50c-48a2-854d-62d3d82eed76" BLOCK_B="465e876d-5a21-4d5c-a0be-074a3e2554c9"/>
+            </PROPERTY_VALUE>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="69,70,64,255" BlinkerType="Disabled" BorderColor="128,128,128,255" MaxSize="2147483647,2147483647" MinSize="10,10" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="27,227" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,170" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" UID="db6de0d5-ba2f-47c4-a36d-53bd85425bd4" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="4"/>
+        <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="244,164">
+          <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+            <Configuration Font="Dialog#1#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="79,6" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="85,22" SizeRatio="0.0" Text="Trigger Arm" TextColor="255,255,255,255" UID="a6a14da4-3373-4ad9-b815-ba4ae06e4e10" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="0"/>
+          </Element>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.checkbox.CheckboxMonitor">
+            <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Checkbox-Subscribe="true" Checkbox-TickColor="29,30,24,255" Font="Dialog#1#12" MaxSize="1600,1200" MinSize="25,25" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="17,117" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="110,25" SizeRatio="0.0" TextColor="255,255,255,255" Title="HX.BQHT-CT" UID="be9bae51-5c72-498b-b7cc-cd4bc71dd073" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="4">
+              <RangeProperty Type="Element">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-CT-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                  <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-CT-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+                </DataSubscriptionInfo>
+              </RangeProperty>
+            </Configuration>
+            <Properties>
+              <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-CT-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-CT-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+              </DataSubscriptionInfo>
+            </Properties>
+          </Monitor>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.checkbox.CheckboxMonitor">
+            <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Checkbox-Subscribe="true" Checkbox-TickColor="29,30,24,255" Font="Dialog#1#12" MaxSize="1600,1200" MinSize="25,25" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="17,37" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="170,25" SizeRatio="0.0" TextColor="255,255,255,255" Title="LIST Instability Trigger" UID="99be770f-cf35-408b-82cc-210750498bc2" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="2">
+              <RangeProperty Type="Element">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-INST-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                  <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-INST-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+                </DataSubscriptionInfo>
+              </RangeProperty>
+            </Configuration>
+            <Properties>
+              <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-INST-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-INST-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+              </DataSubscriptionInfo>
+            </Properties>
+          </Monitor>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+            <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="0" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="68,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.0" NumericUpDown-Update="true" NumericUpDown-Value="35" OffColor="100,100,100,255" Position="127,112" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="100,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="+" UID="6eeed2db-2522-468a-97a1-aaaa28ca6ecf" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="3">
+              <RangeProperty Type="Element">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-CT-ARM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                  <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-CT-ARM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+                </DataSubscriptionInfo>
+              </RangeProperty>
+            </Configuration>
+            <Properties>
+              <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-CT-ARM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-CT-ARM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+              </DataSubscriptionInfo>
+            </Properties>
+          </Monitor>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.checkbox.CheckboxMonitor">
+            <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Checkbox-Subscribe="true" Checkbox-TickColor="29,30,24,255" Font="Dialog#1#12" MaxSize="1600,1200" MinSize="25,25" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="17,77" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="110,25" SizeRatio="0.0" TextColor="255,255,255,255" Title="Beam Dump" UID="3b2032a5-f45e-4558-be6e-ea23ec83cb83" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1">
+              <RangeProperty Type="Element">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-PM-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                  <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-PM-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+                </DataSubscriptionInfo>
+              </RangeProperty>
+            </Configuration>
+            <Properties>
+              <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-PM-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-PM-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+              </DataSubscriptionInfo>
+            </Properties>
+          </Monitor>
+        </Container>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.synoptics.LEDSynMonitor">
+        <Configuration Action="" AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="255,255,255,0" BlinkerType="Disabled" BlockSize="24,24" Font="Dialog#0#12" MaxSize="1500,1000" MaxValue="9.999999999E9" MinSize="18,18" MinValue="-9.999999999E9" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="510,50" RangeType="String" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" ShowValueInsteadOfTitle="false" Size="34,34" SizeRatio="0.0" StringRangeAlert="ERROR" StringRangeNormal="ACQUIRING" StringRangeOff="IDLE" StringRangeWarning="TRIGGERED" TextColor="255,255,255,255" TextOrientation="0" TextPosition="0" Title="" Type="LEDSynMonitor" UID="f0f2216d-9d20-41a0-b6c1-7d8990c2f765" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="6">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Status#state" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="state" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Status" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Status#state" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="state" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Status" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" HideEntries="true" MaxSize="2147483647,40" MaxValue="NaN" MinSize="70,40" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="297,47" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="200,40" SizeRatio="0.0" TextColor="255,255,255,255" Title="Force Trigger" Type="WriteButton" UID="da621c4a-c853-4f1d-9f18-ae8aa17da295" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="7"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-FORCE-ARM/Trig#trig" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-FORCE-ARM" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="false" LABEL_TXT="Trig" LOAD_AT_STARTUP="false" ReceiveUpdates="false" SHOW_LIVE="false" VALUE="0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-FORCE-ARM/Trig#trig" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-FORCE-ARM" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="1" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,160" MaxValue="NaN" MinSize="70,160" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="297,257" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,160" SizeRatio="0.0" TextColor="255,255,255,255" Title="Channel Gain" Type="WriteButton" UID="05b94596-99b1-4fa9-92d7-a4d72ca7a676" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="2"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#ch2Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch2Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#ch1Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch1Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#ch4Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch4Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#ch3Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch3Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Horizontal Delta" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="14.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#ch2Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch2Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Horizontal Sigma" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="-10.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#ch1Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch1Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Vertical Delta" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="20.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#ch4Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch4Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Vertical Sigma" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="-10.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#ch3Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="ch3Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="1" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,130" MaxValue="NaN" MinSize="70,130" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="297,107" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,130" SizeRatio="0.0" TextColor="255,255,255,255" Title="Acquisition" Type="WriteButton" UID="d892e341-80e4-430a-8f0c-76dbca3e29e7" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#acqLength" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="acqLength" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#acqSegments" Index="-1" Information="" PrimaryDefaultType="SHORT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="acqSegments" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="SHORT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#trigPosition" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="trigPosition" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Length (ms)" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#acqLength" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="acqLength" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Segments" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#acqSegments" Index="-1" Information="" PrimaryDefaultType="SHORT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="acqSegments" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="SHORT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Trigger Position" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/Setting#trigPosition" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="trigPosition" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,160" MaxValue="NaN" MinSize="70,160" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="27,47" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,160" SizeRatio="0.0" TextColor="255,255,255,255" Title="Trigger Pattern" Type="WriteButton" UID="cf3149b3-05d3-4cc6-9d82-53bddf814d9c" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="5"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-TURN/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-TURN" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-BUNCH/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-BUNCH" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-HNUM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-HNUM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-REP/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-REP" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Turn Delay" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-TURN/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-TURN" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Bunch Delay" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-BUNCH/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-BUNCH" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Harmonic #" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="3564">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-HNUM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-HNUM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Repetitions" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B2-REP/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B2-REP" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.checkbox.CheckboxMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Checkbox-Subscribe="true" Checkbox-TickColor="29,30,24,255" Font="Dialog#1#12" MaxSize="1600,1200" MinSize="25,25" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="47,407" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="210,25" SizeRatio="0.0" TextColor="255,255,255,255" Title="Mask trigger when no beam" UID="ea71e042-a206-4e67-85a9-a717efc41854" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/ExpertSetting#beamModeMaskEna" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="beamModeMaskEna" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="ExpertSetting" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B2/ExpertSetting#beamModeMaskEna" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B2" FIELD_NAME="beamModeMaskEna" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="ExpertSetting" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+    </Container>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="39,40,34,255" BlinkerType="Disabled" BorderColor="128,128,255,255" MaxSize="2147483647,2147483647" MinSize="50,50" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="10,80" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="580,460" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" Type="SimpleContainer" UID="cb29c940-e18f-436f-b47d-c0374aa18643" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="3"/>
+    <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="574,454">
+      <Element Class="cern.ade.inspector.gui.panel.elements.label.ContainerLabel">
+        <Configuration Font="Dialog#1#18" HorizontalAlignment="true" MaxSize="1600,1200" MinSize="40,40" Position="240,10" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="76,25" SizeRatio="0.0" Text="Beam 1" TextColor="128,128,255,255" UID="c172cc50-d055-41ed-a405-9fc7792698fd" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="8"/>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.text.TextMonitor">
+        <Configuration AlertColor="128,128,128,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" DecodedValue="false" EngineeringNotation="true" Font="Dialog#0#11" FormatType="Disabled" HexValue="false" MaxSize="1600,24" MaxValue="0.0" MinSize="40,24" MinValue="0.0" NormalColor="128,128,128,255" OffColor="128,128,128,255" Position="297,417" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,24" SizeRatio="0.0" TextAlignment="Right" TextColor="255,255,255,255" TextMonitorVersion="2.0" Title="" Type="TextMonitor" UID="8d22ca3e-c1f0-40c4-a24a-d8e0d13e046d" UseSIPrefixes="false" UserUnit="" VisibleInViewMode="true" WarningColor="128,128,128,255" XmlVersion="2" ZOrder="2">
+          <PROPERTY_VALUE Type="Element">
+            <BLOCK TYPE="constant" UID="3d7b11e1-c8e3-4ccf-ac74-d5aed70652bd" X="350" Y="40">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'Range '" VALUE_TYPE="STRING" VARIABLE="K0"/>
+                </BLOCK>
+          </PROPERTY_VALUE>
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/GainRangeB1" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DESCRIPTION="" EQUATION="((((('Range ' + toString(#{P0})) + ' to ') + toString(#{P1})) + ' ') + #{P2})" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="GainRangeB1" USER="tlevens" VALUE_TYPE="STRING">
+                <BLOCK TYPE="constant" UID="3d7b11e1-c8e3-4ccf-ac74-d5aed70652bd" X="350" Y="40">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'Range '" VALUE_TYPE="STRING" VARIABLE="K0"/>
+                </BLOCK>
+                <BLOCK TYPE="function" UID="cceb1a23-0cc7-41f0-9da8-44a3c29d2579" X="350" Y="130">
+                  <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="b6128ee3-065a-4679-bda3-48079b24a048" X="450" Y="130">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="576d7516-758f-413e-87c6-29cf776c2666" X="550" Y="220">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="function" UID="536cc132-d7c7-48c0-a9a9-8ea21deacaad" X="550" Y="310">
+                  <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="constant" UID="f7ab58df-d75f-4ca0-a431-b223497298ec" X="450" Y="220">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="' to '" VALUE_TYPE="STRING" VARIABLE="K1"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="a058ab76-8bc7-41d8-9cb8-45b762365169" X="650" Y="310">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="constant" UID="9fd9e525-fb21-4660-ab66-050b1dead301" X="650" Y="400">
+                  <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K2" TYPE="constant" VALUE="' '" VALUE_TYPE="STRING" VARIABLE="K2"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="ac8fc8c4-5dfd-4d0e-afe8-e85ad45847ff" X="740" Y="400">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="operator" UID="70f1f17f-f806-4649-b376-881e15473190" X="870" Y="490">
+                  <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+                </BLOCK>
+                <BLOCK TYPE="parameter" UID="5c3edc62-b6d7-4e99-bf61-24bea32bcd75" X="260" Y="130">
+                  <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch2Gain_min" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P0"/>
+                </BLOCK>
+                <BLOCK TYPE="parameter" UID="3eec52ae-b392-47bf-ae1d-e7f3f7dca723" X="450" Y="310">
+                  <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch2Gain_max" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P1"/>
+                </BLOCK>
+                <BLOCK TYPE="parameter" UID="4b154163-9567-4107-a0c7-9e9906a84ac2" X="740" Y="500">
+                  <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch2Gain_units" FLAVOR="PROPERTY_VALUE" NAME="P2" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="STRING" VARIABLE="P2"/>
+                </BLOCK>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="cceb1a23-0cc7-41f0-9da8-44a3c29d2579" BLOCK_B="b6128ee3-065a-4679-bda3-48079b24a048"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="3d7b11e1-c8e3-4ccf-ac74-d5aed70652bd" BLOCK_B="b6128ee3-065a-4679-bda3-48079b24a048"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="b6128ee3-065a-4679-bda3-48079b24a048" BLOCK_B="576d7516-758f-413e-87c6-29cf776c2666"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="f7ab58df-d75f-4ca0-a431-b223497298ec" BLOCK_B="576d7516-758f-413e-87c6-29cf776c2666"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="576d7516-758f-413e-87c6-29cf776c2666" BLOCK_B="a058ab76-8bc7-41d8-9cb8-45b762365169"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="536cc132-d7c7-48c0-a9a9-8ea21deacaad" BLOCK_B="a058ab76-8bc7-41d8-9cb8-45b762365169"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="a058ab76-8bc7-41d8-9cb8-45b762365169" BLOCK_B="ac8fc8c4-5dfd-4d0e-afe8-e85ad45847ff"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="9fd9e525-fb21-4660-ab66-050b1dead301" BLOCK_B="ac8fc8c4-5dfd-4d0e-afe8-e85ad45847ff"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="ac8fc8c4-5dfd-4d0e-afe8-e85ad45847ff" BLOCK_B="70f1f17f-f806-4649-b376-881e15473190"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="5c3edc62-b6d7-4e99-bf61-24bea32bcd75" BLOCK_B="cceb1a23-0cc7-41f0-9da8-44a3c29d2579"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="3eec52ae-b392-47bf-ae1d-e7f3f7dca723" BLOCK_B="536cc132-d7c7-48c0-a9a9-8ea21deacaad"/>
+                <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="4b154163-9567-4107-a0c7-9e9906a84ac2" BLOCK_B="70f1f17f-f806-4649-b376-881e15473190"/>
+              </PROPERTY_VALUE>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+          <BLOCK Type="Element">
+            <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+          </BLOCK>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="SYNTHETIC_VALUE/GainRangeB1" Index="-1" Information="" PrimaryDefaultType="STRING" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DESCRIPTION="" EQUATION="((((('Range ' + toString(#{P0})) + ' to ') + toString(#{P1})) + ' ') + #{P2})" FLAVOR="SYNTHETIC_VALUE" MACHINE="" NAME="GainRangeB1" USER="tlevens" VALUE_TYPE="STRING">
+              <BLOCK TYPE="constant" UID="3d7b11e1-c8e3-4ccf-ac74-d5aed70652bd" X="350" Y="40">
+                <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K0" TYPE="constant" VALUE="'Range '" VALUE_TYPE="STRING" VARIABLE="K0"/>
+              </BLOCK>
+              <BLOCK TYPE="function" UID="cceb1a23-0cc7-41f0-9da8-44a3c29d2579" X="350" Y="130">
+                <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="b6128ee3-065a-4679-bda3-48079b24a048" X="450" Y="130">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="576d7516-758f-413e-87c6-29cf776c2666" X="550" Y="220">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="function" UID="536cc132-d7c7-48c0-a9a9-8ea21deacaad" X="550" Y="310">
+                <FUNCTION FLAVOR="PROPERTY_VALUE" FUNCTION="toString" NAME="Function" TYPE="function" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="constant" UID="f7ab58df-d75f-4ca0-a431-b223497298ec" X="450" Y="220">
+                <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K1" TYPE="constant" VALUE="' to '" VALUE_TYPE="STRING" VARIABLE="K1"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="a058ab76-8bc7-41d8-9cb8-45b762365169" X="650" Y="310">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="constant" UID="9fd9e525-fb21-4660-ab66-050b1dead301" X="650" Y="400">
+                <CONSTANT FLAVOR="PROPERTY_VALUE" NAME="K2" TYPE="constant" VALUE="' '" VALUE_TYPE="STRING" VARIABLE="K2"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="ac8fc8c4-5dfd-4d0e-afe8-e85ad45847ff" X="740" Y="400">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="operator" UID="70f1f17f-f806-4649-b376-881e15473190" X="870" Y="490">
+                <OPERATOR FLAVOR="PROPERTY_VALUE" NAME="Operator" OPERATION="+" TYPE="operator" VALUE_TYPE="STRING"/>
+              </BLOCK>
+              <BLOCK TYPE="parameter" UID="5c3edc62-b6d7-4e99-bf61-24bea32bcd75" X="260" Y="130">
+                <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch2Gain_min" FLAVOR="PROPERTY_VALUE" NAME="P0" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P0"/>
+              </BLOCK>
+              <BLOCK TYPE="parameter" UID="3eec52ae-b392-47bf-ae1d-e7f3f7dca723" X="450" Y="310">
+                <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch2Gain_max" FLAVOR="PROPERTY_VALUE" NAME="P1" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="FLOAT" VARIABLE="P1"/>
+              </BLOCK>
+              <BLOCK TYPE="parameter" UID="4b154163-9567-4107-a0c7-9e9906a84ac2" X="740" Y="500">
+                <EQUATION_ELEMENT DEFINED="true" DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch2Gain_units" FLAVOR="PROPERTY_VALUE" NAME="P2" PROPERTY_NAME="Setting" SELECTOR="NULL" TYPE="parameter" VALUE_TYPE="STRING" VARIABLE="P2"/>
+              </BLOCK>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="cceb1a23-0cc7-41f0-9da8-44a3c29d2579" BLOCK_B="b6128ee3-065a-4679-bda3-48079b24a048"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="3d7b11e1-c8e3-4ccf-ac74-d5aed70652bd" BLOCK_B="b6128ee3-065a-4679-bda3-48079b24a048"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="b6128ee3-065a-4679-bda3-48079b24a048" BLOCK_B="576d7516-758f-413e-87c6-29cf776c2666"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="f7ab58df-d75f-4ca0-a431-b223497298ec" BLOCK_B="576d7516-758f-413e-87c6-29cf776c2666"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="576d7516-758f-413e-87c6-29cf776c2666" BLOCK_B="a058ab76-8bc7-41d8-9cb8-45b762365169"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="536cc132-d7c7-48c0-a9a9-8ea21deacaad" BLOCK_B="a058ab76-8bc7-41d8-9cb8-45b762365169"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="a058ab76-8bc7-41d8-9cb8-45b762365169" BLOCK_B="ac8fc8c4-5dfd-4d0e-afe8-e85ad45847ff"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="9fd9e525-fb21-4660-ab66-050b1dead301" BLOCK_B="ac8fc8c4-5dfd-4d0e-afe8-e85ad45847ff"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="ac8fc8c4-5dfd-4d0e-afe8-e85ad45847ff" BLOCK_B="70f1f17f-f806-4649-b376-881e15473190"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="5c3edc62-b6d7-4e99-bf61-24bea32bcd75" BLOCK_B="cceb1a23-0cc7-41f0-9da8-44a3c29d2579"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="1" BLOCK_A="3eec52ae-b392-47bf-ae1d-e7f3f7dca723" BLOCK_B="536cc132-d7c7-48c0-a9a9-8ea21deacaad"/>
+              <LINE ANCHOR_A="0" ANCHOR_B="2" BLOCK_A="4b154163-9567-4107-a0c7-9e9906a84ac2" BLOCK_B="70f1f17f-f806-4649-b376-881e15473190"/>
+            </PROPERTY_VALUE>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.synoptics.LEDSynMonitor">
+        <Configuration Action="" AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="255,255,255,0" BlinkerType="Disabled" BlockSize="24,24" Font="Dialog#0#12" MaxSize="1500,1000" MaxValue="9.999999999E9" MinSize="18,18" MinValue="-9.999999999E9" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="510,50" RangeType="String" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" ShowValueInsteadOfTitle="false" Size="34,34" SizeRatio="0.0" StringRangeAlert="ERROR" StringRangeNormal="ACQUIRING" StringRangeOff="IDLE" StringRangeWarning="TRIGGERED" TextColor="255,255,255,255" TextOrientation="0" TextPosition="0" Title="" Type="LEDSynMonitor" UID="887e4e7a-a711-43f5-a7df-2f9470a3c919" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="6">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Status#state" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+<PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="state" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Status" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+</DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Status#state" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="state" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Status" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" HideEntries="true" MaxSize="2147483647,40" MaxValue="NaN" MinSize="70,40" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="297,47" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="200,40" SizeRatio="0.0" TextColor="255,255,255,255" Title="Force Trigger" Type="WriteButton" UID="da621c4a-c853-4f1d-9f18-ae8aa17da295" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="5"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-FORCE-ARM/Trig#trig" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-FORCE-ARM" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="false" LABEL_TXT="Trig" LOAD_AT_STARTUP="false" ReceiveUpdates="false" SHOW_LIVE="false" VALUE="0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-FORCE-ARM/Trig#trig" Index="-1" Information="" PrimaryDefaultType="BOOLEAN" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-FORCE-ARM" FIELD_NAME="trig" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Trig" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="1" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,130" MaxValue="NaN" MinSize="70,130" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="297,107" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,130" SizeRatio="0.0" TextColor="255,255,255,255" Title="Acquisition" Type="WriteButton" UID="d892e341-80e4-430a-8f0c-76dbca3e29e7" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="4"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#acqLength" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="acqLength" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#acqSegments" Index="-1" Information="" PrimaryDefaultType="SHORT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="acqSegments" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="SHORT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#trigPosition" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="trigPosition" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Length (ms)" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#acqLength" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="acqLength" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Segments" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#acqSegments" Index="-1" Information="" PrimaryDefaultType="SHORT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="acqSegments" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="SHORT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Trigger Position" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#trigPosition" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="trigPosition" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="1" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,160" MaxValue="NaN" MinSize="70,160" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="297,257" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,160" SizeRatio="0.0" TextColor="255,255,255,255" Title="Channel Gain" Type="WriteButton" UID="05b94596-99b1-4fa9-92d7-a4d72ca7a676" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="3"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#ch2Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch2Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#ch1Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch1Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#ch4Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch4Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#ch3Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch3Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Horizontal Delta" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="18.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#ch2Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch2Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Horizontal Sigma" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="-10.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#ch1Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch1Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Vertical Delta" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="20.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#ch4Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch4Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Vertical Sigma" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="-10.0">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/Setting#ch3Gain" Index="-1" Information="" PrimaryDefaultType="FLOAT" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="ch3Gain" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="FLOAT"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.write.WriteButton">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" DecimalNumber="3" EngineeringNotation="false" HideEntries="false" MaxSize="2147483647,160" MaxValue="NaN" MinSize="70,160" MinValue="NaN" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="27,47" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,160" SizeRatio="0.0" TextColor="255,255,255,255" Title="Trigger Pattern" Type="WriteButton" UID="cf3149b3-05d3-4cc6-9d82-53bddf814d9c" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="7"/>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-TURN/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-TURN" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-BUNCH/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-BUNCH" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-HNUM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-HNUM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-REP/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-REP" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </Properties>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Turn Delay" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-TURN/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-TURN" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Bunch Delay" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-BUNCH/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-BUNCH" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Harmonic #" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="3564">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-HNUM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-HNUM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+        <FIELD BinaryRepresentation="false" DISP_IN_VIEWMODE="true" LABEL_TXT="Repetitions" LOAD_AT_STARTUP="true" ReceiveUpdates="true" SHOW_LIVE="false" VALUE="1">
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-REP/Delay#delay" Index="-1" Information="" PrimaryDefaultType="INTEGER" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-REP" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+          </DataSubscriptionInfo>
+        </FIELD>
+      </Monitor>
+      <Element Class="cern.ade.inspector.gui.panel.elements.panels.simple.SimpleContainer">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="69,70,64,255" BlinkerType="Disabled" BorderColor="128,128,128,255" MaxSize="2147483647,2147483647" MinSize="10,10" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="27,227" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="250,170" SizeRatio="0.0" TextColor="255,255,255,255" Title="device/property#field" UID="b85e06ce-587e-401d-8d8a-606c31c94ee9" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1"/>
+        <Container Class="cern.ade.inspector.gui.panel.containers.MContainer" Position="3,3" Size="244,164">
+          <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+            <Configuration Font="Dialog#1#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="79,6" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="85,22" SizeRatio="0.0" Text="Trigger Arm" TextColor="255,255,255,255" UID="ef7db5d2-806e-4e8d-bcff-ec6c32346799" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="2"/>
+          </Element>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.checkbox.CheckboxMonitor">
+            <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Checkbox-Subscribe="true" Checkbox-TickColor="29,30,24,255" Font="Dialog#1#12" MaxSize="1600,1200" MinSize="25,25" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="17,77" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="110,25" SizeRatio="0.0" TextColor="255,255,255,255" Title="Beam Dump" UID="1f4d7903-db5b-4fa1-af1c-a25e4b9e9867" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="3">
+              <RangeProperty Type="Element">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-PM-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                  <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-PM-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+                </DataSubscriptionInfo>
+              </RangeProperty>
+            </Configuration>
+            <Properties>
+              <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-PM-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-PM-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+              </DataSubscriptionInfo>
+            </Properties>
+          </Monitor>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.checkbox.CheckboxMonitor">
+            <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Checkbox-Subscribe="true" Checkbox-TickColor="29,30,24,255" Font="Dialog#1#12" MaxSize="1600,1200" MinSize="25,25" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="17,37" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="170,25" SizeRatio="0.0" TextColor="255,255,255,255" Title="LIST Instability Trigger" UID="a2001a55-4242-4631-aae3-118bb9756327" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="4">
+              <RangeProperty Type="Element">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-INST-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                  <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-INST-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+                </DataSubscriptionInfo>
+              </RangeProperty>
+            </Configuration>
+            <Properties>
+              <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-INST-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-INST-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+              </DataSubscriptionInfo>
+            </Properties>
+          </Monitor>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.numericUpDown.NumericUpDownMonitor">
+            <Configuration AlertColor="255,100,100,255" AlertHighEnabled="true" AlertHighValue="0.9" AlertLowEnabled="true" AlertLowValue="0.1" BackgroundColor="69,70,64,0" BlinkerType="Disabled" DecimalNumber="0" EngineeringNotation="false" MaxSize="2147483647,34" MaxValue="NaN" MinSize="68,34" MinValue="NaN" NormalColor="100,255,100,255" NumericUpDown-ReadAtStartup="true" NumericUpDown-Step="0.0" NumericUpDown-Update="true" NumericUpDown-Value="35" OffColor="100,100,100,255" Position="127,112" RangeType="Interval" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="100,34" SizeRatio="0.0" TextColor="255,255,255,255" Title="+" UID="db51e2ed-f8f8-4396-bb09-dd039b012e0f" VisibleInViewMode="true" WarningColor="225,225,60,255" WarningHighEnabled="true" WarningHighValue="0.8" WarningLowEnabled="true" WarningLowValue="0.2" XmlVersion="2" ZOrder="1">
+              <RangeProperty Type="Element">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-CT-ARM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                  <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-CT-ARM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+                </DataSubscriptionInfo>
+              </RangeProperty>
+            </Configuration>
+            <Properties>
+              <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-CT-ARM/Delay#delay" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-CT-ARM" FIELD_NAME="delay" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Delay" SELECTOR="NULL" VALUE_TYPE="INTEGER"/>
+              </DataSubscriptionInfo>
+            </Properties>
+          </Monitor>
+          <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.checkbox.CheckboxMonitor">
+            <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Checkbox-Subscribe="true" Checkbox-TickColor="29,30,24,255" Font="Dialog#1#12" MaxSize="1600,1200" MinSize="25,25" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="17,117" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="110,25" SizeRatio="0.0" TextColor="255,255,255,255" Title="HX.BQHT-CT" UID="63de5a79-15f8-468d-94e9-3282350543f1" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0">
+              <RangeProperty Type="Element">
+                <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-CT-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                  <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-CT-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+                </DataSubscriptionInfo>
+              </RangeProperty>
+            </Configuration>
+            <Properties>
+              <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HX.BQHT-B1-CT-ARM/OutEnable#outEnabled" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+                <PROPERTY_VALUE DEVICE_NAME="HX.BQHT-B1-CT-ARM" FIELD_NAME="outEnabled" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="OutEnable" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+              </DataSubscriptionInfo>
+            </Properties>
+          </Monitor>
+        </Container>
+      </Element>
+      <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.checkbox.CheckboxMonitor">
+        <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Checkbox-Subscribe="true" Checkbox-TickColor="29,30,24,255" Font="Dialog#1#12" MaxSize="1600,1200" MinSize="25,25" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="47,407" RangeType="Boolean" ReferenceValue="NaN" ResizedByUser="true" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="210,25" SizeRatio="0.0" TextColor="255,255,255,255" Title="Mask trigger when no beam" UID="a9ce40cc-8338-4285-960d-3b5500a07448" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="0">
+          <RangeProperty Type="Element">
+            <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/ExpertSetting#beamModeMaskEna" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+              <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="beamModeMaskEna" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="ExpertSetting" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+            </DataSubscriptionInfo>
+          </RangeProperty>
+        </Configuration>
+        <Properties>
+          <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQHT.B1/ExpertSetting#beamModeMaskEna" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+            <PROPERTY_VALUE DEVICE_NAME="LHC.BQHT.B1" FIELD_NAME="beamModeMaskEna" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="ExpertSetting" SELECTOR="NULL" VALUE_TYPE="BOOLEAN"/>
+          </DataSubscriptionInfo>
+        </Properties>
+      </Monitor>
+    </Container>
+  </Element>
+</MonitorPanel>

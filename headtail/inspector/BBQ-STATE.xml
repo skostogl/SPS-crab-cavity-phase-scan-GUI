@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MonitorPanel AskForWritingConfirmation="false" BlinkingInterval="1600" Class="cern.ade.inspector.gui.panel.MonitorPanel" GridSize="10" SimulateWriting="false" Size="427,825" SnapToGrid="true" Title="BBQ Acq. State" WritingEnabled="true">
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,260" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQ.ONDEMAND.B1/Setting#acqState" Type="MultiStateButton" UID="97c80c65-1f01-4032-a031-eb22acbdb8bc" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="42"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.ONDEMAND.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.ONDEMAND.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.ONDEMAND.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.ONDEMAND.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.ONDEMAND.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.ONDEMAND.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,410" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQ.GATED_OD.B2/Setting#acqState" Type="MultiStateButton" UID="51ae2a00-6be8-467b-8664-df7bb87a0966" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="41"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.GATED_OD.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.GATED_OD.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.GATED_OD.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.GATED_OD.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.GATED_OD.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.GATED_OD.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,630" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="77,23" SizeRatio="0.0" Text="Schottky B2" TextColor="255,255,255,255" UID="8cbafec0-4b19-4245-ace3-fb496651b03f" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="40"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,580" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="77,23" SizeRatio="0.0" Text="Schottky B1" TextColor="255,255,255,255" UID="fcb7cb45-a363-425b-ad88-4ac1885033b5" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="39"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,260" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="211,27" SizeRatio="0.0" Text="LHC.BQ.ONDEMAND.B1" TextColor="255,255,255,255" UID="873a4516-3178-47a2-bda8-12928394e113" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="38"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,510" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="163,27" SizeRatio="0.0" Text="HC.BQBBQ.SX4.B2" TextColor="255,255,255,255" UID="950ef61f-f81e-44d9-a52b-627561d6c4c0" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="37"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,660" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="148,27" SizeRatio="0.0" Text="LHC.BQ.TEST.B1" TextColor="255,255,255,255" UID="391f5763-0035-4801-9a24-77d9659b59e5" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="36"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,460" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="164,27" SizeRatio="0.0" Text="HC.BQBBQ.SX4.B1" TextColor="255,255,255,255" UID="1445d74e-6c02-44b0-9da2-ec57239f10e2" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="35"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,130" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="191,23" SizeRatio="0.0" Text="Continuous High-Sensitivity B2" TextColor="255,255,255,255" UID="4d621e6a-7f46-4cdb-a166-34ecad5e9ac4" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="34"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,230" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="132,21" SizeRatio="0.0" Text="Continuous Gated B2" TextColor="255,255,255,255" UID="d4f7ba3a-e8e5-48ea-a133-cdbd191062ab" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="33"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,530" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="103,23" SizeRatio="0.0" Text="Development B2" TextColor="255,255,255,255" UID="d0f66a1e-8b5e-4064-82d4-bce812894f65" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="32"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,430" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="137,21" SizeRatio="0.0" Text="On-Demand Gated B2" TextColor="255,255,255,255" UID="53c9b8ab-042f-4265-b235-3fa2c4bd9953" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="31"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,480" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="103,23" SizeRatio="0.0" Text="Development B1" TextColor="255,255,255,255" UID="a0b1eee4-1ff5-41c7-a3ca-e34bf7b78387" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="30"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,380" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="138,21" SizeRatio="0.0" Text="On-Demand Gated B1" TextColor="255,255,255,255" UID="d32d03ed-81a3-4511-aa5d-fd39e07ec835" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="29"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,330" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="196,23" SizeRatio="0.0" Text="On-Demand High-Sensitivity B2" TextColor="255,255,255,255" UID="dd46deeb-afdd-4c94-a103-7eebe9b060f2" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="28"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,60" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="157,27" SizeRatio="0.0" Text="LHC.BQ.CONT.B1" TextColor="255,255,255,255" UID="b9b0350a-515f-4b9a-b2eb-35edea306dba" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="27"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,110" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="157,27" SizeRatio="0.0" Text="LHC.BQ.CONT.B2" TextColor="255,255,255,255" UID="99ab642c-afe7-47ec-9666-442f1c3de6f7" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="26"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,160" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="166,27" SizeRatio="0.0" Text="LHC.BQ.GATED.B1" TextColor="255,255,255,255" UID="2bd6c06f-32ab-458d-9c8d-2162328b7b19" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="25"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,310" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="211,27" SizeRatio="0.0" Text="LHC.BQ.ONDEMAND.B2" TextColor="255,255,255,255" UID="5eeaaa09-582b-4e60-85d1-cb6d6914cfad" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="24"/>
+  </Element>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,110" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQ.CONT.B2/Setting#acqState" Type="MultiStateButton" UID="a8cd383e-57a7-43e3-ab11-539eb5b7ff40" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="23"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.CONT.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.CONT.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.CONT.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.CONT.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.CONT.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.CONT.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,460" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="HC.BQBBQ.SX4.B1/Setting#acqState" Type="MultiStateButton" UID="d63e67fd-ac37-4fc5-961a-ecaaf380dbda" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="22"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HC.BQBBQ.SX4.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HC.BQBBQ.SX4.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HC.BQBBQ.SX4.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HC.BQBBQ.SX4.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HC.BQBBQ.SX4.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HC.BQBBQ.SX4.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,60" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQ.CONT.B1/Setting#acqState" Type="MultiStateButton" UID="b41cf877-5f30-42d7-bb06-646c464516b1" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="21"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.CONT.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.CONT.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.CONT.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.CONT.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.CONT.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.CONT.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,660" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQ.TEST.B1/Setting#acqState" Type="MultiStateButton" UID="fca86219-88ad-4256-84fc-55218b60c7bd" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="20"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.TEST.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.TEST.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.TEST.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.TEST.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.TEST.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.TEST.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,510" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="HC.BQBBQ.SX4.B2/Setting#acqState" Type="MultiStateButton" UID="0a183039-8ac3-4c5a-bb05-49099edfe1aa" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="19"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HC.BQBBQ.SX4.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HC.BQBBQ.SX4.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HC.BQBBQ.SX4.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="HC.BQBBQ.SX4.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="HC.BQBBQ.SX4.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="HC.BQBBQ.SX4.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,610" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQBBQ.UA47.BQS_B2/Setting#acqState" Type="MultiStateButton" UID="5d993b0f-8175-4cb0-8ecd-8d605760a727" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="18"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQBBQ.UA47.BQS_B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQBBQ.UA47.BQS_B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQBBQ.UA47.BQS_B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQBBQ.UA47.BQS_B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQBBQ.UA47.BQS_B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQBBQ.UA47.BQS_B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,710" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQ.TEST.B2/Setting#acqState" Type="MultiStateButton" UID="f16f9f86-f838-4c9d-849c-9d195b19c140" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="17"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.TEST.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.TEST.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.TEST.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.TEST.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.TEST.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.TEST.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,210" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQ.GATED.B2/Setting#acqState" Type="MultiStateButton" UID="1a53dab1-82b2-4988-8fb0-d159e6ddf57c" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="16"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.GATED.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.GATED.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.GATED.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.GATED.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.GATED.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.GATED.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,360" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQ.GATED_OD.B1/Setting#acqState" Type="MultiStateButton" UID="39181287-1753-4bdd-85e3-f2438ccf729f" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="15"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.GATED_OD.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.GATED_OD.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.GATED_OD.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.GATED_OD.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.GATED_OD.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.GATED_OD.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,80" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="191,23" SizeRatio="0.0" Text="Continuous High-Sensitivity B1" TextColor="255,255,255,255" UID="2033be0d-9f09-40b8-94cf-a140c8a7d13e" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="14"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,210" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="166,27" SizeRatio="0.0" Text="LHC.BQ.GATED.B2" TextColor="255,255,255,255" UID="9a2f69c6-5321-479e-aa62-55e5f21d8452" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="13"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,610" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="231,27" SizeRatio="0.0" Text="LHC.BQBBQ.UA47.BQS_B2" TextColor="255,255,255,255" UID="168506c3-25e2-4f1a-9b0b-192dbe2cb364" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="12"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,280" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="196,23" SizeRatio="0.0" Text="On-Demand High-Sensitivity B1" TextColor="255,255,255,255" UID="aad03c99-8da3-439a-84df-9a795a12a220" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="11"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,560" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="232,27" SizeRatio="0.0" Text="LHC.BQBBQ.UA47.BQS_B1" TextColor="255,255,255,255" UID="c66d5477-5c97-4b42-8f2e-d57879d157d9" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="10"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,180" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="132,21" SizeRatio="0.0" Text="Continuous Gated B1" TextColor="255,255,255,255" UID="6b36cd4b-7e6c-4dcd-903e-38a3a80a4155" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="9"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,410" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="202,27" SizeRatio="0.0" Text="LHC.BQ.GATED_OD.B2" TextColor="255,255,255,255" UID="fd2c6c10-e6e1-4097-bae3-04c2bcc6bebf" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="8"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,710" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="148,27" SizeRatio="0.0" Text="LHC.BQ.TEST.B2" TextColor="255,255,255,255" UID="6ea6ddd6-2ea8-495b-99aa-98bb6583dd94" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="7"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,680" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="76,21" SizeRatio="0.0" Text="Lab Test B1" TextColor="255,255,255,255" UID="2c3f22dc-ed76-4f4d-9825-b1591682ea76" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="6"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#12" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,730" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="76,21" SizeRatio="0.0" Text="Lab Test B2" TextColor="255,255,255,255" UID="e3493219-234f-43f2-b023-78a7123ae02c" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="5"/>
+  </Element>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#0#18" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="180,360" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="203,27" SizeRatio="0.0" Text="LHC.BQ.GATED_OD.B1" TextColor="255,255,255,255" UID="41b8093a-353f-4d4c-8e8c-abe762f5adc8" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="4"/>
+  </Element>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,310" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQ.ONDEMAND.B2/Setting#acqState" Type="MultiStateButton" UID="e64f0e44-aee2-4367-a368-0503e15b5c0d" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="3"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.ONDEMAND.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.ONDEMAND.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.ONDEMAND.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.ONDEMAND.B2/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.ONDEMAND.B2/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.ONDEMAND.B2" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,560" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQBBQ.UA47.BQS_B1/Setting#acqState" Type="MultiStateButton" UID="91ca77d8-31c8-4ce4-9958-750a3985221e" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="2"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQBBQ.UA47.BQS_B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQBBQ.UA47.BQS_B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQBBQ.UA47.BQS_B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQBBQ.UA47.BQS_B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQBBQ.UA47.BQS_B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQBBQ.UA47.BQS_B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Monitor Class="cern.ade.inspector.gui.panel.monitors.components.stateButton.MultiStateButton">
+    <Configuration AlertColor="255,100,100,255" BackgroundColor="255,255,255,0" BlinkerType="Disabled" Font="Dialog#0#14" MaxSize="1600,1200" MinSize="50,30" NormalColor="100,255,100,255" OffColor="100,100,100,255" Position="20,160" RangeType="Disabled" ReferenceValue="NaN" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="150,45" SizeRatio="0.0" TextColor="255,255,255,255" Title="LHC.BQ.GATED.B1/Setting#acqState" Type="MultiStateButton" UID="5dc9602a-3ee4-4fa6-a919-1c6d2ef55cc4" VisibleInViewMode="true" WarningColor="225,225,60,255" XmlVersion="2" ZOrder="1"/>
+    <State IsFallbackState="false" Name="ON" OffColor="160,160,160,255" OnColor="84,161,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.GATED.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="ON">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.GATED.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.GATED.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+    <State IsFallbackState="false" Name="OFF" OffColor="160,160,160,255" OnColor="161,84,84,255" StateValue="">
+      <StatePropertyValue DataEditType="String" IsDelay="false" Name="LHC.BQ.GATED.B1/Setting#acqState" PossibleValues="ON&#10;OFF&#10;" Selector="" Value="OFF">
+        <DataSubscriptionInfo ConvertToBitArray="false" DisplayName="LHC.BQ.GATED.B1/Setting#acqState" Index="-1" Information="" PrimaryDefaultType="NONE" SecondaryDefaultType="NONE" Type="ProxySubscriptionInfo">
+          <PROPERTY_VALUE DEVICE_NAME="LHC.BQ.GATED.B1" FIELD_NAME="acqState" FLAVOR="PROPERTY_VALUE" PROPERTY_NAME="Setting" SELECTOR="NULL" VALUE_TYPE="ENUM"/>
+        </DataSubscriptionInfo>
+      </StatePropertyValue>
+    </State>
+  </Monitor>
+  <Element Class="cern.ade.inspector.gui.panel.elements.label.Label">
+    <Configuration Font="Dialog#1#24" HorizontalAlignment="false" MaxSize="1600,1200" MinSize="40,40" Position="20,20" ResizedByUser="false" Rotation="0.0" ScaleX="1.0" ScaleY="1.0" Size="332,33" SizeRatio="0.0" Text="LHC BBQ Acquisition State" TextColor="255,255,255,255" UID="a23f1f9a-4306-470e-bd44-95f34c1e79ec" VerticalAlignment="false" VisibleInViewMode="true" XmlVersion="2" ZOrder="0"/>
+  </Element>
+</MonitorPanel>

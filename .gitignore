@@ -1,0 +1,10 @@
+__pycache__
+copied_data_HT
+*results*
+*.png
+*.DS_Store
+*.ipynb_checkpoints
+*swp
+*str
+sps
+*.parquet
